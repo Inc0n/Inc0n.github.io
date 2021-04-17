@@ -1,0 +1,4 @@
+#+TITLE: Notes
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+- [[file:~/sources/git/Inc0ns1st3nt.github.io/computer-engineering/sitemap.html][Computer Engineering]]
