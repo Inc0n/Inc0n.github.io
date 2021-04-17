@@ -1,0 +1,2487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-04-17 Sat 18:35 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computer Engineering Notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="D.H. D.H." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Computer Engineering Notes
+<br />
+<span class="subtitle">Alex's part</span>
+</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd74c1e1">1. assembly</a>
+<ul>
+<li><a href="#org58f402b">1.1. MIPS</a></li>
+<li><a href="#orgfa3be3b">1.2. memory</a></li>
+<li><a href="#orgb29cab2">1.3. MIPS Arithmetic operations (r-format)</a>
+<ul>
+<li><a href="#orgaf4a837">1.3.1. Design principle: simplicity favours regularity</a></li>
+</ul>
+</li>
+<li><a href="#org9bbf6d8">1.4. MIPS immediate (i-typed) instructions</a>
+<ul>
+<li><a href="#org177caef">1.4.1. design principle: Good design demands good compromises</a></li>
+</ul>
+</li>
+<li><a href="#orge9cf37f">1.5. MIPS j-type instructions</a></li>
+<li><a href="#orgb5ce58e">1.6. operations</a>
+<ul>
+<li><a href="#orgc69ebd9">1.6.1. logical</a></li>
+<li><a href="#org93ba756">1.6.2. shift</a></li>
+</ul>
+</li>
+<li><a href="#org622fb88">1.7. branch instructions</a>
+<ul>
+<li><a href="#org9c1186c">1.7.1. branch if equal - beq rs, rt, L1</a></li>
+<li><a href="#orge68b108">1.7.2. branch if not equal - bne rs, rt, L1</a></li>
+<li><a href="#orga9525c6">1.7.3. unconditional jump - j L1</a></li>
+<li><a href="#orgf4c346a">1.7.4. design</a></li>
+</ul>
+</li>
+<li><a href="#orgec11d92">1.8. signed vs. unsigned comparison</a></li>
+<li><a href="#org69900d2">1.9. 32 bit constants</a></li>
+<li><a href="#org36833a3">1.10. pseudo-instructions (assembler instruction)</a></li>
+<li><a href="#orgcc97e05">1.11. memory layout</a></li>
+<li><a href="#org69a14b6">1.12. procedure calling</a>
+<ul>
+<li><a href="#org12450ec">1.12.1. instructions</a></li>
+<li><a href="#orgcc09051">1.12.2. leaf and non leaf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org569ccfa">2. Data-path</a>
+<ul>
+<li><a href="#org03fa019">2.1. r-format instruction</a></li>
+<li><a href="#org7dbaa08">2.2. load/store instructions</a></li>
+<li><a href="#org8af1c64">2.3. branch instructions</a></li>
+<li><a href="#org4ba6fe7">2.4. each data-path element can only do one function at a time</a></li>
+<li><a href="#org949ae4a">2.5. implement jumps</a></li>
+<li><a href="#org893e59f">2.6. data-path operation</a></li>
+<li><a href="#org07cc711">2.7. performance of single-cycle processor</a>
+<ul>
+<li><a href="#org9b690ce">2.7.1. variable frequency clock</a></li>
+<li><a href="#org44091b5">2.7.2. performance issues</a></li>
+<li><a href="#orgffcfd4a">2.7.3. improve performance</a></li>
+</ul>
+</li>
+<li><a href="#org8666b8b">2.8. units used</a></li>
+<li><a href="#org256f540">2.9. multi-cycle data-path</a>
+<ul>
+<li><a href="#orga0f01f3">2.9.1. different clock cycles</a></li>
+<li><a href="#org951effe">2.9.2. unified memory</a></li>
+<li><a href="#org367bd5a">2.9.3. intermediate registers</a></li>
+<li><a href="#org7017ec2">2.9.4. Register write control signals</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org23db99b">3. Pipe-lining</a>
+<ul>
+<li><a href="#org625edc8">3.1. pipe-line stages</a></li>
+<li><a href="#orge4cabf4">3.2. data-path</a></li>
+<li><a href="#org774e96f">3.3. speedup</a></li>
+<li><a href="#orgb19d7ff">3.4. limitations</a></li>
+<li><a href="#orgd0a40ca">3.5. pipeline control</a></li>
+<li><a href="#org9d16b79">3.6. hazard</a></li>
+<li><a href="#org6146c97">3.7. stalling pipeline</a></li>
+<li><a href="#org54a87bd">3.8. forward</a>
+<ul>
+<li><a href="#org13409f3">3.8.1. detecting the need to forward</a></li>
+<li><a href="#org00e0566">3.8.2. double data hazard</a></li>
+<li><a href="#org9663108">3.8.3. Load-use hazard detection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org475211c">4. performance</a>
+<ul>
+<li><a href="#orga21d34c">4.1. Amdahl's law</a></li>
+<li><a href="#org54ef39a">4.2. profiling</a></li>
+<li><a href="#orgd1be38d">4.3. benchmark</a>
+<ul>
+<li><a href="#orgbe61e03">4.3.1. standards</a></li>
+</ul>
+</li>
+<li><a href="#org0ed588b">4.4. power</a>
+<ul>
+<li><a href="#org2ab36b7">4.4.1. power benchmark</a></li>
+<li><a href="#org7ea0449">4.4.2. power wall</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org85692f5">5. Toolchain</a>
+<ul>
+<li><a href="#org1206bad">5.1. meaning of toolchain</a></li>
+<li><a href="#orgd9b83f2">5.2. avr toolchain</a></li>
+<li><a href="#org745bf5b">5.3. role of each part of chain</a>
+<ul>
+<li><a href="#org52c7e44">5.3.1. assembler</a></li>
+<li><a href="#org1e56d2d">5.3.2. Object copy</a></li>
+<li><a href="#org5356118">5.3.3. compiler</a></li>
+</ul>
+</li>
+<li><a href="#org7576f1d">5.4. parsing - lexical analysis, syntactic analysis</a>
+<ul>
+<li><a href="#org788c3ed">5.4.1. preprocessing</a></li>
+<li><a href="#org46c9f26">5.4.2. lexical analysis</a></li>
+<li><a href="#org920e14d">5.4.3. syntactic analysis</a></li>
+<li><a href="#org1b253b1">5.4.4. sematic parsing</a></li>
+</ul>
+</li>
+<li><a href="#orgc8bf851">5.5. semantic analysis</a>
+<ul>
+<li><a href="#org46bc5bf">5.5.1. scope</a></li>
+</ul>
+</li>
+<li><a href="#org7ce68d9">5.6. optimisationn</a></li>
+</ul>
+</li>
+<li><a href="#org7e9268d">6. operating system</a>
+<ul>
+<li><a href="#org479042a">6.1. system hierarchy</a></li>
+<li><a href="#org44f1643">6.2. Operating system</a>
+<ul>
+<li><a href="#orgeb3cb6c">6.2.1. types of operating system</a></li>
+<li><a href="#orgda7465a">6.2.2. operating system shell</a></li>
+<li><a href="#orgfb4db6d">6.2.3. Modern desktop Operating Systems</a></li>
+</ul>
+</li>
+<li><a href="#orgfcc94e6">6.3. The kernel</a>
+<ul>
+<li><a href="#org38bb90c">6.3.1. drivers</a></li>
+</ul>
+</li>
+<li><a href="#orgfbbc599">6.4. virtual memory</a>
+<ul>
+<li><a href="#org4c554c4">6.4.1. page fault</a></li>
+</ul>
+</li>
+<li><a href="#orgd6305d1">6.5. super loop</a></li>
+<li><a href="#org99b5644">6.6. method</a></li>
+<li><a href="#org358a141">6.7. saving power by sleeping</a></li>
+<li><a href="#org25897e0">6.8. Task states</a></li>
+<li><a href="#org89ccef5">6.9. Multi Tasking</a>
+<ul>
+<li><a href="#org1274518">6.9.1. context switching</a></li>
+<li><a href="#orgdb15183">6.9.2. scheduler</a></li>
+<li><a href="#org6c4f110">6.9.3. benefits of an Real time operating system (RTOS)</a></li>
+<li><a href="#org30078b9">6.9.4. Real time OS time categories</a></li>
+<li><a href="#org5fd361b">6.9.5. Real time applications</a></li>
+<li><a href="#org87b7079">6.9.6. Real time OS</a></li>
+<li><a href="#org1845e4f">6.9.7. RTOS 'Tick'</a></li>
+<li><a href="#org483a855">6.9.8. RTOS Context switch</a></li>
+</ul>
+</li>
+<li><a href="#org0092daa">6.10. real time linux</a></li>
+</ul>
+</li>
+<li><a href="#orgb5651df">7. Interface</a>
+<ul>
+<li><a href="#org4427624">7.1. buses</a>
+<ul>
+<li><a href="#org1d9175b">7.1.1. synchronous vs asynchronous</a></li>
+<li><a href="#org8a5750c">7.1.2. Synchronous bus</a></li>
+<li><a href="#org64f5861">7.1.3. Asynchronous bus</a></li>
+<li><a href="#org204e2ed">7.1.4. I<sup>2</sup>C Bus</a></li>
+</ul>
+</li>
+<li><a href="#org6bca12c">7.2. I/O Mapping</a>
+<ul>
+<li><a href="#org18c68b6">7.2.1. I/O Mapping</a></li>
+<li><a href="#orgc33b42c">7.2.2. interfacing</a></li>
+<li><a href="#orgb931ebc">7.2.3. I/O command</a></li>
+<li><a href="#org332d35b">7.2.4. I/O Interface type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6e1b9c3">8. Parallelism</a>
+<ul>
+<li><a href="#org26b4f87">8.1. Multi-core system</a>
+<ul>
+<li><a href="#org0c3b6ab">8.1.1. Clock speed</a></li>
+<li><a href="#org43e925a">8.1.2. Multi-core</a></li>
+</ul>
+</li>
+<li><a href="#orgd9ff97b">8.2. Parrallel processing performance</a>
+<ul>
+<li><a href="#org6b17fd8">8.2.1. Amdahl's Law</a></li>
+<li><a href="#org351991f">8.2.2. Scheduling</a></li>
+<li><a href="#org3c4ccdc">8.2.3. Work paritioning</a></li>
+<li><a href="#org57ac716">8.2.4. Synchronisation</a></li>
+<li><a href="#orga1e29cc">8.2.5. Communication overhead</a></li>
+</ul>
+</li>
+<li><a href="#org246fce8">8.3. Scaling</a>
+<ul>
+<li><a href="#orgcf3a590">8.3.1. example 1</a></li>
+<li><a href="#orgf29a104">8.3.2. example 2</a></li>
+<li><a href="#org70bd288">8.3.3. type of scaling</a></li>
+</ul>
+</li>
+<li><a href="#org813bd6f">8.4. Threads</a>
+<ul>
+<li><a href="#org8b67175">8.4.1. Scheduling Thread Execution</a></li>
+</ul>
+</li>
+<li><a href="#org506b500">8.5. Graphics Processing Units (GPUs)</a>
+<ul>
+<li><a href="#org8f88dbf">8.5.1. CPU task Parallelism</a></li>
+<li><a href="#org60c7295">8.5.2. GPU data parallelism</a></li>
+<li><a href="#org21d7e60">8.5.3. History</a></li>
+<li><a href="#org5c16a08">8.5.4. GPU Architectures</a></li>
+<li><a href="#orgcfebf1b">8.5.5. Stream Processing</a></li>
+<li><a href="#org4fd3869">8.5.6. GPU computation</a></li>
+</ul>
+</li>
+<li><a href="#org7e27a6a">8.6. Digital Signal Processers (DSPs)</a>
+<ul>
+<li><a href="#orgfe448f8">8.6.1. Application</a></li>
+<li><a href="#orgc041461">8.6.2. Example</a></li>
+<li><a href="#org34b092d">8.6.3. Fixed-point arithmetic</a></li>
+<li><a href="#org34958e6">8.6.4. Linear Vs. Circular Buffers</a></li>
+<li><a href="#org5836aa9">8.6.5. Software development</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd74c1e1" class="outline-2">
+<h2 id="orgd74c1e1"><span class="section-number-2">1</span> assembly</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org58f402b" class="outline-3">
+<h3 id="org58f402b"><span class="section-number-3">1.1</span> MIPS</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+MIPS register 0 ($zero) is constant 0
+this can be useful to make design more compact 
+add $t2, $s1, $zero # copy from $s1 to $t2, eliminate the copy command
+</p>
+</div>
+</div>
+<div id="outline-container-orgfa3be3b" class="outline-3">
+<h3 id="orgfa3be3b"><span class="section-number-3">1.2</span> memory</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+byte addressed, aligned by words (4bytes or 32bits usually).
+this architecture require operator
+</p>
+<ul class="org-ul">
+<li><b>Load</b> values from memory into registers</li>
+<li><b>Store</b> result from register to memory</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb29cab2" class="outline-3">
+<h3 id="orgb29cab2"><span class="section-number-3">1.3</span> MIPS Arithmetic operations (r-format)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+operator operand1, operand2, operand3 # a = b + c
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">op</td>
+<td class="org-left">rs</td>
+<td class="org-left">rt</td>
+<td class="org-left">rd</td>
+<td class="org-left">shamt</td>
+<td class="org-left">funct</td>
+</tr>
+
+<tr>
+<td class="org-left">6bits</td>
+<td class="org-left">5bits</td>
+<td class="org-left">5bits</td>
+<td class="org-left">5bits</td>
+<td class="org-left">5bits</td>
+<td class="org-left">6bits</td>
+</tr>
+</tbody>
+</table>
+<p>
+rs: a source register
+rt: a source register
+rd: a destination register
+shamt: shift amount (only used in shift operations)
+funct: function code (extends opcode) defined what operation should be run
+more information can be found about MIPS as an example
+</p>
+</div>
+<div id="outline-container-orgaf4a837" class="outline-4">
+<h4 id="orgaf4a837"><span class="section-number-4">1.3.1</span> Design principle: simplicity favours regularity</h4>
+</div>
+</div>
+<div id="outline-container-org9bbf6d8" class="outline-3">
+<h3 id="org9bbf6d8"><span class="section-number-3">1.4</span> MIPS immediate (i-typed) instructions</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+addi $s3, $s3, 4
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">op</td>
+<td class="org-left">rs</td>
+<td class="org-left">rt</td>
+<td class="org-left">constant or address</td>
+</tr>
+
+<tr>
+<td class="org-left">6bits</td>
+<td class="org-left">5bits</td>
+<td class="org-left">5bits</td>
+<td class="org-left">16bits</td>
+</tr>
+</tbody>
+</table>
+<p>
+op: operator
+rt: destination or source register number 
+constant: -2^15 to +2^15-1
+</p>
+</div>
+<div id="outline-container-org177caef" class="outline-4">
+<h4 id="org177caef"><span class="section-number-4">1.4.1</span> design principle: Good design demands good compromises</h4>
+</div>
+</div>
+<div id="outline-container-orge9cf37f" class="outline-3">
+<h3 id="orge9cf37f"><span class="section-number-3">1.5</span> MIPS j-type instructions</h3>
+<div class="outline-text-3" id="text-1-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">op</td>
+<td class="org-left">address</td>
+</tr>
+
+<tr>
+<td class="org-left">6bits</td>
+<td class="org-left">26bits</td>
+</tr>
+</tbody>
+</table>
+<p>
+j for jump
+</p>
+</div>
+</div>
+<div id="outline-container-orgb5ce58e" class="outline-3">
+<h3 id="orgb5ce58e"><span class="section-number-3">1.6</span> operations</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-orgc69ebd9" class="outline-4">
+<h4 id="orgc69ebd9"><span class="section-number-4">1.6.1</span> logical</h4>
+</div>
+<div id="outline-container-org93ba756" class="outline-4">
+<h4 id="org93ba756"><span class="section-number-4">1.6.2</span> shift</h4>
+</div>
+</div>
+<div id="outline-container-org622fb88" class="outline-3">
+<h3 id="org622fb88"><span class="section-number-3">1.7</span> branch instructions</h3>
+<div class="outline-text-3" id="text-1-7">
+</div>
+<div id="outline-container-org9c1186c" class="outline-4">
+<h4 id="org9c1186c"><span class="section-number-4">1.7.1</span> branch if equal - beq rs, rt, L1</h4>
+</div>
+<div id="outline-container-orge68b108" class="outline-4">
+<h4 id="orge68b108"><span class="section-number-4">1.7.2</span> branch if not equal - bne rs, rt, L1</h4>
+</div>
+<div id="outline-container-orga9525c6" class="outline-4">
+<h4 id="orga9525c6"><span class="section-number-4">1.7.3</span> unconditional jump - j L1</h4>
+</div>
+<div id="outline-container-orgf4c346a" class="outline-4">
+<h4 id="orgf4c346a"><span class="section-number-4">1.7.4</span> design</h4>
+<div class="outline-text-4" id="text-1-7-4">
+<p>
+why not blt bge
+hardware slower for &ge;, &gt; slower than =, &ne;
+</p>
+<ul class="org-ul">
+<li>this mean more work require per instruction, require a slower clock</li>
+<li>all instruction penalised</li>
+</ul>
+<p>
+beq and bne are the common case 
+good design compromise
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgec11d92" class="outline-3">
+<h3 id="orgec11d92"><span class="section-number-3">1.8</span> signed vs. unsigned comparison</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+signed comparison slt, slti
+unsigned comparison sltu, sltui
+</p>
+</div>
+</div>
+<div id="outline-container-org69900d2" class="outline-3">
+<h3 id="org69900d2"><span class="section-number-3">1.9</span> 32 bit constants</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+lui rt, constant 
+copies 16 bit constant to the left 16 bits of rt
+</p>
+</div>
+</div>
+<div id="outline-container-org36833a3" class="outline-3">
+<h3 id="org36833a3"><span class="section-number-3">1.10</span> pseudo-instructions (assembler instruction)</h3>
+</div>
+<div id="outline-container-orgcc97e05" class="outline-3">
+<h3 id="orgcc97e05"><span class="section-number-3">1.11</span> memory layout</h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li>stack and dynamic data 
+<ul class="org-ul">
+<li>stack 
+procedure (call) frame: saved register, saved argument, local argument
+local arguments</li>
+<li>dynamic data, heap
+malloc</li>
+</ul></li>
+<li>static data</li>
+<li>text</li>
+<li>reserved</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org69a14b6" class="outline-3">
+<h3 id="org69a14b6"><span class="section-number-3">1.12</span> procedure calling</h3>
+<div class="outline-text-3" id="text-1-12">
+</div>
+<div id="outline-container-org12450ec" class="outline-4">
+<h4 id="org12450ec"><span class="section-number-4">1.12.1</span> instructions</h4>
+<div class="outline-text-4" id="text-1-12-1">
+<ul class="org-ul">
+<li>call: jal ProcedureeLabel 
+<ul class="org-ul">
+<li>address of following instruction put in $ra</li>
+<li>jumps to target address</li>
+</ul></li>
+<li>return: jr $ra
+<ul class="org-ul">
+<li>copy $ra to the program counter</li>
+<li>can also be used for computed jumps</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcc09051" class="outline-4">
+<h4 id="orgcc09051"><span class="section-number-4">1.12.2</span> leaf and non leaf</h4>
+<div class="outline-text-4" id="text-1-12-2">
+<p>
+leaf is non-recursive
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org569ccfa" class="outline-2">
+<h2 id="org569ccfa"><span class="section-number-2">2</span> Data-path</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+PC -&gt; instruction memory, fetch instruction 
+register numbers -&gt; register file, read registers 
+ALU calculate 
+</p>
+<ul class="org-ul">
+<li>arithmetic computation</li>
+<li>memory address for load/store</li>
+<li>branch target address</li>
+</ul>
+<p>
+elements that 
+</p>
+</div>
+<div id="outline-container-org03fa019" class="outline-3">
+<h3 id="org03fa019"><span class="section-number-3">2.1</span> r-format instruction</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+read two register operands 
+perform arithmetic/logical operation 
+write result back to register
+</p>
+</div>
+</div>
+<div id="outline-container-org7dbaa08" class="outline-3">
+<h3 id="org7dbaa08"><span class="section-number-3">2.2</span> load/store instructions</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+read register operands
+calculate address using 16-bit offset, which is signed extended to 32-bits to align with the addresses that are 32 bits 
+load: read memory and update register
+store: write register value to memory
+</p>
+</div>
+</div>
+<div id="outline-container-org8af1c64" class="outline-3">
+<h3 id="org8af1c64"><span class="section-number-3">2.3</span> branch instructions</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+read register operands 
+compare operands 
+</p>
+<ul class="org-ul">
+<li>use ALU, subtract and check zero output</li>
+</ul>
+<p>
+calculate target address 
+</p>
+<ul class="org-ul">
+<li>sign extend displacement</li>
+<li>shift left 2 places</li>
+<li>add to pc + 4 
+<ul class="org-ul">
+<li>already calculated by instruction fetch</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4ba6fe7" class="outline-3">
+<h3 id="org4ba6fe7"><span class="section-number-3">2.4</span> each data-path element can only do one function at a time</h3>
+</div>
+<div id="outline-container-org949ae4a" class="outline-3">
+<h3 id="org949ae4a"><span class="section-number-3">2.5</span> implement jumps</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+jump use word address 
+update pc with concatenation of 
+</p>
+<ul class="org-ul">
+<li>top 4 bits of old pc</li>
+<li>26 bit jump address</li>
+<li>00, zeros padding in the end</li>
+</ul>
+<p>
+extra control signal to indicate this is a jump signal
+</p>
+</div>
+</div>
+<div id="outline-container-org893e59f" class="outline-3">
+<h3 id="org893e59f"><span class="section-number-3">2.6</span> data-path operation</h3>
+<div class="outline-text-3" id="text-2-6">
+<ol class="org-ol">
+<li>inst. fetch (IF)
+read next instruction from memory (pointed by PC), store in instruction register (IR)</li>
+<li>inst. decode (ID)
+setup control signal inc, register addresses, ALU function</li>
+<li>Execute (EX) 
+Use ALU to compute result or address</li>
+<li>Memory (MEM) 
+access memory (read or write), if applicable</li>
+<li>Write back (WB)
+write result of function back to register, if applicable</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org07cc711" class="outline-3">
+<h3 id="org07cc711"><span class="section-number-3">2.7</span> performance of single-cycle processor</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+performance of single-cycle processor constrained by slowest instruction 
+</p>
+</div>
+<div id="outline-container-org9b690ce" class="outline-4">
+<h4 id="org9b690ce"><span class="section-number-4">2.7.1</span> variable frequency clock</h4>
+<div class="outline-text-4" id="text-2-7-1">
+<p>
+give each instruction an optimum time 
+</p>
+</div>
+</div>
+<div id="outline-container-org44091b5" class="outline-4">
+<h4 id="org44091b5"><span class="section-number-4">2.7.2</span> performance issues</h4>
+<div class="outline-text-4" id="text-2-7-2">
+<p>
+longest delay determine clock period 
+</p>
+<ul class="org-ul">
+<li>critical path: load instruction</li>
+<li>instruction memory -&gt; register file -&gt; ALU -&gt; Data memory -&gt; register file</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgffcfd4a" class="outline-4">
+<h4 id="orgffcfd4a"><span class="section-number-4">2.7.3</span> improve performance</h4>
+<div class="outline-text-4" id="text-2-7-3">
+<p>
+multi-cycle
+pipelining
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8666b8b" class="outline-3">
+<h3 id="org8666b8b"><span class="section-number-3">2.8</span> units used</h3>
+<div class="outline-text-3" id="text-2-8">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">inst.</td>
+<td class="org-left">instruction fetch</td>
+<td class="org-left">register access</td>
+<td class="org-left">alu</td>
+<td class="org-left">reg/mem access</td>
+</tr>
+
+<tr>
+<td class="org-left">r-type</td>
+<td class="org-left">x</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">load</td>
+<td class="org-left">x</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">store</td>
+<td class="org-left">x</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">load</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">load</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org256f540" class="outline-3">
+<h3 id="org256f540"><span class="section-number-3">2.9</span> multi-cycle data-path</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+can skip phases (since some instruction doesn't require mem write for example)
+</p>
+</div>
+<div id="outline-container-orga0f01f3" class="outline-4">
+<h4 id="orga0f01f3"><span class="section-number-4">2.9.1</span> different clock cycles</h4>
+<div class="outline-text-4" id="text-2-9-1">
+<p>
+by separating data-path operation into different clock cycles, incrementing the pc and arithmetic operations can use the same ALU, thus eliminating extra hardware(ALU)
+</p>
+</div>
+</div>
+<div id="outline-container-org951effe" class="outline-4">
+<h4 id="org951effe"><span class="section-number-4">2.9.2</span> unified memory</h4>
+<div class="outline-text-4" id="text-2-9-2">
+<p>
+one unified memory for program instruction and data via a 2-to-1 mux for accessing instructions or data.
+</p>
+</div>
+</div>
+<div id="outline-container-org367bd5a" class="outline-4">
+<h4 id="org367bd5a"><span class="section-number-4">2.9.3</span> intermediate registers</h4>
+<div class="outline-text-4" id="text-2-9-3">
+<p>
+intermediate registers to store the results of functional unit for a later clock cycle, otherwise results maybe over-writen in the next clock cycle
+</p>
+</div>
+</div>
+<div id="outline-container-org7017ec2" class="outline-4">
+<h4 id="org7017ec2"><span class="section-number-4">2.9.4</span> Register write control signals</h4>
+<div class="outline-text-4" id="text-2-9-4">
+<p>
+PC cannot be updated after each cycle
+introduce PCWrite to control the loading of the PC
+introduce IRWrite, write signal for writing to the register
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org23db99b" class="outline-2">
+<h2 id="org23db99b"><span class="section-number-2">3</span> Pipe-lining</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+bringing parallelism into program execution
+</p>
+</div>
+<div id="outline-container-org625edc8" class="outline-3">
+<h3 id="org625edc8"><span class="section-number-3">3.1</span> pipe-line stages</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>inst. fetch (IF)
+read next instruction from memory (pointed by PC)</li>
+<li>inst. decode (ID)
+setup control signal inc, register addresses, ALU function</li>
+<li>Execute (EX) 
+Use ALU to compute result or address</li>
+<li>Memory (MEM) 
+access memory (read or write), if applicable</li>
+<li>Write back (WB)
+write result of function back to register, if applicable</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orge4cabf4" class="outline-3">
+<h3 id="orge4cabf4"><span class="section-number-3">3.2</span> data-path</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+cannot be implemented on top of multi-cycle data-path, since there have shared resources. Therefore use single-cycle data-path.
+With registers separating the data-path into various stages
+</p>
+</div>
+</div>
+
+<div id="outline-container-org774e96f" class="outline-3">
+<h3 id="org774e96f"><span class="section-number-3">3.3</span> speedup</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+if all stages are balanced
+time between instructions_pipelined = Time between instructions_pipelined / Number of stages
+</p>
+</div>
+</div>
+<div id="outline-container-orgb19d7ff" class="outline-3">
+<h3 id="orgb19d7ff"><span class="section-number-3">3.4</span> limitations</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+not all instructions require all pipeline stages
+overheads of filling / empty pipelines 
+dependencies between instructions
+have to set clock for slowest stage in pipeline
+</p>
+</div>
+</div>
+<div id="outline-container-orgd0a40ca" class="outline-3">
+<h3 id="orgd0a40ca"><span class="section-number-3">3.5</span> pipeline control</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+decode instructions into control signal via the control block
+</p>
+<ul class="org-ul">
+<li>write back</li>
+<li>memory access</li>
+<li>execute</li>
+</ul>
+<p>
+some signals are passed down until reaching the stages where the signals are required
+</p>
+</div>
+</div>
+<div id="outline-container-org9d16b79" class="outline-3">
+<h3 id="org9d16b79"><span class="section-number-3">3.6</span> hazard</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+3 type of hazard, where situations that prevent starting the next instructions in the next cycle
+</p>
+<ul class="org-ul">
+<li>Structure hazard, relatively rare
+<ul class="org-ul">
+<li>Conflict for use of a resource
+a required resource is busy, e.g. memory is shared between two instructions</li>
+<li>in a constrained MIPS pipeline with a single memory for both data/instructions:
+<ul class="org-ul">
+<li>load/store requires data access</li>
+<li>instruction fetch would have to stall for that cycle
+<ul class="org-ul">
+<li>would cause a pipeline "bubble"</li>
+</ul></li>
+</ul></li>
+<li>Hence, pipelined data-paths require separate instruction/data memories
+<ul class="org-ul">
+<li>or, at least, separate instruction/data caches</li>
+</ul></li>
+</ul></li>
+<li><p>
+Data hazard, 
+An instruction depends on complete of data access by previous instruction
+</p>
+<div class="org-src-container">
+<pre class="src src-asm">  <span style="color: #81A1C1;">add</span> $s0, $t0, $t1
+  <span style="color: #81A1C1;">sub</span> $t2, $s0, $t3
+</pre>
+</div>
+<p>
+where $s0 is a dependency between the two instruction
+</p></li>
+<li>Control hazard,
+control action depends on previous instruction</li>
+</ul>
+<p>
+hazards will <b>stall</b> the pipeline, effectively wasting a cycle. Known as a "bubble"
+</p>
+</div>
+</div>
+<div id="outline-container-org6146c97" class="outline-3">
+<h3 id="org6146c97"><span class="section-number-3">3.7</span> stalling pipeline</h3>
+<div class="outline-text-3" id="text-3-7">
+<ul class="org-ul">
+<li>force control values in ID/EX register to 0:
+causes subsequent stages, EX, MEM and WB do nop</li>
+<li><p>
+prevent update of PC and IF/ID register 
+</p>
+<ul class="org-ul">
+<li>current instruction is decoded again</li>
+<li>following instructions is fetched again</li>
+<li>1-cycle stall allows MEM to read data for 1w&#x2026;</li>
+</ul>
+<p>
+can subsequently forward to EX stage
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org54a87bd" class="outline-3">
+<h3 id="org54a87bd"><span class="section-number-3">3.8</span> forward</h3>
+<div class="outline-text-3" id="text-3-8">
+<ul class="org-ul">
+<li><p>
+Use result when it is computed
+</p>
+<ul class="org-ul">
+<li>don't wait for it to be stored in a register</li>
+<li>requires extra connections in the data-path</li>
+</ul>
+<p>
+forward the previous computation to the next instruction stage where it would requires it
+</p></li>
+<li><p>
+Load-use data hazard
+Can't avoid stalls by forwarding 
+</p>
+<div class="org-src-container">
+<pre class="src src-asm">  <span style="color: #81A1C1;">lw</span> $s0, 20($1)
+  <span style="color: #81A1C1;">sub</span> $t2, $s0, $t3
+</pre>
+</div></li>
+<li>Data forward
+<ul class="org-ul">
+<li>result available at the end of EX phase (in pipeline register)
+<ul class="org-ul">
+<li>no need to wait untiul WB phase</li>
+<li>add extra logic to feed this result back to ALU inputs</li>
+<li>if hazard detected, logic selects forwarded ALU inputs, discarding erroneous register value</li>
+</ul></li>
+<li>can also forward result from MEM stages 
+<ul class="org-ul">
+<li>either value fetched from memory, or</li>
+<li>ALU result passed on from previous clock cycle</li>
+</ul></li>
+</ul></li>
+<li><p>
+Data Hazards in ALU instructions
+ALU instructions, for example
+</p>
+<div class="org-src-container">
+<pre class="src src-asm">  <span style="color: #81A1C1;">sub</span> $2, $1, $3
+  <span style="color: #81A1C1;">and</span> $12, $2, $5
+  <span style="color: #81A1C1;">or</span>  $13, $6, $2
+  <span style="color: #81A1C1;">add</span> $14, $2, $2
+  <span style="color: #81A1C1;">sw</span>  $15, 100($2)
+</pre>
+</div>
+<p>
+this hazard can be resolved with following
+</p>
+<ul class="org-ul">
+<li>how do we detect hazards with forwarding?</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org13409f3" class="outline-4">
+<h4 id="org13409f3"><span class="section-number-4">3.8.1</span> detecting the need to forward</h4>
+<div class="outline-text-4" id="text-3-8-1">
+<ul class="org-ul">
+<li>pass register numbers lalong pipeline 
+<ul class="org-ul">
+<li>e.g, ID/EX, register Rs = register number for Rs sitting in ID/EX pipeline register</li>
+</ul></li>
+<li>ALU operand register numbers in EX stage are given by 
+<ul class="org-ul">
+<li>ID/EX, register Rs, ID/EX. RegisterRt</li>
+</ul></li>
+<li><p>
+Data hazards when 
+Forward from EX/MEM pipeline reg
+</p>
+<ul class="org-ul">
+<li>EX/MEM RegisterRd = ID/EX.RegisterRs</li>
+<li>EX/MEM RegisterRd = ID/EX.RegisterRt</li>
+</ul>
+<p>
+Forward from MEM/WB pipeline reg
+</p>
+<ul class="org-ul">
+<li>MEM/WB RegisterRd = ID/EX.RegisterRs</li>
+<li>MEM/WB RegisterRd = ID/EX.RegisterRt</li>
+</ul></li>
+<li>Detect the need to forward
+<ul class="org-ul">
+<li>But only if forwarding instruction will write to a register 
+<ul class="org-ul">
+<li>EX/MEM.RegWrite, MEM/WB.RegWrite</li>
+</ul></li>
+</ul></li>
+<li>And only if Rd for that instruction is not $zero
+<ul class="org-ul">
+<li>EX/MEM.RegisterRd &ne; 0,</li>
+<li>MEM/WB.RegisterRd &ne; 0</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org00e0566" class="outline-4">
+<h4 id="org00e0566"><span class="section-number-4">3.8.2</span> double data hazard</h4>
+<div class="outline-text-4" id="text-3-8-2">
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #88C0D0;">add</span> <span style="color: #81A1C1;">$1</span>,$1,$2
+<span style="color: #88C0D0;">add</span> <span style="color: #81A1C1;">$1</span>,$1,$3
+<span style="color: #88C0D0;">add</span> <span style="color: #81A1C1;">$1</span>,$1,$4
+</pre>
+</div>
+<p>
+both hazard occur, want to use the most recent 
+revise MEM hazard condition, only forward if EX hazard condition isn't true
+</p>
+<ul class="org-ul">
+<li>revised forwarding condition 
+MEM hazard 
+<ul class="org-ul">
+<li>if (MEM/WB.RegWrite and (MEM/WB.RegisterRd &ne; 0)
+ and not (EX/MEM.RegWrite and (EX/MEM.RegisterRd &ne; 0)
+ and (EX/MEM.RegisterRd = ID/EX.RegisterRs))
+and (MEM/WB.RegisterRd = ID/EX.RegisterRs))
+ForwardA = 01</li>
+<li>if (MEM/WB.RegWrite and (MEM/WB.RegisterRd &ne; 0)
+ and not (EX/MEM.RegWrite and (EX/MEM.RegisterRd &ne; 0)
+ and (EX/MEM.RegisterRd = ID/EX.RegisterRt))
+and (MEM/WB.RegisterRd = ID/EX.RegisterRt))
+ForwardB = 01</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9663108" class="outline-4">
+<h4 id="org9663108"><span class="section-number-4">3.8.3</span> Load-use hazard detection</h4>
+<div class="outline-text-4" id="text-3-8-3">
+<p>
+check when using instruction is decoded in ID stage
+</p>
+<ul class="org-ul">
+<li>ALU operands register numbers in ID stage are given by 
+<ul class="org-ul">
+<li>IF/ID.RegisterRs, IF/ID.RegisterRt</li>
+</ul></li>
+<li>Load-use hazard when 
+<ul class="org-ul">
+<li>ID/EX.MemRead and 
+((ID/EX.RegisterRt = IF/ID.RegisterRs) or 
+ (ID/EX.registerRt = IF/ID.RegisterRt))</li>
+</ul></li>
+<li>if detected, stall and insert bubble</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org475211c" class="outline-2">
+<h2 id="org475211c"><span class="section-number-2">4</span> performance</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orga21d34c" class="outline-3">
+<h3 id="orga21d34c"><span class="section-number-3">4.1</span> Amdahl's law</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+the law of diminishing return
+T_improved =  T_unafected + T_affected / (improvement factor)
+</p>
+</div>
+</div>
+<div id="outline-container-org54ef39a" class="outline-3">
+<h3 id="org54ef39a"><span class="section-number-3">4.2</span> profiling</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+gprof to profile program performance
+-pg option compiles instrumented code
+</p>
+</div>
+</div>
+<div id="outline-container-orgd1be38d" class="outline-3">
+<h3 id="orgd1be38d"><span class="section-number-3">4.3</span> benchmark</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+performance comparison between programs
+cheating! SAMSUNG case study
+</p>
+</div>
+<div id="outline-container-orgbe61e03" class="outline-4">
+<h4 id="orgbe61e03"><span class="section-number-4">4.3.1</span> standards</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+SPEC CPU benchmark
+using geometric mean 
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0ed588b" class="outline-3">
+<h3 id="org0ed588b"><span class="section-number-3">4.4</span> power</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+power = capacitive load * voltage^2 * frequency
+</p>
+</div>
+<div id="outline-container-org2ab36b7" class="outline-4">
+<h4 id="org2ab36b7"><span class="section-number-4">4.4.1</span> power benchmark</h4>
+</div>
+<div id="outline-container-org7ea0449" class="outline-4">
+<h4 id="org7ea0449"><span class="section-number-4">4.4.2</span> power wall</h4>
+<div class="outline-text-4" id="text-4-4-2">
+<p>
+voltage can't be reduced further
+capacitive laod is difficult to reduce
+NexT improvement with parrelleism
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org85692f5" class="outline-2">
+<h2 id="org85692f5"><span class="section-number-2">5</span> Toolchain</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org1206bad" class="outline-3">
+<h3 id="org1206bad"><span class="section-number-3">5.1</span> meaning of toolchain</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Toolchain- a set of sotware development tools that are linked together.
+transforming source code into executables
+</p>
+</div>
+</div>
+<div id="outline-container-orgd9b83f2" class="outline-3">
+<h3 id="orgd9b83f2"><span class="section-number-3">5.2</span> avr toolchain</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+.c <b>compiler</b> .s
+.s <b>assembler</b> .o
+.o Libraries <b>linker</b> .elf
+</p>
+</div>
+</div>
+<div id="outline-container-org745bf5b" class="outline-3">
+<h3 id="org745bf5b"><span class="section-number-3">5.3</span> role of each part of chain</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+<div id="outline-container-org52c7e44" class="outline-4">
+<h4 id="org52c7e44"><span class="section-number-4">5.3.1</span> assembler</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+assembly .s file into object files (machine code)
+</p>
+</div>
+</div>
+<div id="outline-container-org1e56d2d" class="outline-4">
+<h4 id="org1e56d2d"><span class="section-number-4">5.3.2</span> Object copy</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<p>
+.o to .elf file
+elf": exectuable and linking format
+</p>
+</div>
+</div>
+<div id="outline-container-org5356118" class="outline-4">
+<h4 id="org5356118"><span class="section-number-4">5.3.3</span> compiler</h4>
+<div class="outline-text-4" id="text-5-3-3">
+<p>
+cross compiler, compiling for another operating system
+preprocessing, lexical analysis, parsing
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7576f1d" class="outline-3">
+<h3 id="org7576f1d"><span class="section-number-3">5.4</span> parsing - lexical analysis, syntactic analysis</h3>
+<div class="outline-text-3" id="text-5-4">
+</div>
+<div id="outline-container-org788c3ed" class="outline-4">
+<h4 id="org788c3ed"><span class="section-number-4">5.4.1</span> preprocessing</h4>
+<div class="outline-text-4" id="text-5-4-1">
+<p>
+macro substitution
+such as conditional processing
+</p>
+</div>
+</div>
+<div id="outline-container-org46c9f26" class="outline-4">
+<h4 id="org46c9f26"><span class="section-number-4">5.4.2</span> lexical analysis</h4>
+<div class="outline-text-4" id="text-5-4-2">
+<p>
+string to tokens
+</p>
+</div>
+</div>
+<div id="outline-container-org920e14d" class="outline-4">
+<h4 id="org920e14d"><span class="section-number-4">5.4.3</span> syntactic analysis</h4>
+<div class="outline-text-4" id="text-5-4-3">
+<p>
+checking syntax are correct;
+decision tree checking with state table for validity checking
+</p>
+</div>
+</div>
+<div id="outline-container-org1b253b1" class="outline-4">
+<h4 id="org1b253b1"><span class="section-number-4">5.4.4</span> sematic parsing</h4>
+<div class="outline-text-4" id="text-5-4-4">
+<p>
+type check
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc8bf851" class="outline-3">
+<h3 id="orgc8bf851"><span class="section-number-3">5.5</span> semantic analysis</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+context analysis
+</p>
+</div>
+<div id="outline-container-org46bc5bf" class="outline-4">
+<h4 id="org46bc5bf"><span class="section-number-4">5.5.1</span> scope</h4>
+<div class="outline-text-4" id="text-5-5-1">
+<p>
+binding environment
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7ce68d9" class="outline-3">
+<h3 id="org7ce68d9"><span class="section-number-3">5.6</span> optimisationn</h3>
+<div class="outline-text-3" id="text-5-6">
+<ul class="org-ul">
+<li>aspects
+execution time
+program size
+power consumed</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e9268d" class="outline-2">
+<h2 id="org7e9268d"><span class="section-number-2">6</span> operating system</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org479042a" class="outline-3">
+<h3 id="org479042a"><span class="section-number-3">6.1</span> system hierarchy</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>user</li>
+<li>application</li>
+<li>operating system</li>
+<li>hardware</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org44f1643" class="outline-3">
+<h3 id="org44f1643"><span class="section-number-3">6.2</span> Operating system</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+software that manage the computer hardware resources
+</p>
+</div>
+<div id="outline-container-orgeb3cb6c" class="outline-4">
+<h4 id="orgeb3cb6c"><span class="section-number-4">6.2.1</span> types of operating system</h4>
+<div class="outline-text-4" id="text-6-2-1">
+<ul class="org-ul">
+<li>multi-user
+multiple users can use the opreating system
+time sharing systems/servers</li>
+<li>multi-tasking
+more than one program can run at the same time 
+pre-emptive/co-operative multi-tasking 
+slotted behavior</li>
+<li>distributed
+Manage a group of computers to appear as one
+spread distributed computation across multiple machines</li>
+<li>templated
+single virtual machine as a guest of an operatin system
+use in virtualisation/cloud computing</li>
+<li>embedded
+use on embedded computer system
+operate with very limited resources</li>
+<li>real-time
+specialised scheduling algorithms
+deterministic behaviour
+quick, predictable respone to events</li>
+<li>single tasking
+only a single program at a time</li>
+<li>co-operative multitasking (16-bit windows)
+each process gives time to other processes
+if one application doesn't return to OS, complete system can hang</li>
+<li>pre-emptive multitasking (32-bit+ windows)
+os slices CPU time and allocates to programs</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgda7465a" class="outline-4">
+<h4 id="orgda7465a"><span class="section-number-4">6.2.2</span> operating system shell</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<p>
+User interace for operating system (often graphical)
+A task in itself
+interfaces with kernel
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb4db6d" class="outline-4">
+<h4 id="orgfb4db6d"><span class="section-number-4">6.2.3</span> Modern desktop Operating Systems</h4>
+<div class="outline-text-4" id="text-6-2-3">
+<ul class="org-ul">
+<li>More reliable
+unreliable interfaces run in user mode
+pre-emptive multitasking</li>
+<li>rare failures
+hardware failure
+cpu stuck in device driver
+fatal exception in device derive/kernel</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfcc94e6" class="outline-3">
+<h3 id="orgfcc94e6"><span class="section-number-3">6.3</span> The kernel</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+lowest level of the operating system
+Manages I/O requests from software
+translates them into data processing instructions for the CPU/other components
+makes programming easier: acts as a "hardware abstraction layer" meaning programs do not need to be adapted for different hardware
+</p>
+
+<p>
+kernel mode: full access
+user mode: restricted access
+</p>
+</div>
+
+<div id="outline-container-org38bb90c" class="outline-4">
+<h4 id="org38bb90c"><span class="section-number-4">6.3.1</span> drivers</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<p>
+kernel mode: no protection can overwrite resources used by other program
+most drivers run in kernel mode but some can run in user mode, allow immediate restart of driver
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfbbc599" class="outline-3">
+<h3 id="orgfbbc599"><span class="section-number-3">6.4</span> virtual memory</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+on disk memory, mostly for compensating for shortage of physical memory by temporarily transferring pages of data from RAM to disk
+To be accessed by virtual addresses
+</p>
+<ul class="org-ul">
+<li>translated into a physical address
+can be sued to access main memory
+allow efficient sharing of memory between multiple program
+removes programming burdens of a small limited amount of memory</li>
+<li>A <b>page</b> is a contiguous block of virtual memory</li>
+</ul>
+</div>
+<div id="outline-container-org4c554c4" class="outline-4">
+<h4 id="org4c554c4"><span class="section-number-4">6.4.1</span> page fault</h4>
+<div class="outline-text-4" id="text-6-4-1">
+<ul class="org-ul">
+<li>When accessed <b>page</b> not present in main memory</li>
+<li>Must be retrieved from disk
+&gt;1000x slower than accessing main memory
+can serverly slow down program execution</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd6305d1" class="outline-3">
+<h3 id="orgd6305d1"><span class="section-number-3">6.5</span> super loop</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+alternative to an OS: super loop, minimum software environment
+For embedded programs
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #81A1C1;">while</span> (1) {
+<span style="color: #616e88;">// </span><span style="color: #616e88;">do something</span>
+<span style="color: #616e88;">// </span><span style="color: #616e88;">never return usually</span>
+}
+</pre>
+</div>
+<p>
+simple easy to build, debug, test maintain
+highly efficient minimal hardware resource requirement
+highly protable
+</p>
+
+<p>
+not flexible enough versatile
+operate at full power all the time, ?device never sleeps
+</p>
+</div>
+</div>
+
+<div id="outline-container-org99b5644" class="outline-3">
+<h3 id="org99b5644"><span class="section-number-3">6.6</span> method</h3>
+<div class="outline-text-3" id="text-6-6">
+<p>
+hardware timers(s) to generate interrupts
+ensure that timers count continuously
+this will generate 'ticks' at precise intervalsj
+task: a function executed on a periodic basis
+for the simpel operating system, this is implemented using functions called from the timer-driven ISR
+tick generation depends on crystal frequency and counter configuration
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org358a141" class="outline-3">
+<h3 id="org358a141"><span class="section-number-3">6.7</span> saving power by sleeping</h3>
+<div class="outline-text-3" id="text-6-7">
+<p>
+interrupt will wake processor at next timer overflow
+date for a texas instruments MSP430 processor
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Current Draw</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Active</td>
+<td class="org-left">1.6mA @ 16MHz</td>
+</tr>
+
+<tr>
+<td class="org-left">Standby</td>
+<td class="org-left">0.4&mu;A</td>
+</tr>
+
+<tr>
+<td class="org-left">Real time clock</td>
+<td class="org-left">0.25&mu;A</td>
+</tr>
+
+<tr>
+<td class="org-left">Shutdown</td>
+<td class="org-left">0.02&mu;A</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org25897e0" class="outline-3">
+<h3 id="org25897e0"><span class="section-number-3">6.8</span> Task states</h3>
+<div class="outline-text-3" id="text-6-8">
+<ul class="org-ul">
+<li>Running
+using the processor</li>
+<li>Ready
+able to run, but a higher/equal-priority task is running</li>
+<li>Blocked
+waiting for a time (timer task) or external event (pin change),</li>
+<li>Suspended
+not available for scheduling, not timeout-protected</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org89ccef5" class="outline-3">
+<h3 id="org89ccef5"><span class="section-number-3">6.9</span> Multi Tasking</h3>
+<div class="outline-text-3" id="text-6-9">
+<p>
+Tasks are switched between.
+Multitasking and inter-task communications features of the operating system allow the complex
+</p>
+</div>
+<div id="outline-container-org1274518" class="outline-4">
+<h4 id="org1274518"><span class="section-number-4">6.9.1</span> context switching</h4>
+<div class="outline-text-4" id="text-6-9-1">
+<p>
+saving the registers , before switching the context to a different task
+</p>
+</div>
+</div>
+<div id="outline-container-orgdb15183" class="outline-4">
+<h4 id="orgdb15183"><span class="section-number-4">6.9.2</span> scheduler</h4>
+<div class="outline-text-4" id="text-6-9-2">
+<p>
+decide which task should operate at a particular time
+</p>
+</div>
+</div>
+<div id="outline-container-org6c4f110" class="outline-4">
+<h4 id="org6c4f110"><span class="section-number-4">6.9.3</span> benefits of an Real time operating system (RTOS)</h4>
+<div class="outline-text-4" id="text-6-9-3">
+<p>
+Task scheduling: tasks are called when needed ensuring better program flow and event response.
+Multitasking: task scheduling gives the illusion of executing a number of tasks simultaneuously 
+Deterministic bahaviour
+</p>
+</div>
+</div>
+<div id="outline-container-org30078b9" class="outline-4">
+<h4 id="org30078b9"><span class="section-number-4">6.9.4</span> Real time OS time categories</h4>
+<div class="outline-text-4" id="text-6-9-4">
+<ul class="org-ul">
+<li>strict timing
+things must happen on a stict schdeule e.g. every 10ms</li>
+<li>flexible timing
+have a wide range of 'acceptable' reponse time</li>
+<li>Deadline only timing: only 'upper' limit is specified.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5fd361b" class="outline-4">
+<h4 id="org5fd361b"><span class="section-number-4">6.9.5</span> Real time applications</h4>
+</div>
+<div id="outline-container-org87b7079" class="outline-4">
+<h4 id="org87b7079"><span class="section-number-4">6.9.6</span> Real time OS</h4>
+<div class="outline-text-4" id="text-6-9-6">
+<p>
+Task with higher priority would execute first
+</p>
+</div>
+</div>
+<div id="outline-container-org1845e4f" class="outline-4">
+<h4 id="org1845e4f"><span class="section-number-4">6.9.7</span> RTOS 'Tick'</h4>
+<div class="outline-text-4" id="text-6-9-7">
+<p>
+When <b>sleeping</b>
+When **
+</p>
+</div>
+</div>
+<div id="outline-container-org483a855" class="outline-4">
+<h4 id="org483a855"><span class="section-number-4">6.9.8</span> RTOS Context switch</h4>
+<div class="outline-text-4" id="text-6-9-8">
+<p>
+save context by pushing them to task stack
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0092daa" class="outline-3">
+<h3 id="org0092daa"><span class="section-number-3">6.10</span> real time linux</h3>
+<div class="outline-text-3" id="text-6-10">
+<p>
+run whole linux os as fully pre-emptive process
+can use for real-time control
+capability of 
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgb5651df" class="outline-2">
+<h2 id="orgb5651df"><span class="section-number-2">7</span> Interface</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org4427624" class="outline-3">
+<h3 id="org4427624"><span class="section-number-3">7.1</span> buses</h3>
+<div class="outline-text-3" id="text-7-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">characteristic</td>
+<td class="org-left">parallel</td>
+<td class="org-left">serial</td>
+</tr>
+
+<tr>
+<td class="org-left">date rate</td>
+<td class="org-left">low</td>
+<td class="org-left">high</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org1d9175b" class="outline-4">
+<h4 id="org1d9175b"><span class="section-number-4">7.1.1</span> synchronous vs asynchronous</h4>
+<div class="outline-text-4" id="text-7-1-1">
+<ul class="org-ul">
+<li>synchronous
+include clokc in control lines, and fixed protocol relative to clock
+set up for slowest item on the bus
+SPI bus</li>
+<li>asynchronous
+handsasking protocol rather than a clock
+e.g. usb</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8a5750c" class="outline-4">
+<h4 id="org8a5750c"><span class="section-number-4">7.1.2</span> Synchronous bus</h4>
+<div class="outline-text-4" id="text-7-1-2">
+<p>
+fixed clock frequency, limited by clock frequency
+MREQ indicate memory being accesed
+RD asserted for reads, negated for writes
+</p>
+</div>
+</div>
+<div id="outline-container-org64f5861" class="outline-4">
+<h4 id="org64f5861"><span class="section-number-4">7.1.3</span> Asynchronous bus</h4>
+<div class="outline-text-4" id="text-7-1-3">
+<p>
+Master asserts MREQ, RD, then MSYN
+slave starts work
+when finisehd, asserts SSYN'
+Master reads data, negates, MREQ', RD'
+limited by the speed of memory operation
+</p>
+</div>
+</div>
+<div id="outline-container-org204e2ed" class="outline-4">
+<h4 id="org204e2ed"><span class="section-number-4">7.1.4</span> I<sup>2</sup>C Bus</h4>
+<div class="outline-text-4" id="text-7-1-4">
+<p>
+multi-drop bus protocol
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">8</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">8</td>
+<td class="org-right">1</td>
+<td class="org-right">8</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">S</td>
+<td class="org-right">Slave address</td>
+<td class="org-right">R/W</td>
+<td class="org-right">ACK</td>
+<td class="org-right">Data</td>
+<td class="org-right">ACK</td>
+<td class="org-right">Data</td>
+<td class="org-right">ACK</td>
+<td class="org-right">p</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org6bca12c" class="outline-3">
+<h3 id="org6bca12c"><span class="section-number-3">7.2</span> I/O Mapping</h3>
+<div class="outline-text-3" id="text-7-2">
+</div>
+<div id="outline-container-org18c68b6" class="outline-4">
+<h4 id="org18c68b6"><span class="section-number-4">7.2.1</span> I/O Mapping</h4>
+<div class="outline-text-4" id="text-7-2-1">
+<ul class="org-ul">
+<li>Memory mapped I/O
+Devices and memory share an address space
+operated the same way as memory
+AVR MIPS Arm</li>
+<li>dedicated I/O
+x86 in legacy mode, simple microcontroller
+separate address space</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc33b42c" class="outline-4">
+<h4 id="orgc33b42c"><span class="section-number-4">7.2.2</span> interfacing</h4>
+</div>
+<div id="outline-container-orgb931ebc" class="outline-4">
+<h4 id="orgb931ebc"><span class="section-number-4">7.2.3</span> I/O command</h4>
+<div class="outline-text-4" id="text-7-2-3">
+<ul class="org-ul">
+<li>cpu issues address
+identify hardware</li>
+<li>cpu issues command
+more</li>
+<li>read/write</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org332d35b" class="outline-4">
+<h4 id="org332d35b"><span class="section-number-4">7.2.4</span> I/O Interface type</h4>
+<div class="outline-text-4" id="text-7-2-4">
+<ul class="org-ul">
+<li>programmed (polling)
+Simplest form, continuously polling I/O system for change
+completely occupies the computer</li>
+<li>interrupt dirven
+more efficient, interrupt sequence of instruction via an external signal</li>
+<li>Direct Memory Access
+most efficient control of transfer is delegated to a DMA controller
+CPU not involved in transfer but cycles 'stolen'</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org7f998f9"></a>Programmed I/o<br />
+<div class="outline-text-5" id="text-7-2-4-1">
+<ul class="org-ul">
+<li>CPU has direct control over I/O
+sensing status
+read/write commands
+transferring data</li>
+<li>CPU requests I/O operation
+<ol class="org-ol">
+<li>I/O hardware</li>
+</ol></li>
+</ul>
+</div>
+</li>
+<li><a id="org45fcc0f"></a>Interrupt-driven I/O<br />
+<div class="outline-text-5" id="text-7-2-4-2">
+<ul class="org-ul">
+<li>Overcome CPU waiting</li>
+<li>no repated CPU checking of device (polling)</li>
+<li>interrupt vector
+<ul class="org-ul">
+<li>hardware poll
+interrupt acknowledge sent
+interrupting hardware places vector on bus
+cpu usese vector to identify handler rontine
+interruption jump table</li>
+</ul></li>
+<li>Multiple interrupts
+interrupting an interrupt
+depends on the system, priority implementation
+reentrant if can have multiple interrupts
+software enable interrupts again
+allows ISR to be interrupted</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org74b9e03"></a>Data transfer performance penaltied<br />
+<div class="outline-text-6" id="text-7-2-4-2-1">
+<p>
+overhead
+similar to subroutine, requires context switching
+</p>
+</div>
+</li>
+</ol>
+</li>
+<li><a id="orgc1586f5"></a>DMA<br />
+<div class="outline-text-5" id="text-7-2-4-3">
+<p>
+using peripherals
+peripherals use less current htan CPU
+delegating control allows CPU to shutdown
+intelligent peripherals are more capable: better opportunity for CPU shut down
+can be configured for repetitive data handling, increasing throughout 
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org927003f"></a>DMA transfer setup<br />
+<div class="outline-text-6" id="text-7-2-4-3-1">
+<ol class="org-ol">
+<li>processor sets up DMA
+supplies device ID, operation to perform, memory address of source/destination</li>
+<li>DMA starts operation on device
+Arbitrates for interconnect, when data available, it transfers it. DMA controller generates addresses</li>
+<li>Once DMA complete, interrupts processor
+processor can interrogate DMA device/memory</li>
+</ol>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org6e1b9c3" class="outline-2">
+<h2 id="org6e1b9c3"><span class="section-number-2">8</span> Parallelism</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org26b4f87" class="outline-3">
+<h3 id="org26b4f87"><span class="section-number-3">8.1</span> Multi-core system</h3>
+<div class="outline-text-3" id="text-8-1">
+</div>
+<div id="outline-container-org0c3b6ab" class="outline-4">
+<h4 id="org0c3b6ab"><span class="section-number-4">8.1.1</span> Clock speed</h4>
+<div class="outline-text-4" id="text-8-1-1">
+<p>
+Clock speed hasn't been improved reliable in recent years.
+Power dissipation.
+Development towards to multi-core machines 
+</p>
+</div>
+</div>
+<div id="outline-container-org43e925a" class="outline-4">
+<h4 id="org43e925a"><span class="section-number-4">8.1.2</span> Multi-core</h4>
+<div class="outline-text-4" id="text-8-1-2">
+<p>
+More than one processors. This differs from multi-processing, which multiple processes can run "simultaneously"
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd9ff97b" class="outline-3">
+<h3 id="orgd9ff97b"><span class="section-number-3">8.2</span> Parrallel processing performance</h3>
+<div class="outline-text-3" id="text-8-2">
+</div>
+<div id="outline-container-org6b17fd8" class="outline-4">
+<h4 id="org6b17fd8"><span class="section-number-4">8.2.1</span> Amdahl's Law</h4>
+<div class="outline-text-4" id="text-8-2-1">
+\begin{equation}
+  T_{\text{improved}} = \frac{T_{\text{affected}}}{\text{improvement factor}} + T_{\text{unaffected}}
+\end{equation}
+
+<p>
+Sequential code limits speed-up
+100 processors, find out the sequential ratio X of the code to obtain Y times speedup:
+</p>
+\begin{align*}
+  T_{\text{new}} &= T_{\text{parallelisable}} / 100 + T_{\text{sequential}} \\
+  \text{Speedup} &= \frac{1}{(1 - F_{\text{parallelisable}}) + F_{\text{parallelizable}/100}} = Y \\
+\end{align*}
+
+<p>
+Solve for \(F_{\text{parallelisable}}\), where \(X = 1 - F_{\text{parallelisable}}\)
+Therefore would need sequential part to be <code>(X/100)%</code> of original code
+</p>
+</div>
+</div>
+
+<div id="outline-container-org351991f" class="outline-4">
+<h4 id="org351991f"><span class="section-number-4">8.2.2</span> Scheduling</h4>
+<div class="outline-text-4" id="text-8-2-2">
+<p>
+Takes time to setup 
+</p>
+</div>
+</div>
+<div id="outline-container-org3c4ccdc" class="outline-4">
+<h4 id="org3c4ccdc"><span class="section-number-4">8.2.3</span> Work paritioning</h4>
+<div class="outline-text-4" id="text-8-2-3">
+<p>
+To maximize the efficiency, task would need to be broken down into equal-sized peices.
+</p>
+</div>
+</div>
+<div id="outline-container-org57ac716" class="outline-4">
+<h4 id="org57ac716"><span class="section-number-4">8.2.4</span> Synchronisation</h4>
+<div class="outline-text-4" id="text-8-2-4">
+<p>
+Dependency between sub-tasks
+Sequential code limits speed-up
+</p>
+</div>
+</div>
+<div id="outline-container-orga1e29cc" class="outline-4">
+<h4 id="orga1e29cc"><span class="section-number-4">8.2.5</span> Communication overhead</h4>
+<div class="outline-text-4" id="text-8-2-5">
+<p>
+Context switching overhead
+<b>Communication</b> between processors introduces overhead
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org246fce8" class="outline-3">
+<h3 id="org246fce8"><span class="section-number-3">8.3</span> Scaling</h3>
+<div class="outline-text-3" id="text-8-3">
+</div>
+<div id="outline-container-orgcf3a590" class="outline-4">
+<h4 id="orgcf3a590"><span class="section-number-4">8.3.1</span> example 1</h4>
+<div class="outline-text-4" id="text-8-3-1">
+<p>
+Wordload: sum of 10 scalars and 10&times;10 matrix sum 
+Assume load can be balanced across processors
+Total number of operations: \(10 + 10\times10 = 110\)
+( Speed up from 10 to 100 proecssors )
+</p>
+<ul class="org-ul">
+<li>single processor time:
+\(\text{Time} = (10 + 100) \times t_{\text{add}}\)</li>
+<li>10 processors 
+\(t = 10 \times t_{\text{add}} + 100/10 \times t_{\text{add}} = 20 \times t_{\text{add}\)}
+Speedup = 110/20 = 5.5 (55% of potential)</li>
+<li>100 processors 
+\(t = 10 \times t_{\text{add}} + 100/100 \times t_{\text{add}} = 11 \times t_{\text{add}}\)
+Speedup = 110/11 = 10 (10% of potential)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf29a104" class="outline-4">
+<h4 id="orgf29a104"><span class="section-number-4">8.3.2</span> example 2</h4>
+<div class="outline-text-4" id="text-8-3-2">
+<p>
+Wordload: sum of 10 scalars and 100&times;100 matrix sum 
+Assume load can be balanced across processors
+Total number of operations: \(10 + 100\times100 = 10010\)
+</p>
+<ul class="org-ul">
+<li>single processor time:
+\(\text{Time} = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}}\)</li>
+<li>10 processors 
+\(t = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}} = 1010 \times t_{\text{add}\)}
+Speedup = 10010/1010 = 9.9 (99% of potential)</li>
+<li>100 processors 
+\(t = 10 \times t_{\text{add}} + 10000/100 \times t_{\text{add}} = 110 \times t_{\text{add}}\)
+Speedup = 10010/110 = 91 (91&amp; of potential)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org70bd288" class="outline-4">
+<h4 id="org70bd288"><span class="section-number-4">8.3.3</span> type of scaling</h4>
+<div class="outline-text-4" id="text-8-3-3">
+<p>
+For size of problem: M is working set in main memory
+P is number of processors 
+</p>
+<ul class="org-ul">
+<li>Memory per processor for strong scaling = M/p</li>
+<li>Memory per processor for weak scaling = M</li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="org99c0ba4"></a>Strong scaling<br />
+<div class="outline-text-5" id="text-8-3-3-1">
+<p>
+Measure speed-up while keeping the problem size fixed
+</p>
+</div>
+</li>
+<li><a id="orgcc16a5b"></a>Weak scaling<br />
+<div class="outline-text-5" id="text-8-3-3-2">
+<p>
+problem size grows proportionally to increase in number of procesors
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org813bd6f" class="outline-3">
+<h3 id="org813bd6f"><span class="section-number-3">8.4</span> Threads</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+A thread is the samllest sequences of code that can be managed independently by the OS scheduler 
+A thread is part of a process 
+Proces is broken down into threads: easier to handle for parallel processing 
+Single processor: 
+</p>
+<ul class="org-ul">
+<li>Time-division multiplexing, uses context switching to swap between threads</li>
+<li>Gives illusion of multitasking</li>
+</ul>
+<p>
+Multi processes/multi-core 
+Can be truly concurrent, if there are enough cores 
+Each processor could execute a separate thread 
+</p>
+</div>
+<div id="outline-container-org8b67175" class="outline-4">
+<h4 id="org8b67175"><span class="section-number-4">8.4.1</span> Scheduling Thread Execution</h4>
+<div class="outline-text-4" id="text-8-4-1">
+</div>
+<ol class="org-ol">
+<li><a id="org2bd7b8c"></a>Coarse-grained multithreading: switch threads only on costly stalls (e.g. cache misses)<br />
+<div class="outline-text-5" id="text-8-4-1-1">
+<ul class="org-ul">
+<li>Relieves need to switch threas quickly</li>
+<li>However, limited ability to overcome throughput losses, especially from shorter stalls</li>
+</ul>
+<p>
+This is due to high pipeline start-up costs 
+When a stall is encountered, pipeline must be emptied/frozen: next instruction must fill pipeline before continuing.
+</p>
+</div>
+</li>
+<li><a id="org7011c02"></a>Fine-grained multithreading: switch threads on each instruction - interleaved execution of multiple threads<br />
+<div class="outline-text-5" id="text-8-4-1-2">
+<p>
+often round-robin, skips stalled threads 
+Processor can switch threads on each clock cycles
+advantage: hides delays causes by stalled, by executing other tasks 
+Disadvantage individual threads slowed down, as delayed by execution of other threads.
+</p>
+</div>
+</li>
+<li><a id="org91ef8f4"></a>Simultaneous multithreading (SMT): variations on hardware mutlithreading<br />
+<div class="outline-text-5" id="text-8-4-1-3">
+<p>
+Exploits instruction-level parallelism 
+Uses resources of multiple-issue, dynamically-scheduled pipeline processor 
+Always executes instructions from multiple threads; processor associates instructin slots and renamed registers with 'proper' threads.
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org506b500" class="outline-3">
+<h3 id="org506b500"><span class="section-number-3">8.5</span> Graphics Processing Units (GPUs)</h3>
+<div class="outline-text-3" id="text-8-5">
+</div>
+<div id="outline-container-org8f88dbf" class="outline-4">
+<h4 id="org8f88dbf"><span class="section-number-4">8.5.1</span> CPU task Parallelism</h4>
+<div class="outline-text-4" id="text-8-5-1">
+<ul class="org-ul">
+<li>Multiple tasks map to multiple threads</li>
+<li>Task runs different instructions</li>
+<li>10s of relatively heavy weight threads run on 10s of cores</li>
+<li>Each thread managed and scheduled explicitly</li>
+<li>Each thread has to be individually programmed.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org60c7295" class="outline-4">
+<h4 id="org60c7295"><span class="section-number-4">8.5.2</span> GPU data parallelism</h4>
+<div class="outline-text-4" id="text-8-5-2">
+<ul class="org-ul">
+<li>SIMD (single instruction multiple data Model</li>
+<li>Same instruction on different data</li>
+<li>10,000s of lightweight threads on 100s of cores</li>
+<li>Threads managed / scheduled by hardware</li>
+<li>Programming done for batches of threads (e.g. one pixel shader per group of pixels)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org21d7e60" class="outline-4">
+<h4 id="org21d7e60"><span class="section-number-4">8.5.3</span> History</h4>
+<div class="outline-text-4" id="text-8-5-3">
+<ul class="org-ul">
+<li>Early video cards 
+Frame buffer memory with address generation for video output</li>
+<li>3D graphic processing 
+Originally hihg end computer 
+Moore's Law &rarr; lower cost, higher density 
+3D graphics cards for PCs and game consoles</li>
+<li>Graphcis Processing Units 
+Processors oriented 3D gprahics tasks 
+Vertex/pixel processing, shading, texture mapping, rasterization</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5c16a08" class="outline-4">
+<h4 id="org5c16a08"><span class="section-number-4">8.5.4</span> GPU Architectures</h4>
+<div class="outline-text-4" id="text-8-5-4">
+<ul class="org-ul">
+<li>Processing is highly data-parallel 
+Use thread switching to hide memory latency 
+Less reliance on multi-level caches 
+Graphics memory is wide and high-bandwidth</li>
+<li>Trend toward general purpose GPUs
+Heterogeneous CPU/GPU system 
+CPU for sequential code, GPU for parallel code</li>
+<li>GPU-specific programming languages/APIs
+DirectX, OpenGL</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgcfebf1b" class="outline-4">
+<h4 id="orgcfebf1b"><span class="section-number-4">8.5.5</span> Stream Processing</h4>
+<div class="outline-text-4" id="text-8-5-5">
+<p>
+Given a (typically large) set of data: "stream"
+Run the same series of operations (e.g. "shader") on all of the data (SIMD)
+CPUs use various optimizations to improve throughout:
+</p>
+<ul class="org-ul">
+<li>on-chip memeory and local caches: reduces bandwidth to external memory</li>
+<li>Batch groups of threads to minimise incoherent memory access</li>
+<li>Eliminate unnecessary operations by exiting or killing threads (e.g. for pixels that won't be displayed)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4fd3869" class="outline-4">
+<h4 id="org4fd3869"><span class="section-number-4">8.5.6</span> GPU computation</h4>
+<div class="outline-text-4" id="text-8-5-6">
+<p>
+GPUs can be difficult to use with graphics API/language 
+Development of C-like language for CPU computation.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7e27a6a" class="outline-3">
+<h3 id="org7e27a6a"><span class="section-number-3">8.6</span> Digital Signal Processers (DSPs)</h3>
+<div class="outline-text-3" id="text-8-6">
+<p>
+DSPs are Microprocessors
+Throughput more important than accuracy 
+</p>
+<ul class="org-ul">
+<li>Generally Harvard architecture (separate pathways for program and data)</li>
+<li>Saturating arithmetic ('clamped' to min/max)</li>
+<li>pipelined CPU</li>
+</ul>
+<p>
+Extra/different instructions and hardware 
+</p>
+<ul class="org-ul">
+<li>multiply accumulate</li>
+<li>modulo-n arithmetic</li>
+<li>fixed point arithmetic</li>
+<li>Built-in lookup tables</li>
+<li>FFT (fast Fourier Transform) support</li>
+<li>Multiple memory access ( fetch two operands), store result</li>
+</ul>
+</div>
+<div id="outline-container-orgfe448f8" class="outline-4">
+<h4 id="orgfe448f8"><span class="section-number-4">8.6.1</span> Application</h4>
+<div class="outline-text-4" id="text-8-6-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgabb1be1"></a>Real-time applications<br />
+<div class="outline-text-5" id="text-8-6-1-1">
+<ul class="org-ul">
+<li>Calculation time must be predictable</li>
+<li>throwing.handling software is not an option!</li>
+<li>The result will be used whatever it is</li>
+</ul>
+</div>
+</li>
+<li><a id="org4e2a844"></a>Saturating arithmetic is usually fixed point or integer, but ca nbe floating point<br />
+<div class="outline-text-5" id="text-8-6-1-2">
+<ul class="org-ul">
+<li>Whatever, it prepresents a closed group 
+<ul class="org-ul">
+<li>Underflow -&gt; 0 (if unsigned)</li>
+<li>Overflow -&gt; whatever the largest legal representation is</li>
+</ul></li>
+<li>No concept of NaN (not a number)</li>
+</ul>
+</div>
+</li>
+<li><a id="orgd381d75"></a>usually all rounding modes (to force wide accumulators into narrower words) are supported<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgc041461" class="outline-4">
+<h4 id="orgc041461"><span class="section-number-4">8.6.2</span> Example</h4>
+<div class="outline-text-4" id="text-8-6-2">
+<p>
+Multiply accumulate and increment 
+consider \(y(n) = \sum_{k=0}^{37}b(k)x(n-k)\)
+</p>
+<div class="org-src-container">
+<pre class="src src-fundamental">t0=0
+k=0 
+t1=b[k]
+t2=n-k
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org34b092d" class="outline-4">
+<h4 id="org34b092d"><span class="section-number-4">8.6.3</span> Fixed-point arithmetic</h4>
+<div class="outline-text-4" id="text-8-6-3">
+<p>
+Taking samples from the real world.
+Inputs are frequently from an ADC 
+fixed width, fixed dynamic range
+Fixed point arithmetic 
+Integer with an implied decimal point 
+Floating point not needed 
+underflow -&gt; saturating arithmetic
+if higher precision is needed, double the word length
+</p>
+</div>
+</div>
+<div id="outline-container-org34958e6" class="outline-4">
+<h4 id="org34958e6"><span class="section-number-4">8.6.4</span> Linear Vs. Circular Buffers</h4>
+<div class="outline-text-4" id="text-8-6-4">
+<p>
+Linear buffer requires manual data movement, circular buffer moves pointer through data 
+Hardware support for circular buffer pointers, and sometimes linear buffers in on-chip memory 
+</p>
+</div>
+</div>
+<div id="outline-container-org5836aa9" class="outline-4">
+<h4 id="org5836aa9"><span class="section-number-4">8.6.5</span> Software development</h4>
+<div class="outline-text-4" id="text-8-6-5">
+<p>
+DSPs are microcontrollers designed with an emphasis on speed rather than accuracy/complexity 
+e.g. exploit fixed-point arithmetic 
+So, fast computation e.g. hardware support for more complex operations mulktiple instructions can be rolled up into one 
+Also hardware suppport for manipulating pointers e.g. for circular buffers 
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: D.H. D.H.</p>
+<p class="date">Created: 2021-04-17 Sat 18:35</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

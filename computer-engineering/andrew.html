@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-04-17 Sat 18:35 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computer Engineering Notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="D.H. D.H." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Computer Engineering Notes
+<br />
+<span class="subtitle">Andrew's part</span>
+</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgc48dd37">1. Physical considerations</a>
+<ul>
+<li><a href="#org29725ba">1.1. Intro</a></li>
+<li><a href="#orgf877502">1.2. Extra considerations</a></li>
+<li><a href="#org64f0716">1.3. Clock skew</a>
+<ul>
+<li><a href="#org1b23fe0">1.3.1. How/why does this happen?</a></li>
+<li><a href="#org7f05afc">1.3.2. a</a></li>
+</ul>
+</li>
+<li><a href="#org14e3e4d">1.4. Ground bounce</a></li>
+<li><a href="#orgf4462b7">1.5. Power considerations</a></li>
+<li><a href="#org274e653">1.6. Power signatures</a>
+<ul>
+<li><a href="#org881db63">1.6.1. Commentary</a></li>
+</ul>
+</li>
+<li><a href="#org403b06f">1.7. Transmission line effects</a></li>
+<li><a href="#orgdd9237b">1.8. Background reading:</a></li>
+</ul>
+</li>
+<li><a href="#org8009deb">2. Micro-programming</a>
+<ul>
+<li><a href="#org9cfdebc">2.1. History</a></li>
+<li><a href="#org5aaf6bb">2.2. Firmware interpretation</a></li>
+<li><a href="#org89fa7a9">2.3. Cheap end of the spectrum</a></li>
+<li><a href="#org9c5eb5f">2.4. Expensive end of the spectrum</a></li>
+<li><a href="#orgd767e6e">2.5. Emulation</a></li>
+<li><a href="#orgbb1c410">2.6. Alternatively</a>
+<ul>
+<li><a href="#orgd98908a">2.6.1. Microengine</a></li>
+<li><a href="#org0ea9930">2.6.2. Microcoded Instructions</a></li>
+<li><a href="#orgf9163ee">2.6.3. Background reading:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc48dd37" class="outline-2">
+<h2 id="orgc48dd37"><span class="section-number-2">1</span> Physical considerations</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org29725ba" class="outline-3">
+<h3 id="org29725ba"><span class="section-number-3">1.1</span> Intro</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+In  this  section,  we  discuss  how  the  physical behaviour  of  wires  and  components  can  affect  the  functionality of physical systems. In almost all degree courses - and this is no exception - electronics is conveniently split, fairly early on, into digital (discrete) systems and analogue (continuous) systems. Whilst this is a very powerful  abstraction, it is very dangerous to lose sight of the fact that it is just that - an abstraction. When discussing digital systems, we talk glibly about '0's and '1's, and then - when they aren't enough - about 'X's and 'Z's and 'C's and a host of other metavalues, but it's easy to lose sight of the fact that there is no such thing as a physical representation (in terms of voltage or current) of any of these things. It's nothing more than a convenient  way  with which  we  can  reason  about  thebehaviour   of  a  system  without  bothering  about  inconvenient  things   like   Kirchhoff's  laws and conservation of anything.
+</p>
+
+<p>
+Because most system design has got so complex that EDA tools are a necessity, not a luxury, a lot of these effects can be "left to the software" to sort out, it is important to at least have a feel for the sort of  things  that  can  affect  the  behaviour  of  a  "digital"  system.  If  you  actually  probe  a  real,  operating  digital  system  with  a  high-quality  analogue  oscilloscope,  you  will  see  that  the  idea  of  discrete  states  and  voltages  flipping  between  them  is  simply  ridiculous.  There  is  no  such  thing  as  a  digital  system  going faster than a few MHz. Rise- and fall- times droop; edges ring; physically adjacent interconnect communicates via near-field induction (and far-field if you are trying to go really fast). All these things conspire  to  make  0  and  1  a  rather  pointless  abstraction  unless  you  have  a  firm  grip  on  when  an  abstraction may be used and when it cannot.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf877502" class="outline-3">
+<h3 id="orgf877502"><span class="section-number-3">1.2</span> Extra considerations</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+that are optional, but makes the machine run faster.
+</p>
+<ul class="org-ul">
+<li>Pipeline</li>
+<li>Cache</li>
+<li>Virtual memory</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org64f0716" class="outline-3">
+<h3 id="org64f0716"><span class="section-number-3">1.3</span> Clock skew</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Signals take time to propagate down wires. They reflect and attenuate, and - from the perspective of the system designer - it is almost impossible to predict these effects in detail, which means that practical design considerations must be pessimistic, which means that other people will build faster and smaller widgets, which means that you go out of business.Synchronous design requires - by its very name - that all the temporal components - registers - are synchronised to some central clock. But the clock signals themselves have to be sent to each register, and this generates an immense practical challenge. Even a very small temporal displacement of a clock can generate enough offset to desynchronise a register read, as shown in the slide. Recalling the derivation of the bistable, we used a lot of design effort to overcome (exploit?) the race around condition and make our bistable stable. Skewing the clocks to a pair of bistables in this manner effectively gives one a head start over the other, and the race condition that we thought we had destroyed reappears.You may recall, some number of years ago, every other advertisement was for an XYZ personal computer with a clock speed of 1GHz. Then it was 2GHz. Then 3GHz. Notwithstanding that the processor ALU clock rate rarely rate-limits the behaviour of a desktop (it's usually memory IO and front-side bus speeds rarely exceed a few 100 MHz), this escalation continued until advertisements were appearing for machines with clock rates of up to 5GHz. At this point, the engineering community rose up and managed to beat some sense into the marketing folk, and now most machines on the market have clock rates of 2-3 GHz. There are numerous technical reasons for this, but one of the most compelling arises simply from the speed at which an electrical edge can propagate along an aluminium track a fraction of a micron over a large conducting plane: chip sizes - for the sake of manufacturing convenience - usually come in multiples of 5mm on a side. An extremely common size is 10mm x 10mm (any bigger and you have a huge problem getting the dissipated heat out of the core before it melts everything). The wavelength of a 5GHz clock on a silicon substrate is about 2mm. This means that to design a functioning digital system running at 5GHz as a silicon integrated circuit, you have to be able to cope with physical clock skew not of a few degrees (as in the slide) but of 5 wavelengths. Further, this delay is a function of the physical juxtaposition of almost everything else on the chip.
+</p>
+
+<p>
+Signals take time to propagate, the clock is sync on all parts of the circuit.
+</p>
+<ul class="org-ul">
+<li>time &prop; wire length</li>
+<li>difficult to control or predict 
+Much like water in a pipe electricity bounce off the wire</li>
+</ul>
+</div>
+<div id="outline-container-org1b23fe0" class="outline-4">
+<h4 id="org1b23fe0"><span class="section-number-4">1.3.1</span> How/why does this happen?</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+In a large system, a single clock may not have sufficient fanout to drive all the necessary devices, so it becomes necessary to provide copies of the clock. Creating these copies implies buffers, and buffering causes delays, which are load dependent as well as electrical load sensitive. (Recall the lectures on realisation of Boolean algebra as digital circuits.)A number of techniques may be employed to address this:Shear balancing:We don't know what the skew will be, and we can't control it or predict it, but we can make sure that it's the same all over, so there will be no net skew. Ensuring that the physical layout of the clock tree is temporally (geometrically) symmetrical is one way of achieving this.Globally asynchronous, locally synchronous (GALS):Small, localised islands of logic are driven from a single clock. The islands are sufficiently small that clock skew is negligible, or at any rate can be comfortable accommodated. The individual islands communicate with each other via a fully asynchronous protocol, so there is no inter-island clock to skew anyway.Fully asynchronous systems:There is no notion of clock, global or otherwise. The propagation of information through the system is entirely data-driven, via a series of backward-facing data-ready/acknowledge signals. Asynchronous design is extremely difficult, and probably for this reason alone is not widespread. There is a vicious circle of EDA tool development: everyone agrees that the techniques are too complex for manual design. The tools don't exist, so no-one attempts development. Tool vendors are unwilling to make the development investment because there is no extant market for the technology. 
+</p>
+</div>
+</div>
+<div id="outline-container-org7f05afc" class="outline-4">
+<h4 id="org7f05afc"><span class="section-number-4">1.3.2</span> a</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+make sure clock path propagation is the same.
+buffering cause delays, delays are load dependent as well as electrical load sensitive
+Reference signal, phase detection
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org14e3e4d" class="outline-3">
+<h3 id="org14e3e4d"><span class="section-number-3">1.4</span> Ground bounce</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Ground bounce arises because silicon does not have zero resistance
+injecting current at point causes local "ground" potential to rise transiently until the charge can dissipate, 0 is not 0 anymore.
+</p>
+
+<p>
+Think of the substrate not as a universal conducting sheet, but instead as a very fine grained mesh of discrete, non-zero valued resistors. (Which is almost what it is.) If you 'ground' one edge of the sheet -or a few discrete points on it, and inject current into some other part, the current will flow through the mesh from the point of injection towards the grounded points. Current flow through resistors generates voltage, and as one end of the current path is grounded, the consequence is a local rise in potential of the grid at the point at which the current is injected.As the grid is strongly two-dimensionally connected, the potential of the vertices on the grid not directly on the path between injection and drain will also rise. Depending on the layout geometry, signals that are hugely separate topologically can affect each other; typically '0' can transiently turn into '1', depending on the physically adjacent data traffic.The silicon substrate has an intrinsic resistance, and with power levels continually rising and logic voltages falling (there goes the noise margin), this becomes a more and more serious problem.A further effect is known as metal migration. This is the tendency of metallic ions to migrate in the direction of current flow - the electrons physically collide with the metal ions and 'knock them along'. The effect is current density dependent, and because the current density is greater in a thinned track, the net effect will be to continue to thin the track, so the process, once started, will continue with greater and greater effect because an unstable positive feedback loop develops. The effect is less of a problem in CMOS circuits than bipolar because the current levels tend to be lower, although the current levels at which this becomes a problem are not high: typically uA/um2. 
+</p>
+</div>
+</div>
+<div id="outline-container-orgf4462b7" class="outline-3">
+<h3 id="orgf4462b7"><span class="section-number-3">1.5</span> Power considerations</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+180W @ 900mV chips predicted, logic rails will be less than a volt &rArr; 200A
+Getting 200A of electrical current into a system where the PC line-widths are &lt; 1mm
+Getting 180W of thermal power out of a system &lt; 100mm^2.
+Generateing 900mV at 200A
+Absolute thermal effects 
+</p>
+<ul class="org-ul">
+<li>physical destruction</li>
+</ul>
+<p>
+Relative thermal effects 
+</p>
+<ul class="org-ul">
+<li>unbalancing matched component</li>
+<li>threshold shifts</li>
+<li>decreased MTBF</li>
+</ul>
+<p>
+Thermal cycling 
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orge9caa4a"></a>Commentary<br />
+<div class="outline-text-5" id="text-1-5-0-1">
+<p>
+The electrical and thermal effects of such high energies in such a small area are truly horrendous, and will probably become one of the rate limiting problems that will halt the decrease in device geometry size. The intrinsic voltage drop of a semiconductor diode (which is a subcomponent of all transistors) is a few hundred millivolts for silicon. Using more esoteric materials can lower this - a bit -but lowering the headroom indefinitely is out of the question. Almost nothing behaves as we would like at these low voltages.It is instructive to look inside a "typical" computing box. Twenty years ago you could easily identify the principle building blocks of the machine: memory, processor, graphics cards and so on. Then the CPU got buried under massive fins and fans; nowadays most of the infrastructure in a reasonably powered machine is heat pipes and cooling subsystems.The "dark silicon" problem refers to an inability to remove heat from the silicon fast enough that in turn means that (significant) areas of silicon have to be powered down, simply because the power density associated with using all the real estate simultaneously will lead to system failure.The clock in a synchronous system synchronises not only information transfer and translation, but also power dissipation. An average dissipation of 180 W is bad enough, but a clock mark:space of 100:1 means that the transient power dissipation during the time slot when the clock is high will approach 18kW. The smoothing effects of the thermal capacitance in the equivalent thermal network -heat flow can be represented by a network: "across" is temperature, "through" is heat flow - mean that the thermal energy is pretty much averages, but the electrical input will feel the spikes.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org274e653" class="outline-3">
+<h3 id="org274e653"><span class="section-number-3">1.6</span> Power signatures</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Personally i think this is a bit of a red haring. People care very much people nicking about the secrets, bank details. There was a scare a while ago, for example, catho radue display it's got a very high frequency clock the electric beam is wheazing inside all that kind of stuff, in fact they are effectively radiating signals. With a not very complicated piece of electronics, you can set up shop in a room adjacent to a room with the computer in it, and by fiddling with a few nobes so on and so forth, you can reproduce what's on the screen on that VDU in you own equipment, so you have no electrical connection, you haven't borrow thorught the electrical internet, you haven't done nothing invasive to your target system, and yet what you get on your screen is a copy of what they get on their screen.
+The idea is you do all sort of things reverse engineer by looking at the power signatures of a target system. Now papers get written by this, people bang on it. Not aware of any case in reality that anybody nick any compromising and confidential information. This can be demonstrated. Nevertheless, this is something you should know about this.
+</p>
+
+<p>
+Synchronous system dissipate energy at every clock edge.
+</p>
+</div>
+
+<div id="outline-container-org881db63" class="outline-4">
+<h4 id="org881db63"><span class="section-number-4">1.6.1</span> Commentary</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+It is possible - in certain very controlled conditions - to look at the power time history drawn by a circuit and make deductions about what is happening inside. This has obvious cryptographic applications, but the hype has far exceeded the practicality; although it has been demonstrated in laboratory conditions.A similar side-channel attack is possible on cathode-ray tube VDUs; it is possible, using relatively unsophisticated and cheap equipment, to reproduce the image on a CRT screen using a receiver on the other side of a wall. With the rise of flat screen VDUs, this issue has faded to irrelevance.As a side comment, TV detector vans operate(d) by exploiting the phenomenon whereby the internals of an analogue television set would radiate a copy of the screen image back up the aerial line. By using sensitive directional receivers, the licensing authority could triangulate (from the road - i.e. without setting foot on private property) whether - and what - a television was being used for. The advent of digital television has now made this impossible, so now the licensing authorities have to rely on other means.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org403b06f" class="outline-3">
+<h3 id="org403b06f"><span class="section-number-3">1.7</span> Transmission line effects</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Interconnects are unidirectional, instantaneous, iso-potential structures. THEY ARE NOT.
+they are more like a network of open guttering of watering at one point and come out the other.
+Charge propagates at edges: Like a water wave 
+</p>
+<ul class="org-ul">
+<li>the edges spreads out with time and distrance (a pulse can disappear)</li>
+<li>the edge reflects off terminals and physical corners</li>
+</ul>
+<p>
+Ground bounce can "tilt" parts of the network physically adjacent (that may or may not be electrically connected)
+Propagating edges can 
+</p>
+
+<p>
+In the limit, you can't even model interconnects as delays. A metal track separated from a silicon substrate by a thin layer of oxide is a distributed capacitor. Unlike the simple capacitor we mentioned earlier, it is highly non-linear. As feature sizes shrink further, the separation of track and substrate gets smaller (making the capacitance larger) and the track resistance gets higher (making loading effects more significant).It is tempting to view the propagation of electricity through wires as instantaneous (notwithstanding our earlier comments about clock skew). Whilst this is more or less true for a large range of voltages and currents, at very large and very small scales, the propagation of electricity is much more like water sloshing about in an open channel. There are reflections, ripples and interference. You cannot just "switch off" a power station, and you cannot launch a square wave down an integrated circuit track a fraction of a micron away from as neighbour without some form of magnetic coupling occurring. Electrical edges bounce off corners in the physical interconnect, sending partial reflections back the way the original signal came.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdd9237b" class="outline-3">
+<h3 id="orgdd9237b"><span class="section-number-3">1.8</span> Background reading:</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+This section of the course tries to introduce the importance of the adjacency between the analogue and digital domains, and is not well covered in any computer architecture text; there is little to be found in any of the three textbooks we recommend.In the absence of any single place where these issues are bought together coherently and accessibly, we think the www has to be your friend, although a brief scan about indicates that - like so many other things - if you know what you're after, it's easy to find things, but if you don't, it's very easy to miss things.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8009deb" class="outline-2">
+<h2 id="org8009deb"><span class="section-number-2">2</span> Micro-programming</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org9cfdebc" class="outline-3">
+<h3 id="org9cfdebc"><span class="section-number-3">2.1</span> History</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The term microprogramming has two not entirely similar meanings. IBM used the term in the 1960s to refer to an intermediate, small scale computing engine that was used to separate a common software (compiler) interface from a hardware instruction set.Some ten years earlier, however, the term was introduced to refer to the replacement of any complicated piece of logic hardware by a miniature, extremely simplistic piece of sequential hardware that cycled through the contents of a ROM and interpreted the contents to generate control signals. Given the state of technology in the 1950s, the technique was viewed as an academic curiosity, until IBM picked up the idea and used it in the IBM 360 machines.By the mid 60s, then, the term had two meanings, both used by IBM: The original meaning, introduced in 1950 but not used practically until 1964, and a different meaning, introduced and used (by IBM) since 1960.If you think about "the computer" as a single box, you buy one to do a job. Then the job gets bigger, or you want it done faster, or - more usually - both, so you go buy as new one, with the capabilities you want. The machine you buy has components, each of which were expensive to develop, and must therefore be expensive to buy: specifically, in the context we're discussing, there is an underlying hardware platform and there's a huge software stack built on top of this. Customers didn't like having to buy new hardware and new software, when all they usually wanted was one at a time. IBM were - and still are - in business to do business, and they wanted some way of getting their customer base on their side. The fundamental concept behind microprogramming, then, is to create a sort of plug'n'play interface between the hardware and the software components of the computer. The user has their (expensive to develop) software stack, which they don't want to mess with when they change machine. This is supported by the vendor-specific compiler, which the vendor doesn't want to mess with when the hardware guys change the underlying architecture. The compiler takes the high-level source, and translates this into a set of instructions that the underlying hardware understands. The compiler is designed to capitalise on the intrinsic strengths of the hardware, and represents a big development effort on the part of the vendor. The fundamental idea behind microprogramming (a la IBM) is that the compiler writes to a virtual instruction set. The customer keeps their software stack unchanged, the vendors software folk keep the high-level toolset unchanged, and the gap between the compiler output and the capabilities of the underlying software are bridged between a (cheap) layer of microinstructions.
+</p>
+
+<p>
+Two interpretations, the word is overloaded.
+Back in the day, the IBM sell a complete computer, a complete unit.
+There is a complication. cross-platform-ness, migrating code base between machines.
+</p>
+
+<p>
+Decoupling the hardware from the software.
+This is to be solved with a compiler, which compiles the user code into the suitable assembly code to be run by the machine.
+</p>
+</div>
+</div>
+<div id="outline-container-org5aaf6bb" class="outline-3">
+<h3 id="org5aaf6bb"><span class="section-number-3">2.2</span> Firmware interpretation</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Compiler would produce code that can be run in the most expensive machines, the cheaper ones wouldn't be able to run the assembly, instead they have an another assembly interpreter, that interpret the more advanced assembly in terms of the instructions that their hardware would understand.
+</p>
+
+<p>
+<img src="graph/micro-engine.png" alt="micro-engine.png" />
+Micro-engine acts as the firmware between the software and the hardware.
+</p>
+</div>
+</div>
+<div id="outline-container-org89fa7a9" class="outline-3">
+<h3 id="org89fa7a9"><span class="section-number-3">2.3</span> Cheap end of the spectrum</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+The hardware has a small instruction set 
+Interpreter translate (input) code to the code subset seen by the hardware 
+</p>
+<ul class="org-ul">
+<li>usually more insturctions</li>
+<li>usually the machine is slower <b>anyway</b> (because its cheaper)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9c5eb5f" class="outline-3">
+<h3 id="org9c5eb5f"><span class="section-number-3">2.4</span> Expensive end of the spectrum</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+The hardware supports the entire abstract instruction set 
+</p>
+</div>
+</div>
+<div id="outline-container-orgd767e6e" class="outline-3">
+<h3 id="orgd767e6e"><span class="section-number-3">2.5</span> Emulation</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Unimplemented instruction cause a trap.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbb1c410" class="outline-3">
+<h3 id="orgbb1c410"><span class="section-number-3">2.6</span> Alternatively</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Micro coding.
+In expensive computer, the sqrt instruction is part of the instruction and can be computed in one cycle via the ALU.
+In cheaper computers, the sqrt insturction can be implemented as a function.
+On the same level of the user code
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #8FBCBB;">unsigned</span> <span style="color: #8FBCBB;">fn</span> <span style="color: #88C0D0;">sqrt</span>(<span style="color: #8FBCBB;">unsigned</span> <span style="color: #D8DEE9;">val</span>) {
+    <span style="color: #8FBCBB;">unsigned</span> <span style="color: #D8DEE9;">mask</span> = 0x00008000;
+    <span style="color: #8FBCBB;">unsigned</span> <span style="color: #D8DEE9;">best</span> = 0x00000000;
+    <span style="color: #81A1C1;">if</span> (val &lt;= 0) <span style="color: #81A1C1;">return</span> 0;
+    <span style="color: #81A1C1;">while</span> (mask != 0) {
+        <span style="color: #81A1C1;">if</span> ((best + mask)^2 &lt;= val) best |= mask; 
+        mask &gt;&gt;= 1;
+    }
+    <span style="color: #81A1C1;">return</span> best;
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd98908a" class="outline-4">
+<h4 id="orgd98908a"><span class="section-number-4">2.6.1</span> Microengine</h4>
+<div class="outline-text-4" id="text-2-6-1">
+<p>
+The role of the microengine is to bridge the gap between the instructions generated by the compiler (using the abstract high-level instruction set) and the capabilities of the hardware.With expensive hardware, the microengine effectively does nothing; the underlying hardware understands at a native level every instruction that the compiler might generate. Cheaper/smaller hardware will not have every capability built in - for example, there may be no hardware support for floating point arithmetic numbers. In this case, microcode will be provided to decompose the operations down to a level that the hardware caninterpret.Think back to the material on arithmetic in an earlier section: the compiler may be confronted by an expression like
+</p>
+<div class="org-src-container">
+<pre class="src src-c">x = (a * b) + (c / e);
+</pre>
+</div>
+<p>
+where all the variables are floating point. This will be decomposed (by the compiler) to a sequence of register read/writes and diadic operations (here '*', '+', '/').
+</p>
+
+<p>
+If the hardware has floating point arithmetic built in, this is all the compiler has to do. If it doesn't, however, something (the microengine) has to translate these (floating point) operations into a set of instructions that the hardware can handle. For example, the floating point '+' operation that you've seen before:
+</p>
+<ul class="org-ul">
+<li>Handle NaN propagation</li>
+<li>Check for zero operands (saves time)</li>
+<li>Subtract exponents : |Ea - Eb| = d</li>
+<li>Align the fractions : right shift the fraction of the smaller exponent by d bits</li>
+<li>Add (subtract) the (now integer) fractions</li>
+<li>Normalise : reset the alignment of the fraction part</li>
+<li>Adjust the exponent accordingly</li>
+<li>Sort out the rounding</li>
+</ul>
+
+<p>
+This is effectively a (rather long-winded) microcode program.
+</p>
+
+<p>
+If you start out with a small machine, then, you can upgrade to a more expensive platform without interfering with the software stack: the front-end software continues to write to the abstract instruction set, but it is simply interpreted differently by whatever microengine you have. In fact, unless the instruction set explicitly provides an interrogation function to expose the architectural details, there is no way for the software stack to actually know what it's running on: the micro-engine can be a piece of hardware, a piece of software, or a combination of the two.
+</p>
+
+<p>
+As with almost every aspect of electronic system design, there are usually many ways to achieve an objective.
+</p>
+<ul class="org-ul">
+<li>A family of processors defines a big, complicated instruction set.</li>
+<li>A common compiler for the whole family makes use of the entire instruction set.</li>
+<li>Smaller (cheaper) members of the family don't implement the whole instruction set in hardware.</li>
+<li>The more complicated instructions are emulated by low-level software (firmware).</li>
+</ul>
+<p>
+A number of ways are possible:
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org7805380"></a>Emulation traps:<br />
+<div class="outline-text-5" id="text-2-6-1-1">
+<p>
+The processor throws a software interrupt whenever it is presented with an unimplemented instruction; the handler provides a software implementation of the opcode before returning to the main program flow. This is an ideal way of implementing costly, little-used instructions, but the overhead is quite high and it is not really a good solution for instructions that are frequently used.
+</p>
+</div>
+</li>
+<li><a id="org95ccb42"></a>Micro-interpretation:<br />
+<div class="outline-text-5" id="text-2-6-1-2">
+<p>
+A final, machine-specific compiler pass translates unimplementedinstructions to an equivalent sequence of instructions that are implemented (this is the technique we've just been discussing). The downside to this is that it may have an unintended negative consequence on the registerallocation and cause unexpected delays.
+</p>
+</div>
+</li>
+<li><a id="org10a6bf6"></a>Micro-coded processor:<br />
+<div class="outline-text-5" id="text-2-6-1-3">
+<p>
+Here, a specialised very low-level processor (the microengine) executes instruction taken from a ROM, with one entry point in the ROM corresponding to each instruction opcode. (Many machines in the 70s and 80s used this architecture).
+</p>
+</div>
+</li>
+<li><a id="org50241b7"></a>Dynamic translation:<br />
+<div class="outline-text-5" id="text-2-6-1-4">
+<p>
+A more modern version of the microcoded processor is where the CPU hardware dynamically converts each fetched instruction into a series of RISC-like microinstructions that are fed directly into the processor pipeline. Such systems are known as Very Long Instruction Word (VLIW) microarchitectures. 
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org0ea9930" class="outline-4">
+<h4 id="org0ea9930"><span class="section-number-4">2.6.2</span> Microcoded Instructions</h4>
+<div class="outline-text-4" id="text-2-6-2">
+<p>
+Here we have two examples of non-trivial microcoded instructions. The examples are provided in a high-level form (the division is in VHDL, the square root in C).In reality, these functions would not be expressed in this manner, they would be hand-coded (i.e. defined in assembly).Both of them are implementations of a successive approximation algorithm that starts with an (informed) guess about the solution, and then refines this guess, one binary digit at a time.Choose arbitrary values of <code>(a,b)</code> for the first, and val for the second example, and work through the iterations, plotting <code>(best+mask)*b</code> (for the division) and <code>(best+mask)^2</code> (for the square root) as a function of iteration count. You can illustrate the principles of operation quite comfortably with 8-bit words
+</p>
+
+<p>
+The algorithm in both cases takes a number of cycles proportional to the bit length of the arguments.
+</p>
+
+<p>
+An example may be helpful here: Like I suggested above, let's walk through an 8-bit example. 8, because it saves some typing, but there's nothing sacred about powers of two: it could be any bit-length variable.
+</p>
+
+<p>
+We want to work out the square root of, say, 19710. The corresponding bit pattern is 1100 0101. (MSB on the left, LSB on the right). The principle behind successive approximation is that we start off with a wild guess (0000 0000 is pretty safe, but we can do better - see the end of the section), and we improve upon our guess, one bit at a time. Thus for a 32-bit word, we will need 32 iterations. In this (8-bit) example, we'll start at 0000 0000 as an approximation to sqrt(197), and try to move our approximation closer and closer to the correct value (just over 14 - recall these are unsigned integers) <b>without exceeding it</b>.
+</p>
+
+<p>
+Starting at the MSB:
+MSB-0 *000 0000
+</p>
+
+<p>
+Is 1000 00002 (1638410) &gt;= 1100 0101 (19710)? Yes, so * cannot be 1, s o it must be 0
+</p>
+
+<p>
+MSB-1: 0*00 0000 Is 0100 00002 (409610) &gt;= 1100 0101(19710)? Yes, so * cannot be 1, so it must be 0
+</p>
+
+<p>
+MSB-2: 00*0 0000 Is 0010 00002 (102410) &gt;= 1100 0101 (19710) ? Yes, so * cannot be 1, so it must be 0
+</p>
+
+<p>
+MSB-3: 000* 0000 Is 0001 00002 (25610) &gt;= 1100 0101 (19710) ?Yes, so * cannot be 1, so it must be 0
+</p>
+
+<p>
+MSB-4: 0000 *000 Is 0000 10002 (6410) &gt;= 1100 0101 (19710) ? No, so * canbe 1. It doesn't take the approximation over 197, so it's a suitable starting point for subsequent refinements.
+</p>
+
+<p>
+MSB-5: 0000 1*00Is 0000 11002 (14410) &gt;= 1100 0101 (19710) ?No, so * canbe 1. It doesn't take the approximation over 197, so it's a suitable starting point for subsequent refinements.
+MSB-6: 0000 11*0Is 0000 11102 (19610) &gt;= 1100 0101 (19710) ?No, so * canbe 1. It doesn't take the approximation over 197, so it's a suitable starting point for subsequent refinements.
+MSB-7: 0000 111*Is 0000 11112 (22510) &gt;= 1100 0101 (19710) ?Yes, so * cannot be 1, so it must be 0
+So after 8 iterations, we have arrived at a value of <b>0000 1110</b> (14<sub>10</sub>) for the square root of 1100 0101 (197<sub>10</sub>). With real numbers, sqrt(197.0) is 14.04.
+At every step above, we either got closer to (from below) or didn't move towards, the final answer.Each step required an integer multiplication, a comparison, and a bitmask - all operations easy to implement with the Boolean logic you saw in the section on Arithmetic.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org3189208"></a>Starting point<br />
+<div class="outline-text-5" id="text-2-6-2-1">
+<p>
+We can do better than that. We know, up front, that the bit-length of the square root of a number must be &lt;= half the bit-length of the number itself, so we could have said that we know the first 4 (in this case) bits are 0, and jumped in at MSB-4 (0000 1000) - then we would have got the answer in just four iterations.
+</p>
+</div>
+</li>
+<li><a id="org460841e"></a>Floating point<br />
+<div class="outline-text-5" id="text-2-6-2-2">
+<p>
+The extension of the above technique to floating point numbers is pretty simple, relying on the observation that
+</p>
+\begin{equation*}
+ \sqrt{(ffff.k^{eeee})} \equiv \sqrt{ffff}\,. k^{eeee/2}
+\end{equation*}
+<p>
+The overall flow is now:
+</p>
+<ul class="org-ul">
+<li>Shift <i>ffff</i> such that <i>eeee</i> is an even number.</li>
+<li>Divide <i>eeee</i> by 2 (which, because eeee is now even from the previous step - so the LSB is 0 -is a simple right shift by one bit).</li>
+<li>Calculate sqrt(<i>ffff</i>) with the algorithm above. (<i>ffff</i> is an unsigned integer.)</li>
+<li>Reassemble the new ffff and the new eeee into the appropriate format.</li>
+</ul>
+<p>
+Remember that this is all hardware, so we can fiddle with dataflows and bitwidths at our convenience: the operations on eeee and <i>ffff</i> can be carried out in parallel - see the section on parallel processing.Other trajectoriesThe key point in all types of successive approximation iterative processes is that we start off with a wild guess (above, that the square root of anything is &gt;= 0) and improve upon it, step by step, until we can go no further, either because we have achieved some pre-set accuracy requirement - so we can stop the process early because we don't care about the least significant bit(s) - or we run out of bits. But there is nothing special about starting at 0 and going up. We could equally have started off with an initial assumption of 1111 1111 and worked our way down, trying to change each bit to 0 whilst maintaining the condition <b>**</b> <b>**</b> &gt;= answer, instead of &lt;=.
+</p>
+
+<p>
+We are entering the realm of numerical solution of equations (numerical methods) and there are a host of different techniques available to solve equations like <code>y - sqrt(x) = 0</code>, <b>almost all of which are faster than the methods outlined above</b> (bisection, Newton-Raphson, big-step-little-step&#x2026;.).
+However, speed is not everything. We must also consider
+</p>
+<ul class="org-ul">
+<li>Numerical stability: successive approximation <b>will</b> get there, eventually, <b>under all circumstances</b>. Some of the others usually do, and we don't want to pay the price of worrying about the awkward cases.</li>
+<li>Footprint: This is hardware, which translates directly into silicon real estate. Successive approximation is easy (and small) to implement with simple gates. Almost all the others use complicated operations as atomic components of their dataflow, which makes them very large.</li>
+</ul>
+
+<p>
+Having said all that, recall that the focus of this section is microcode, and the point of implementing sqrt() with the code above is that you might not be able to afford the space even for this relatively simple circuit. As with everything in machine architecture, it's all about compromise.
+</p>
+
+<p>
+In the above, I have talked through the operation of the sqrt() implementation. Division works in exactly the same way, except that the square operation we used above (the easy-to-implement inverse of a square root) is replaced by a multiplication (the easy-to-implement inverse of division).
+</p>
+
+<p>
+Work your way through an example, using the method sketched out above, and then walk through the code, seeing how the algorithm implementations map onto the data flow described here.
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgf9163ee" class="outline-4">
+<h4 id="orgf9163ee"><span class="section-number-4">2.6.3</span> Background reading:</h4>
+<div class="outline-text-4" id="text-2-6-3">
+<p>
+Stallings: The chapter on Reduced Instruction Set Computers.
+Tanenbaum: The section on Microinstructions in the chapter discussing an example microarchitecture.
+Hennessy &amp; Patterson:The section on the P6 Microarchitecture.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: D.H. D.H.</p>
+<p class="date">Created: 2021-04-17 Sat 18:35</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

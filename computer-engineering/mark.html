@@ -1,0 +1,1752 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-04-17 Sat 18:35 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computer Engineering Notes</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="D.H." />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Computer Engineering Notes
+<br />
+<span class="subtitle">Mark's part</span>
+</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgea1ecf7">1. Preamble</a></li>
+<li><a href="#orgbe097a4">2. Arithmetic</a>
+<ul>
+<li><a href="#org93d7f7f">2.1. Boolean Algebra George Boole</a>
+<ul>
+<li><a href="#orgd64be43">2.1.1. truth table</a></li>
+<li><a href="#orgd7574b6">2.1.2. Karnaugh (K-) map</a></li>
+<li><a href="#org10b3222">2.1.3. Terminology</a></li>
+<li><a href="#org0920b3d">2.1.4. Overloaded operators</a></li>
+<li><a href="#orgf09a061">2.1.5. base 10 with hardware</a></li>
+<li><a href="#org7886580">2.1.6. Extension: Value set (Buses)</a></li>
+</ul>
+</li>
+<li><a href="#orge779539">2.2. Bit-wise representation of numbers</a>
+<ul>
+<li><a href="#org12d3fcc">2.2.1. unsigned ints</a></li>
+<li><a href="#orgfe9020b">2.2.2. signed ints</a></li>
+<li><a href="#org0775883">2.2.3. float</a></li>
+</ul>
+</li>
+<li><a href="#org039ce67">2.3. Trade offs</a>
+<ul>
+<li><a href="#org2d766cc">2.3.1. Gate delay</a></li>
+<li><a href="#orgf59b75f">2.3.2. Glitch Generator</a></li>
+<li><a href="#orge333ca5">2.3.3. Inertial Delay</a></li>
+<li><a href="#orga6b860b">2.3.4. Perspective</a></li>
+</ul>
+</li>
+<li><a href="#org255b3bd">2.4. The Ripple Adder</a>
+<ul>
+<li><a href="#org20622a4">2.4.1. Carry look ahead logic</a></li>
+</ul>
+</li>
+<li><a href="#orgeb989ce">2.5. Multi-cycling</a></li>
+<li><a href="#org7b817e0">2.6. Floating point number</a></li>
+<li><a href="#orgffe552e">2.7. Binary Multiplication (Two's complement)</a>
+<ul>
+<li><a href="#org41f9103">2.7.1. Cascading adder</a></li>
+<li><a href="#org0e392e7">2.7.2. Multi-cycle: Booth multiplier</a></li>
+<li><a href="#org99e363c">2.7.3. Signed multiplication</a></li>
+</ul>
+</li>
+<li><a href="#orgc72d011">2.8. Micro-coded operations</a></li>
+<li><a href="#org69f9e04">2.9. Arithmetic Logic Units (ALUs)</a></li>
+<li><a href="#org16eb5eb">2.10. Number system</a>
+<ul>
+<li><a href="#org5da7d78">2.10.1. number conversion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb79b865">3. Instruction Sets</a>
+<ul>
+<li><a href="#org62af70c">3.1. Types of instruction</a>
+<ul>
+<li><a href="#orgf681523">3.1.1. ALU instruction</a></li>
+<li><a href="#org610ab3f">3.1.2. Control transfer instruction</a></li>
+<li><a href="#org9cb7710">3.1.3. Loading and storing instruction</a></li>
+<li><a href="#org60e3c08">3.1.4. Register and memory</a></li>
+<li><a href="#org311b991">3.1.5. Loading and storing instructions</a></li>
+<li><a href="#org5cbcd03">3.1.6. Immediate Instruction</a></li>
+</ul>
+</li>
+<li><a href="#orga3c052d">3.2. Instruction Set Architectures (ISAs)</a>
+<ul>
+<li><a href="#org2ccdfcb">3.2.1. Accumulator</a></li>
+<li><a href="#org49a8a52">3.2.2. Stack Based ISA</a></li>
+<li><a href="#org803c97e">3.2.3. Register-memory ISA</a></li>
+<li><a href="#orgf17affd">3.2.4. Register-Register ISA</a></li>
+<li><a href="#org938d600">3.2.5. Memory-Memory ISA (old machines)</a></li>
+<li><a href="#org545bf45">3.2.6. Conclusion</a></li>
+<li><a href="#orgd97cb03">3.2.7. Why more registers</a></li>
+</ul>
+</li>
+<li><a href="#org5d1a9c9">3.3. Endianness</a>
+<ul>
+<li><a href="#org365b262">3.3.1. Alignment</a></li>
+<li><a href="#orgca7df10">3.3.2. Endianness</a></li>
+</ul>
+</li>
+<li><a href="#org49a54ae">3.4. Addressing</a>
+<ul>
+<li><a href="#orgeef7413">3.4.1. Harvard Architecture</a></li>
+<li><a href="#org4e68c83">3.4.2. Challenges - small instruction</a></li>
+<li><a href="#orgac00fd4">3.4.3. solution</a></li>
+</ul>
+</li>
+<li><a href="#orgcdf4a6f">3.5. Further concept</a>
+<ul>
+<li><a href="#org348fca1">3.5.1. Orthogonality and completeness</a></li>
+<li><a href="#org49f9d64">3.5.2. demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org62e7cc4">4. Memory Management</a>
+<ul>
+<li><a href="#org864ac00">4.1. Swapping</a></li>
+<li><a href="#orgbe7fa02">4.2. Partitioning</a>
+<ul>
+<li><a href="#org1b55d18">4.2.1. Variable-size memory partitions.</a></li>
+</ul>
+</li>
+<li><a href="#org3ae2efa">4.3. Physical and Logical Addresses</a></li>
+<li><a href="#orgfd4c8ca">4.4. Paging</a>
+<ul>
+<li><a href="#orgb494f04">4.4.1. Virtual memory</a></li>
+<li><a href="#orge3c9210">4.4.2. Demand paging</a></li>
+<li><a href="#orgddbf722">4.4.3. Translation Lookaside Buffer (TLB)</a></li>
+<li><a href="#org534d119">4.4.4. Page table</a></li>
+</ul>
+</li>
+<li><a href="#orgaa6512a">4.5. Segmentation</a></li>
+<li><a href="#org4963d55">4.6. Paging and segmentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgea1ecf7" class="outline-2">
+<h2 id="orgea1ecf7"><span class="section-number-2">1</span> Preamble</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Things chosen as part of compromise around execution time, portability, footprints, and many more.
+As part of a layer of abstraction
+</p>
+</div>
+</div>
+<div id="outline-container-orgbe097a4" class="outline-2">
+<h2 id="orgbe097a4"><span class="section-number-2">2</span> Arithmetic</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org93d7f7f" class="outline-3">
+<h3 id="org93d7f7f"><span class="section-number-3">2.1</span> Boolean Algebra George Boole</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+AND OR NOT 0,1
+</p>
+</div>
+<div id="outline-container-orgd64be43" class="outline-4">
+<h4 id="orgd64be43"><span class="section-number-4">2.1.1</span> truth table</h4>
+</div>
+<div id="outline-container-orgd7574b6" class="outline-4">
+<h4 id="orgd7574b6"><span class="section-number-4">2.1.2</span> Karnaugh (K-) map</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Gray coding is easier for reduction
+</p>
+</div>
+</div>
+<div id="outline-container-org10b3222" class="outline-4">
+<h4 id="org10b3222"><span class="section-number-4">2.1.3</span> Terminology</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li>Implicant
+A term covering at least one "1" element of a function and no "0" elements</li>
+<li>Prime implicant
+An implicant from which no terms can be removed without it staying as an implicant anymore.</li>
+<li>Essential prime implicant
+A prime implicant that contains at least one "1" element that is not covered by any other prime implicant.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0920b3d" class="outline-4">
+<h4 id="org0920b3d"><span class="section-number-4">2.1.4</span> Overloaded operators</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<p>
+For example + can operate on base 10 and base 2 number.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf09a061" class="outline-4">
+<h4 id="orgf09a061"><span class="section-number-4">2.1.5</span> base 10 with hardware</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<p>
+Chain two Half adder into a full adder. Chain full adders into a cascading adders.
+</p>
+</div>
+</div>
+<div id="outline-container-org7886580" class="outline-4">
+<h4 id="org7886580"><span class="section-number-4">2.1.6</span> Extension: Value set (Buses)</h4>
+<div class="outline-text-4" id="text-2-1-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Symbols</th>
+<th scope="col" class="org-left">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">0</td>
+<td class="org-left">Hard 0</td>
+</tr>
+
+<tr>
+<td class="org-left">1</td>
+<td class="org-left">Hard 1</td>
+</tr>
+
+<tr>
+<td class="org-left">X</td>
+<td class="org-left">Hard unknown</td>
+</tr>
+
+<tr>
+<td class="org-left">H</td>
+<td class="org-left">Soft 0</td>
+</tr>
+
+<tr>
+<td class="org-left">L</td>
+<td class="org-left">Soft 1</td>
+</tr>
+
+<tr>
+<td class="org-left">Z</td>
+<td class="org-left">Soft unknown</td>
+</tr>
+
+<tr>
+<td class="org-left">C</td>
+<td class="org-left">Conflict</td>
+</tr>
+
+<tr>
+<td class="org-left">U</td>
+<td class="org-left">Uninitialised</td>
+</tr>
+</tbody>
+</table>
+<p>
+Replace wired connection with a bus driver.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge779539" class="outline-3">
+<h3 id="orge779539"><span class="section-number-3">2.2</span> Bit-wise representation of numbers</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org12d3fcc" class="outline-4">
+<h4 id="org12d3fcc"><span class="section-number-4">2.2.1</span> unsigned ints</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Basically binary
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">value</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n-1</td>
+<td class="org-left">n-2</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgfe9020b" class="outline-4">
+<h4 id="orgfe9020b"><span class="section-number-4">2.2.2</span> signed ints</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+Sign magnitude
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">sign</td>
+<td class="org-left">value</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n-1</td>
+<td class="org-left">n-2</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+<p>
+Alternate Two's complement
+There's also one's complement
+Loses 0.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">sign</td>
+<td class="org-left">two's complement</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n-1</td>
+<td class="org-left">n-2</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+<p>
+Alternate Biased Offset
+The actual value has a <span class="underline">constant</span> (Bias) subtracted.
+Representation range depends on bias.
+Does not lose 0.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Minus Bias</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n-1</td>
+<td class="org-left">n-2</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org0775883" class="outline-4">
+<h4 id="org0775883"><span class="section-number-4">2.2.3</span> float</h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Standard: <a href="https://ieeexplore.ieee.org/document/30711">IEEE 754-1985</a>
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">sign</td>
+<td class="org-left">exponent</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Fraction</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">n-1</td>
+<td class="org-left">n-2</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-left">&#x2026;</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+<p>
+The numeric equivalent for example: 2.56 &times; 10<sup>-4</sup>.
+Binary32 8bit E, 23bis F
+</p>
+
+<p>
+Fraction: descending powers of 2
+</p>
+<ul class="org-ul">
+<li><p>
+Special values
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Exponent</td>
+<td class="org-left">Fraction</td>
+<td class="org-left">Meaning</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">0</td>
+<td class="org-left">Zero</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">X</td>
+<td class="org-left">Denomalised number</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">0</td>
+<td class="org-left">&plusmn;&infin;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">0&#x2026;X</td>
+<td class="org-left">Continuable NaN</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">1X&#x2026;X</td>
+<td class="org-left">Error NaN</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org039ce67" class="outline-3">
+<h3 id="org039ce67"><span class="section-number-3">2.3</span> Trade offs</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Logic gates and wires are actually analogue component 
+</p>
+</div>
+<div id="outline-container-org2d766cc" class="outline-4">
+<h4 id="org2d766cc"><span class="section-number-4">2.3.1</span> Gate delay</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<p>
+Depends on gate type 
+Depends on signal value 
+Depends on load
+We can model delay as a constant
+</p>
+</div>
+</div>
+<div id="outline-container-orgf59b75f" class="outline-4">
+<h4 id="orgf59b75f"><span class="section-number-4">2.3.2</span> Glitch Generator</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+Pulse generator 
+</p>
+</div>
+</div>
+<div id="outline-container-orge333ca5" class="outline-4">
+<h4 id="orge333ca5"><span class="section-number-4">2.3.3</span> Inertial Delay</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<p>
+Inertia: Indisposition to motion, exertion, or change
+</p>
+</div>
+</div>
+<div id="outline-container-orga6b860b" class="outline-4">
+<h4 id="orga6b860b"><span class="section-number-4">2.3.4</span> Perspective</h4>
+<div class="outline-text-4" id="text-2-3-4">
+<p>
+Gate delay negligible with respect to interconnect delay (2mm wire)
+It may be faster to duplicate a computation than to compute it once and propagate it.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org255b3bd" class="outline-3">
+<h3 id="org255b3bd"><span class="section-number-3">2.4</span> The Ripple Adder</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Size proportional to n
+Delay proportional to n
+</p>
+</div>
+<div id="outline-container-org20622a4" class="outline-4">
+<h4 id="org20622a4"><span class="section-number-4">2.4.1</span> Carry look ahead logic</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<p>
+Size proportional to n<sup>2</sup>
+Delay constant
+G = AB 
+P = A &oplus; B
+C<sub>out</sub> = PC<sub>in</sub> + G
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">Carry LookAhead</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">Ripple</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">Bits</td>
+<td class="org-right">Gates</td>
+<td class="org-right">Delay per cycle</td>
+<td class="org-right">Gates</td>
+<td class="org-right">Delay per cycle</td>
+</tr>
+
+<tr>
+<td class="org-right">64</td>
+<td class="org-right">6421</td>
+<td class="org-right">4</td>
+<td class="org-right">320</td>
+<td class="org-right">128</td>
+</tr>
+
+<tr>
+<td class="org-right">32</td>
+<td class="org-right">1585</td>
+<td class="org-right">4</td>
+<td class="org-right">160</td>
+<td class="org-right">64</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">409</td>
+<td class="org-right">4</td>
+<td class="org-right">80</td>
+<td class="org-right">32</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">109</td>
+<td class="org-right">4</td>
+<td class="org-right">40</td>
+<td class="org-right">16</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">31</td>
+<td class="org-right">4</td>
+<td class="org-right">20</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">10</td>
+<td class="org-right">4</td>
+<td class="org-right">10</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-orgeb989ce" class="outline-3">
+<h3 id="orgeb989ce"><span class="section-number-3">2.5</span> Multi-cycling</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Make use of a 8-bits adder to computer for example 32 bits.
+In this case it would require four cycles, to slice the 32 bits into four slices to compute the number.
+</p>
+</div>
+</div>
+<div id="outline-container-org7b817e0" class="outline-3">
+<h3 id="org7b817e0"><span class="section-number-3">2.6</span> Floating point number</h3>
+<div class="outline-text-3" id="text-2-6">
+<ol class="org-ol">
+<li>Handle NaN and &plusmn;&infin; propagation</li>
+<li>Check for zero operands (saves time)</li>
+<li>Subtract exponents such that |E_A - E_B| = d</li>
+<li>Align the fractions</li>
+<li>Add/Subtract the fraction components</li>
+<li>Normalise the number</li>
+<li>Rounding as appropriate</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgffe552e" class="outline-3">
+<h3 id="orgffe552e"><span class="section-number-3">2.7</span> Binary Multiplication (Two's complement)</h3>
+<div class="outline-text-3" id="text-2-7">
+</div>
+<div id="outline-container-org41f9103" class="outline-4">
+<h4 id="org41f9103"><span class="section-number-4">2.7.1</span> Cascading adder</h4>
+<div class="outline-text-4" id="text-2-7-1">
+<p>
+area &prop; n<sup>2</sup>
+constant cycles
+</p>
+</div>
+</div>
+<div id="outline-container-org0e392e7" class="outline-4">
+<h4 id="org0e392e7"><span class="section-number-4">2.7.2</span> Multi-cycle: Booth multiplier</h4>
+<div class="outline-text-4" id="text-2-7-2">
+<p>
+smaller area
+n cycles
+</p>
+</div>
+</div>
+<div id="outline-container-org99e363c" class="outline-4">
+<h4 id="org99e363c"><span class="section-number-4">2.7.3</span> Signed multiplication</h4>
+</div>
+</div>
+<div id="outline-container-orgc72d011" class="outline-3">
+<h3 id="orgc72d011"><span class="section-number-3">2.8</span> Micro-coded operations</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+Software solutions
+Sometimes it's worth leaving out some operations to make the design more compact/efficiency.
+</p>
+</div>
+</div>
+<div id="outline-container-org69f9e04" class="outline-3">
+<h3 id="org69f9e04"><span class="section-number-3">2.9</span> Arithmetic Logic Units (ALUs)</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+A delectable function unit.
+</p>
+</div>
+</div>
+<div id="outline-container-org16eb5eb" class="outline-3">
+<h3 id="org16eb5eb"><span class="section-number-3">2.10</span> Number system</h3>
+<div class="outline-text-3" id="text-2-10">
+</div>
+<div id="outline-container-org5da7d78" class="outline-4">
+<h4 id="org5da7d78"><span class="section-number-4">2.10.1</span> number conversion</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb79b865" class="outline-2">
+<h2 id="orgb79b865"><span class="section-number-2">3</span> Instruction Sets</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Instruction between text and binary
+</p>
+</div>
+<div id="outline-container-org62af70c" class="outline-3">
+<h3 id="org62af70c"><span class="section-number-3">3.1</span> Types of instruction</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgf681523" class="outline-4">
+<h4 id="orgf681523"><span class="section-number-4">3.1.1</span> ALU instruction</h4>
+</div>
+<div id="outline-container-org610ab3f" class="outline-4">
+<h4 id="org610ab3f"><span class="section-number-4">3.1.2</span> Control transfer instruction</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<ul class="org-ul">
+<li>Jumping</li>
+<li>Branching</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9cb7710" class="outline-4">
+<h4 id="org9cb7710"><span class="section-number-4">3.1.3</span> Loading and storing instruction</h4>
+</div>
+<div id="outline-container-org60e3c08" class="outline-4">
+<h4 id="org60e3c08"><span class="section-number-4">3.1.4</span> Register and memory</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<ul class="org-ul">
+<li>register 
+Static RAM (SRAM) cells in the CPU. Fundamentally just transistor-switching</li>
+<li>Memory
+Dynamic RAM (DRAM) cells far away. Much more dense, but relies on capacitor charge/discharge (which requires refreshing via a clock signal)</li>
+</ul>
+<p>
+Fast - CPU Access time - Slow
+Small - Storage - Big
+Register - Cache - Memory - Disk 
+</p>
+</div>
+</div>
+<div id="outline-container-org311b991" class="outline-4">
+<h4 id="org311b991"><span class="section-number-4">3.1.5</span> Loading and storing instructions</h4>
+<div class="outline-text-4" id="text-3-1-5">
+<p>
+Loading word into CPU register from a memory address.
+Direct Memory Access (DMA)
+</p>
+</div>
+</div>
+<div id="outline-container-org5cbcd03" class="outline-4">
+<h4 id="org5cbcd03"><span class="section-number-4">3.1.6</span> Immediate Instruction</h4>
+<div class="outline-text-4" id="text-3-1-6">
+<p>
+Immediate bitwise AND: andi $t $s 0010, faster
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga3c052d" class="outline-3">
+<h3 id="orga3c052d"><span class="section-number-3">3.2</span> Instruction Set Architectures (ISAs)</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org2ccdfcb" class="outline-4">
+<h4 id="org2ccdfcb"><span class="section-number-4">3.2.1</span> Accumulator</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+X = A + B
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #88C0D0;">LOAD</span> <span style="color: #81A1C1;">A</span>
+<span style="color: #88C0D0;">ADD</span> <span style="color: #81A1C1;">B</span>
+<span style="color: #88C0D0;">STORE</span> <span style="color: #81A1C1;">x</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org49a8a52" class="outline-4">
+<h4 id="org49a8a52"><span class="section-number-4">3.2.2</span> Stack Based ISA</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+X = A + B
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #88C0D0;">PUSH</span> <span style="color: #81A1C1;">A</span> 
+<span style="color: #88C0D0;">PUSH</span> <span style="color: #81A1C1;">B</span>
+<span style="color: #88C0D0;">ADD</span> 
+<span style="color: #88C0D0;">POP</span> <span style="color: #81A1C1;">X</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org803c97e" class="outline-4">
+<h4 id="org803c97e"><span class="section-number-4">3.2.3</span> Register-memory ISA</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+X = A + B
+Always operate on at least one register and one memory address
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #88C0D0;">LOAD</span> <span style="color: #81A1C1;">R3</span>, A
+<span style="color: #88C0D0;">ADD</span> <span style="color: #81A1C1;">R1</span>, R3, B
+<span style="color: #88C0D0;">STORE</span> <span style="color: #81A1C1;">R1</span>, x
+</pre>
+</div>
+<ul class="org-ul">
+<li>Disadvantage
+Difficult to make out the time needed for instruction, because of memory
+Need to take care of destructive behaviour of the destination register</li>
+<li>Advantage 
+Simple code generation</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf17affd" class="outline-4">
+<h4 id="orgf17affd"><span class="section-number-4">3.2.4</span> Register-Register ISA</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p>
+X = A + B
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #88C0D0;">LOAD</span> <span style="color: #81A1C1;">$3</span>, A
+<span style="color: #88C0D0;">LOAD</span> <span style="color: #81A1C1;">R2</span>, B
+<span style="color: #88C0D0;">ADD</span> <span style="color: #81A1C1;">R1</span>, R3, R2
+<span style="color: #88C0D0;">STORE</span> <span style="color: #81A1C1;">R1</span>, x
+</pre>
+</div>
+<ul class="org-ul">
+<li>Disadvantage
+High instruction count (because the instruction is simple), large programs</li>
+<li>Advantage
+Fixed size simple instruction encoding 
+Instructions require a similar number of cycle 
+Fast (register-register)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org938d600" class="outline-4">
+<h4 id="org938d600"><span class="section-number-4">3.2.5</span> Memory-Memory ISA (old machines)</h4>
+<div class="outline-text-4" id="text-3-2-5">
+<ul class="org-ul">
+<li>Disadvantage:
+<ul class="org-ul">
+<li>Large variation in instruction execution time</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org545bf45" class="outline-4">
+<h4 id="org545bf45"><span class="section-number-4">3.2.6</span> Conclusion</h4>
+<div class="outline-text-4" id="text-3-2-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">ISA</th>
+<th scope="col" class="org-right">Operands</th>
+<th scope="col" class="org-right">Mem Addr</th>
+<th scope="col" class="org-left">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">R-R</td>
+<td class="org-right">3</td>
+<td class="org-right">0</td>
+<td class="org-left">MIPS, RISC</td>
+</tr>
+
+<tr>
+<td class="org-left">R-M</td>
+<td class="org-right">2</td>
+<td class="org-right">1</td>
+<td class="org-left">Intel x86</td>
+</tr>
+
+<tr>
+<td class="org-left">M-M</td>
+<td class="org-right">2 or 3</td>
+<td class="org-right">2 or 3</td>
+<td class="org-left">VAX</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgd97cb03" class="outline-4">
+<h4 id="orgd97cb03"><span class="section-number-4">3.2.7</span> Why more registers</h4>
+<div class="outline-text-4" id="text-3-2-7">
+<p>
+Before 1980 Stack and accumulator architecture. After 1980: Loading and storing (register-register)
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org5cd4d1f"></a>Register are faster than memory<br />
+<div class="outline-text-5" id="text-3-2-7-1">
+<ul class="org-ul">
+<li>Register hold variables</li>
+<li>Memory traffic reduces</li>
+<li>Code size decreases</li>
+<li>Register addresses need fewer bits</li>
+</ul>
+</div>
+</li>
+<li><a id="org5ce76cb"></a>ISA efficiency<br />
+<div class="outline-text-5" id="text-3-2-7-2">
+<p>
+Consider X = (A-B) &times; (C + D &divide; E)
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #88C0D0;">LOAD</span> <span style="color: #81A1C1;">D</span>
+<span style="color: #88C0D0;">DIV</span> <span style="color: #81A1C1;">E</span>
+<span style="color: #88C0D0;">ADD</span> <span style="color: #81A1C1;">C</span>
+<span style="color: #88C0D0;">STORE</span> <span style="color: #81A1C1;">X</span>
+<span style="color: #88C0D0;">LOAD</span> <span style="color: #81A1C1;">A</span>
+<span style="color: #88C0D0;">SUB</span> <span style="color: #81A1C1;">B</span>
+<span style="color: #88C0D0;">MULT</span> <span style="color: #81A1C1;">X</span> 
+<span style="color: #88C0D0;">STORE</span> <span style="color: #81A1C1;">X</span>
+</pre>
+</div>
+
+<p>
+Now with two operand
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #88C0D0;">MOVE</span> <span style="color: #81A1C1;">A</span>, X    <span style="color: #616e88;">// </span><span style="color: #616e88;">X = A</span>
+<span style="color: #88C0D0;">SUB</span> <span style="color: #81A1C1;">B</span>, X     <span style="color: #616e88;">// </span><span style="color: #616e88;">X -= B</span>
+<span style="color: #88C0D0;">MOVE</span> <span style="color: #81A1C1;">D</span>, tmp1 <span style="color: #616e88;">// </span><span style="color: #616e88;">tmp1 = D</span>
+<span style="color: #88C0D0;">DIV</span> <span style="color: #81A1C1;">E</span>, tmp1  <span style="color: #616e88;">// </span><span style="color: #616e88;">tmp1 /= E</span>
+<span style="color: #88C0D0;">ADD</span> <span style="color: #81A1C1;">C</span>, tmp1  <span style="color: #616e88;">// </span><span style="color: #616e88;">tmp1 += C</span>
+<span style="color: #88C0D0;">MULT</span> <span style="color: #81A1C1;">tmp1</span>, X <span style="color: #616e88;">// </span><span style="color: #616e88;">X *= tmp1</span>
+</pre>
+</div>
+
+<p>
+More operands &rarr; Smaller code size
+Smaller code size &rarr; faster loading
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org5d1a9c9" class="outline-3">
+<h3 id="org5d1a9c9"><span class="section-number-3">3.3</span> Endianness</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org365b262" class="outline-4">
+<h4 id="org365b262"><span class="section-number-4">3.3.1</span> Alignment</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+Memory is typically organised by word boundaries, and words are typically retrieved from memory as a whole.
+Misaligned items in memory require multiple accesses, which is inefficient.
+An access to an object of size s at address A is aligned if A%s = 0
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgca7df10" class="outline-4">
+<h4 id="orgca7df10"><span class="section-number-4">3.3.2</span> Endianness</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+Encoding 0x12345678 in memory:
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org5628bf3"></a>Big-endian,<br />
+<div class="outline-text-5" id="text-3-3-2-1">
+<p>
+<b>Most</b> significant byte in the lowest byte-address:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">address</td>
+<td class="org-right">0x000</td>
+<td class="org-right">0x001</td>
+<td class="org-right">0x001</td>
+<td class="org-right">0x003</td>
+<td class="org-left">&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">content</td>
+<td class="org-right">0x12</td>
+<td class="org-right">0x34</td>
+<td class="org-right">0x56</td>
+<td class="org-right">0x78</td>
+<td class="org-left">&#x2026;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="orgedac546"></a>Small-endian<br />
+<div class="outline-text-5" id="text-3-3-2-2">
+<p>
+<b>Least</b> significant byte in the lowest byte-address:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">address</td>
+<td class="org-right">0x000</td>
+<td class="org-right">0x001</td>
+<td class="org-right">0x001</td>
+<td class="org-right">0x003</td>
+<td class="org-left">&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">content</td>
+<td class="org-right">0x78</td>
+<td class="org-right">0x56</td>
+<td class="org-right">0x34</td>
+<td class="org-right">0x12</td>
+<td class="org-left">&#x2026;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li><a id="org2391657"></a>Design choice<br />
+<div class="outline-text-5" id="text-3-3-2-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Big endian</td>
+<td class="org-left">Little endian</td>
+</tr>
+
+<tr>
+<td class="org-left">IP</td>
+<td class="org-left">ARM</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Intel</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org49a54ae" class="outline-3">
+<h3 id="org49a54ae"><span class="section-number-3">3.4</span> Addressing</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<div id="outline-container-orgeef7413" class="outline-4">
+<h4 id="orgeef7413"><span class="section-number-4">3.4.1</span> Harvard Architecture</h4>
+</div>
+<div id="outline-container-org4e68c83" class="outline-4">
+<h4 id="org4e68c83"><span class="section-number-4">3.4.2</span> Challenges - small instruction</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<p>
+For some instruction set, 32-bit instruction format:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">opcode</td>
+<td class="org-right">rs</td>
+<td class="org-right">rt</td>
+<td class="org-right">rd</td>
+<td class="org-right">shift</td>
+<td class="org-right">funct</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+</tr>
+</tbody>
+</table>
+<p>
+The problem arises in addresses the whole memory range with 5 bits.
+</p>
+</div>
+</div>
+<div id="outline-container-orgac00fd4" class="outline-4">
+<h4 id="orgac00fd4"><span class="section-number-4">3.4.3</span> solution</h4>
+<div class="outline-text-4" id="text-3-4-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgc65218b"></a>immediate addressing<br />
+<div class="outline-text-5" id="text-3-4-3-1">
+<p>
+Constant
+</p>
+</div>
+</li>
+<li><a id="org524792b"></a>register addressing<br />
+<div class="outline-text-5" id="text-3-4-3-2">
+<p>
+No memory access, just register access.
+</p>
+</div>
+</li>
+<li><a id="orge3fb41d"></a>direct addressing<br /></li>
+<li><a id="org1aefc99"></a>indreict addressing<br />
+<div class="outline-text-5" id="text-3-4-3-4">
+<p>
+relative
+</p>
+</div>
+</li>
+<li><a id="org42fff0b"></a>Cascade addressing<br />
+<div class="outline-text-5" id="text-3-4-3-5">
+<p>
+One bit of the word in memory is used as an indirection flag 
+This <b>indirect addressing</b> will point to an address in memory, where its has a certain bit to indicate whether it's the final adress, this allows arbitrary nesting.
+</p>
+</div>
+</li>
+<li><a id="orge56bd34"></a>Register indirect adressing<br /></li>
+<li><a id="org618943d"></a>Displacement addressing<br />
+<div class="outline-text-5" id="text-3-4-3-7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">opcode</td>
+<td class="org-left">reg addr</td>
+<td class="org-left">displacement</td>
+</tr>
+</tbody>
+</table>
+<p>
+Offset (displacement) added to register address to point to the memory address.
+This allows to iterate through the array.
+Can have serveral variants 
+</p>
+<ol class="org-ol">
+<li>base register displacement</li>
+<li>relative displacement, relative to program counter.</li>
+<li>Scaled displacement
+An additional scaling factor to the register index,
+good for multi-dimensional arrays</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgcdf4a6f" class="outline-3">
+<h3 id="orgcdf4a6f"><span class="section-number-3">3.5</span> Further concept</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org348fca1" class="outline-4">
+<h4 id="org348fca1"><span class="section-number-4">3.5.1</span> Orthogonality and completeness</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+Orthogonality: every opcode uses the same set of addressing modes 
+Complete: Same set of arithmetic operations is defined for each fundamental type
+Insturction for every operand type combination. Consider float &times; int &rarr; int.
+</p>
+<ul class="org-ul">
+<li>First integer gets promoted to a float (+ 1 instruction)</li>
+<li>Float product gets demoted to integer (+ 1 instruction)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org49f9d64" class="outline-4">
+<h4 id="org49f9d64"><span class="section-number-4">3.5.2</span> demo</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+github instruction-sets-demo.
+Modding reverse engineering. <a href="https:godbolt.org">https:godbolt.org</a>
+Smash bros, melee modding
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org62e7cc4" class="outline-2">
+<h2 id="org62e7cc4"><span class="section-number-2">4</span> Memory Management</h2>
+<div class="outline-text-2" id="text-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Memory Hierarchy</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">CPU Access time</th>
+<th scope="col" class="org-left">Cycles</th>
+<th scope="col" class="org-left">Components</th>
+<th scope="col" class="org-left">Storage Density</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Fast</td>
+<td class="org-left">1</td>
+<td class="org-left">Disk</td>
+<td class="org-left">Low</td>
+</tr>
+
+<tr>
+<td class="org-left">.</td>
+<td class="org-left">L1:3, L2: 10</td>
+<td class="org-left">Memory</td>
+<td class="org-left">.</td>
+</tr>
+
+<tr>
+<td class="org-left">.</td>
+<td class="org-left">&asymp;600</td>
+<td class="org-left">Cache</td>
+<td class="org-left">.</td>
+</tr>
+
+<tr>
+<td class="org-left">Slow</td>
+<td class="org-left">O(10<sup>6</sup>)</td>
+<td class="org-left">Registers</td>
+<td class="org-left">High</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org864ac00" class="outline-3">
+<h3 id="org864ac00"><span class="section-number-3">4.1</span> Swapping</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+The OS stores a queue of processes waiting to execute in disk.
+As space becomes availabe in memory, processes are loaded. When a process finishes, it is removed.
+A process may be swapped out if stalled (e.g. waiting for I/O).
+</p>
+</div>
+</div>
+<div id="outline-container-orgbe7fa02" class="outline-3">
+<h3 id="orgbe7fa02"><span class="section-number-3">4.2</span> Partitioning</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Distribute a set of processes (of widely-varying size) onto the fixed size memory space. Into fixed slices
+</p>
+</div>
+<div id="outline-container-org1b55d18" class="outline-4">
+<h4 id="org1b55d18"><span class="section-number-4">4.2.1</span> Variable-size memory partitions.</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+Memory allocated as required. Fragmentation makes it harder to load incoming processes.
+Memory can be wasted when processes are loaded and removed between the memory and the swap.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org3ae2efa" class="outline-3">
+<h3 id="org3ae2efa"><span class="section-number-3">4.3</span> Physical and Logical Addresses</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+<b>Logical addresses</b> are relative to the address of the beginning of the program.
+<b>Physical addresses</b> are absolute
+</p>
+</div>
+</div>
+<div id="outline-container-orgfd4c8ca" class="outline-3">
+<h3 id="orgfd4c8ca"><span class="section-number-3">4.4</span> Paging</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Process memory is broken down into pages. They are mapped to the frames in the memory.
+Pages and frames are the same size.
+The operating system controls the paging and framing.
+<b>Down side</b>, it makes logical addresses more difficult, to overcome this, there is a page table (page index to actual frame physical address), that allows them the logical addresses to be infered from.
+</p>
+</div>
+<div id="outline-container-orgb494f04" class="outline-4">
+<h4 id="orgb494f04"><span class="section-number-4">4.4.1</span> Virtual memory</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<p>
+For paging, <b>pages</b>, are swapped in and out.
+</p>
+</div>
+</div>
+<div id="outline-container-orge3c9210" class="outline-4">
+<h4 id="orge3c9210"><span class="section-number-4">4.4.2</span> Demand paging</h4>
+<div class="outline-text-4" id="text-4-4-2">
+<p>
+<b>Page fault</b>: when a process wants a page that has been swapped out. The OS needs to go fetch it.
+Too much of page swapping in and out is called <b>page thrashing</b>. Processing power is wasted on re/mapping pages to frames.
+</p>
+</div>
+</div>
+<div id="outline-container-orgddbf722" class="outline-4">
+<h4 id="orgddbf722"><span class="section-number-4">4.4.3</span> Translation Lookaside Buffer (TLB)</h4>
+<div class="outline-text-4" id="text-4-4-3">
+<p>
+The page table itself can be swapped in and out.
+Each logical memory access can require two physical accesses:
+</p>
+<ul class="org-ul">
+<li>Page table entry</li>
+<li>Data lookup</li>
+</ul>
+<p>
+The TLB is a cache that stores page table entries.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #616e88;"># </span><span style="color: #616e88;">global variables</span>
+<span style="color: #D8DEE9;">pagecache</span> = {}
+<span style="color: #D8DEE9;">pagetable</span> = {}
+<span style="color: #D8DEE9;">memory</span> = []
+<span style="color: #616e88;">#</span>
+<span style="color: #81A1C1;">def</span> <span style="color: #88C0D0;">lookup</span>(pagenum):
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">if</span> pagenum <span style="color: #81A1C1;">in</span> <span style="color: #D8DEE9;">pagecache</span>:
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #616e88;"># </span><span style="color: #616e88;">TLB hit</span>
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">return</span> pagecache[pagenum]
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">else</span>:
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #616e88;"># </span><span style="color: #616e88;">TLB miss</span>
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">return</span> cache(pagenum)
+
+<span style="color: #81A1C1;">def</span> <span style="color: #88C0D0;">cache</span>(pagenum):
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   frame = pagetable[pagenum]
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">if</span> frame <span style="color: #81A1C1;">in</span> <span style="color: #D8DEE9;">memory</span>:
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   updateCache(pagenum, frame)
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">return</span> frame
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">else</span>:
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   pagefault(pagenum)
+
+<span style="color: #81A1C1;">def</span> <span style="color: #88C0D0;">pagefault</span>(pagenum):
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">if</span> memoryfull():
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   frame_idx = <span style="color: #616e88;"># </span><span style="color: #616e88;">find old frame in memory to swap out</span>
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   update page table <span style="color: #81A1C1;">for</span> newframe_idx <span style="color: #81A1C1;">and</span> pagenum
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">and</span> swap page into this frame of memory
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   invalidate <span style="color: #81A1C1;">any</span> page table <span style="color: #81A1C1;">and</span> TLB entries that <span style="color: #81A1C1;">map</span> onto old frame
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">else</span>:
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9; background-color: #2E3440;"> </span>   allocpage(pagenum)
+
+<span style="color: #81A1C1;">def</span> <span style="color: #88C0D0;">allocpage</span>(pagenum):
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   page = readPagefromDisk(pagenum) 
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #D8DEE9;">newframe_idx</span> = <span style="color: #616e88;"># </span><span style="color: #616e88;">find new frame in memory</span>
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   update page table <span style="color: #81A1C1;">for</span> newframe_idx <span style="color: #81A1C1;">and</span> pagenum
+<span style="color: #D8DEE9; background-color: #2E3440;"> </span>   <span style="color: #81A1C1;">and</span> store page into this frame of memory
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org534d119" class="outline-4">
+<h4 id="org534d119"><span class="section-number-4">4.4.4</span> Page table</h4>
+<div class="outline-text-4" id="text-4-4-4">
+<p>
+Page table can be in
+</p>
+<ul class="org-ul">
+<li>the TLB</li>
+<li>Main memory</li>
+<li>Disk</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaa6512a" class="outline-3">
+<h3 id="orgaa6512a"><span class="section-number-3">4.5</span> Segmentation</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li>Application splits memory into segments of variable size at compile time.</li>
+<li>The compiler produces addresses of the form [(offset, code)]</li>
+<li>The linker reconciles this with the memory subsystem.</li>
+<li>Each segment has different access writes and privileges.
+<ul class="org-ul">
+<li>Processes can be run in isolation, safely (segmentation fault)</li>
+<li>Self-modification can be prevented (Harvard Architecture)</li>
+<li>Date/cache can be shared between processes</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4963d55" class="outline-3">
+<h3 id="org4963d55"><span class="section-number-3">4.6</span> Paging and segmentation</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+Each process can have a page table, and the page directory governs all page tables.
+Two level page lookup </p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: D.H.</p>
+<p class="date">Created: 2021-04-17 Sat 18:35</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
