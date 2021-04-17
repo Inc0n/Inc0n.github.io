@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-04-17 Sat 21:34 -->
+<!-- 2021-04-17 Sat 21:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Computer Engineering Notes</title>
@@ -193,6 +193,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -262,11 +263,11 @@
 <li><a href="#orgf4462b7">1.5. Power considerations</a></li>
 <li><a href="#org274e653">1.6. Power signatures</a>
 <ul>
-<li><a href="#org51be1c5">1.6.1. Commentary</a></li>
+<li><a href="#orga811686">1.6.1. Commentary</a></li>
 </ul>
 </li>
 <li><a href="#org403b06f">1.7. Transmission line effects</a></li>
-<li><a href="#orgf9163ee">1.8. Background reading:</a></li>
+<li><a href="#org5268ad5">1.8. Background reading:</a></li>
 </ul>
 </li>
 <li><a href="#org8009deb">2. Micro-programming</a>
@@ -280,7 +281,7 @@
 <ul>
 <li><a href="#orgd98908a">2.6.1. Microengine</a></li>
 <li><a href="#org0ea9930">2.6.2. Microcoded Instructions</a></li>
-<li><a href="#org5268ad5">2.6.3. Background reading:</a></li>
+<li><a href="#org9d5d19d">2.6.3. Background reading:</a></li>
 </ul>
 </li>
 </ul>
@@ -400,7 +401,7 @@ Thermal cycling
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org881db63"></a>Commentary<br />
+<li><a id="org51be1c5"></a>Commentary<br />
 <div class="outline-text-5" id="text-1-5-0-1">
 <p>
 The electrical and thermal effects of such high energies in such a small area are truly horrendous, and will probably become one of the rate limiting problems that will halt the decrease in device geometry size. The intrinsic voltage drop of a semiconductor diode (which is a subcomponent of all transistors) is a few hundred millivolts for silicon. Using more esoteric materials can lower this - a bit -but lowering the headroom indefinitely is out of the question. Almost nothing behaves as we would like at these low voltages.It is instructive to look inside a "typical" computing box. Twenty years ago you could easily identify the principle building blocks of the machine: memory, processor, graphics cards and so on. Then the CPU got buried under massive fins and fans; nowadays most of the infrastructure in a reasonably powered machine is heat pipes and cooling subsystems.The "dark silicon" problem refers to an inability to remove heat from the silicon fast enough that in turn means that (significant) areas of silicon have to be powered down, simply because the power density associated with using all the real estate simultaneously will lead to system failure.The clock in a synchronous system synchronises not only information transfer and translation, but also power dissipation. An average dissipation of 180 W is bad enough, but a clock mark:space of 100:1 means that the transient power dissipation during the time slot when the clock is high will approach 18kW. The smoothing effects of the thermal capacitance in the equivalent thermal network -heat flow can be represented by a network: "across" is temperature, "through" is heat flow - mean that the thermal energy is pretty much averages, but the electrical input will feel the spikes.
@@ -422,8 +423,8 @@ Synchronous system dissipate energy at every clock edge.
 </p>
 </div>
 
-<div id="outline-container-org51be1c5" class="outline-4">
-<h4 id="org51be1c5"><span class="section-number-4">1.6.1</span> Commentary</h4>
+<div id="outline-container-orga811686" class="outline-4">
+<h4 id="orga811686"><span class="section-number-4">1.6.1</span> Commentary</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 It is possible - in certain very controlled conditions - to look at the power time history drawn by a circuit and make deductions about what is happening inside. This has obvious cryptographic applications, but the hype has far exceeded the practicality; although it has been demonstrated in laboratory conditions.A similar side-channel attack is possible on cathode-ray tube VDUs; it is possible, using relatively unsophisticated and cheap equipment, to reproduce the image on a CRT screen using a receiver on the other side of a wall. With the rise of flat screen VDUs, this issue has faded to irrelevance.As a side comment, TV detector vans operate(d) by exploiting the phenomenon whereby the internals of an analogue television set would radiate a copy of the screen image back up the aerial line. By using sensitive directional receivers, the licensing authority could triangulate (from the road - i.e. without setting foot on private property) whether - and what - a television was being used for. The advent of digital television has now made this impossible, so now the licensing authorities have to rely on other means.
@@ -453,8 +454,8 @@ In the limit, you can't even model interconnects as delays. A metal track separa
 </p>
 </div>
 </div>
-<div id="outline-container-orgf9163ee" class="outline-3">
-<h3 id="orgf9163ee"><span class="section-number-3">1.8</span> Background reading:</h3>
+<div id="outline-container-org5268ad5" class="outline-3">
+<h3 id="org5268ad5"><span class="section-number-3">1.8</span> Background reading:</h3>
 <div class="outline-text-3" id="text-1-8">
 <p>
 This section of the course tries to introduce the importance of the adjacency between the analogue and digital domains, and is not well covered in any computer architecture text; there is little to be found in any of the three textbooks we recommend.In the absence of any single place where these issues are bought together coherently and accessibly, we think the www has to be your friend, although a brief scan about indicates that - like so many other things - if you know what you're after, it's easy to find things, but if you don't, it's very easy to miss things.
@@ -736,8 +737,8 @@ Work your way through an example, using the method sketched out above, and then 
 </li>
 </ol>
 </div>
-<div id="outline-container-org5268ad5" class="outline-4">
-<h4 id="org5268ad5"><span class="section-number-4">2.6.3</span> Background reading:</h4>
+<div id="outline-container-org9d5d19d" class="outline-4">
+<h4 id="org9d5d19d"><span class="section-number-4">2.6.3</span> Background reading:</h4>
 <div class="outline-text-4" id="text-2-6-3">
 <p>
 Stallings: The chapter on Reduced Instruction Set Computers.
@@ -776,7 +777,7 @@ interconnecting components
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: D.H.</p>
-<p class="date">Created: 2021-04-17 Sat 21:34</p>
+<p class="date">Created: 2021-04-17 Sat 21:37</p>
 </div>
 </body>
 </html>
