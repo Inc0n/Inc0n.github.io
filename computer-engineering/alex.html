@@ -268,7 +268,7 @@
 <li><a href="#org93ba756">1.6.2. shift</a></li>
 </ul>
 </li>
-<li><a href="#orgdaafc4d">1.7. branch instructions</a>
+<li><a href="#org445f50c">1.7. branch instructions</a>
 <ul>
 <li><a href="#org9c1186c">1.7.1. branch if equal - beq rs, rt, L1</a></li>
 <li><a href="#orge68b108">1.7.2. branch if not equal - bne rs, rt, L1</a></li>
@@ -292,7 +292,7 @@
 <ul>
 <li><a href="#org03fa019">2.1. r-format instruction</a></li>
 <li><a href="#org7dbaa08">2.2. load/store instructions</a></li>
-<li><a href="#org5ed9705">2.3. branch instructions</a></li>
+<li><a href="#org0d19578">2.3. branch instructions</a></li>
 <li><a href="#org4ba6fe7">2.4. each data-path element can only do one function at a time</a></li>
 <li><a href="#org949ae4a">2.5. implement jumps</a></li>
 <li><a href="#org893e59f">2.6. data-path operation</a></li>
@@ -425,9 +425,9 @@
 <li><a href="#org204e2ed">7.1.4. I<sup>2</sup>C Bus</a></li>
 </ul>
 </li>
-<li><a href="#org1fc1b35">7.2. I/O Mapping</a>
+<li><a href="#org52907c6">7.2. I/O Mapping</a>
 <ul>
-<li><a href="#orgeff111d">7.2.1. I/O Mapping</a></li>
+<li><a href="#orgdc25010">7.2.1. I/O Mapping</a></li>
 <li><a href="#orgc33b42c">7.2.2. interfacing</a></li>
 <li><a href="#orgb931ebc">7.2.3. I/O command</a></li>
 <li><a href="#org332d35b">7.2.4. I/O Interface type</a></li>
@@ -498,7 +498,7 @@
 <div class="outline-text-3" id="text-1-1">
 <p>
 MIPS register 0 ($zero) is constant 0
-this can be useful to make design more compact 
+this can be useful to make design more compact
 add $t2, $s1, $zero # copy from $s1 to $t2, eliminate the copy command
 </p>
 </div>
@@ -608,7 +608,7 @@ addi $s3, $s3, 4
 </table>
 <p>
 op: operator
-rt: destination or source register number 
+rt: destination or source register number
 constant: -2^15 to +2^15-1
 </p>
 </div>
@@ -655,8 +655,8 @@ j for jump
 <h4 id="org93ba756"><span class="section-number-4">1.6.2</span> shift</h4>
 </div>
 </div>
-<div id="outline-container-orgdaafc4d" class="outline-3">
-<h3 id="orgdaafc4d"><span class="section-number-3">1.7</span> branch instructions</h3>
+<div id="outline-container-org445f50c" class="outline-3">
+<h3 id="org445f50c"><span class="section-number-3">1.7</span> branch instructions</h3>
 <div class="outline-text-3" id="text-1-7">
 </div>
 <div id="outline-container-org9c1186c" class="outline-4">
@@ -680,7 +680,7 @@ hardware slower for &ge;, &gt; slower than =, &ne;
 <li>all instruction penalised</li>
 </ul>
 <p>
-beq and bne are the common case 
+beq and bne are the common case
 good design compromise
 </p>
 </div>
@@ -699,7 +699,7 @@ unsigned comparison sltu, sltui
 <h3 id="org69900d2"><span class="section-number-3">1.9</span> 32 bit constants</h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
-lui rt, constant 
+lui rt, constant
 copies 16 bit constant to the left 16 bits of rt
 </p>
 </div>
@@ -711,9 +711,9 @@ copies 16 bit constant to the left 16 bits of rt
 <h3 id="orgcc97e05"><span class="section-number-3">1.11</span> memory layout</h3>
 <div class="outline-text-3" id="text-1-11">
 <ul class="org-ul">
-<li>stack and dynamic data 
+<li>stack and dynamic data
 <ul class="org-ul">
-<li>stack 
+<li>stack
 procedure (call) frame: saved register, saved argument, local argument
 local arguments</li>
 <li>dynamic data, heap
@@ -734,7 +734,7 @@ malloc</li>
 <h4 id="org12450ec"><span class="section-number-4">1.12.1</span> instructions</h4>
 <div class="outline-text-4" id="text-1-12-1">
 <ul class="org-ul">
-<li>call: jal ProcedureeLabel 
+<li>call: jal ProcedureeLabel
 <ul class="org-ul">
 <li>address of following instruction put in $ra</li>
 <li>jumps to target address</li>
@@ -762,9 +762,9 @@ leaf is non-recursive
 <h2 id="org569ccfa"><span class="section-number-2">2</span> Data-path</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-PC -&gt; instruction memory, fetch instruction 
-register numbers -&gt; register file, read registers 
-ALU calculate 
+PC -&gt; instruction memory, fetch instruction
+register numbers -&gt; register file, read registers
+ALU calculate
 </p>
 <ul class="org-ul">
 <li>arithmetic computation</li>
@@ -772,15 +772,15 @@ ALU calculate
 <li>branch target address</li>
 </ul>
 <p>
-elements that 
+elements that
 </p>
 </div>
 <div id="outline-container-org03fa019" class="outline-3">
 <h3 id="org03fa019"><span class="section-number-3">2.1</span> r-format instruction</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-read two register operands 
-perform arithmetic/logical operation 
+read two register operands
+perform arithmetic/logical operation
 write result back to register
 </p>
 </div>
@@ -790,29 +790,29 @@ write result back to register
 <div class="outline-text-3" id="text-2-2">
 <p>
 read register operands
-calculate address using 16-bit offset, which is signed extended to 32-bits to align with the addresses that are 32 bits 
+calculate address using 16-bit offset, which is signed extended to 32-bits to align with the addresses that are 32 bits
 load: read memory and update register
 store: write register value to memory
 </p>
 </div>
 </div>
-<div id="outline-container-org5ed9705" class="outline-3">
-<h3 id="org5ed9705"><span class="section-number-3">2.3</span> branch instructions</h3>
+<div id="outline-container-org0d19578" class="outline-3">
+<h3 id="org0d19578"><span class="section-number-3">2.3</span> branch instructions</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-read register operands 
-compare operands 
+read register operands
+compare operands
 </p>
 <ul class="org-ul">
 <li>use ALU, subtract and check zero output</li>
 </ul>
 <p>
-calculate target address 
+calculate target address
 </p>
 <ul class="org-ul">
 <li>sign extend displacement</li>
 <li>shift left 2 places</li>
-<li>add to pc + 4 
+<li>add to pc + 4
 <ul class="org-ul">
 <li>already calculated by instruction fetch</li>
 </ul></li>
@@ -826,8 +826,8 @@ calculate target address
 <h3 id="org949ae4a"><span class="section-number-3">2.5</span> implement jumps</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
-jump use word address 
-update pc with concatenation of 
+jump use word address
+update pc with concatenation of
 </p>
 <ul class="org-ul">
 <li>top 4 bits of old pc</li>
@@ -847,9 +847,9 @@ extra control signal to indicate this is a jump signal
 read next instruction from memory (pointed by PC), store in instruction register (IR)</li>
 <li>inst. decode (ID)
 setup control signal inc, register addresses, ALU function</li>
-<li>Execute (EX) 
+<li>Execute (EX)
 Use ALU to compute result or address</li>
-<li>Memory (MEM) 
+<li>Memory (MEM)
 access memory (read or write), if applicable</li>
 <li>Write back (WB)
 write result of function back to register, if applicable</li>
@@ -1936,12 +1936,12 @@ multi-drop bus protocol
 </div>
 </div>
 </div>
-<div id="outline-container-org1fc1b35" class="outline-3">
-<h3 id="org1fc1b35"><span class="section-number-3">7.2</span> I/O Mapping</h3>
+<div id="outline-container-org52907c6" class="outline-3">
+<h3 id="org52907c6"><span class="section-number-3">7.2</span> I/O Mapping</h3>
 <div class="outline-text-3" id="text-7-2">
 </div>
-<div id="outline-container-orgeff111d" class="outline-4">
-<h4 id="orgeff111d"><span class="section-number-4">7.2.1</span> I/O Mapping</h4>
+<div id="outline-container-orgdc25010" class="outline-4">
+<h4 id="orgdc25010"><span class="section-number-4">7.2.1</span> I/O Mapping</h4>
 <div class="outline-text-4" id="text-7-2-1">
 <ul class="org-ul">
 <li>Memory mapped I/O
@@ -2162,14 +2162,29 @@ Total number of operations: \(10 + 10\times10 = 110\)
 ( Speed up from 10 to 100 proecssors )
 </p>
 <ul class="org-ul">
-<li>single processor time:
-\(\text{Time} = (10 + 100) \times t_{\text{add}}\)</li>
-<li>10 processors 
-\(t = 10 \times t_{\text{add}} + 100/10 \times t_{\text{add}} = 20 \times t_{\text{add}\)}
-Speedup = 110/20 = 5.5 (55% of potential)</li>
-<li>100 processors 
+<li><p>
+single processor time:
+</p>
+
+<p>
+\(\text{Time} = (10 + 100) \times t_{\text{add}}\)
+</p></li>
+<li><p>
+10 processors 
+</p>
+
+<p>
+\(t = 10 \times t_{\text{add}} + 100/10 \times t_{\text{add}} = 20 \times t_{\text{add}}\)
+Speedup = 110/20 = 5.5 (55% of potential)
+</p></li>
+<li><p>
+100 processors 
+</p>
+
+<p>
 \(t = 10 \times t_{\text{add}} + 100/100 \times t_{\text{add}} = 11 \times t_{\text{add}}\)
-Speedup = 110/11 = 10 (10% of potential)</li>
+Speedup = 110/11 = 10 (10% of potential)
+</p></li>
 </ul>
 </div>
 </div>
@@ -2182,14 +2197,29 @@ Assume load can be balanced across processors
 Total number of operations: \(10 + 100\times100 = 10010\)
 </p>
 <ul class="org-ul">
-<li>single processor time:
-\(\text{Time} = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}}\)</li>
-<li>10 processors 
-\(t = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}} = 1010 \times t_{\text{add}\)}
-Speedup = 10010/1010 = 9.9 (99% of potential)</li>
-<li>100 processors 
+<li><p>
+single processor time:
+</p>
+
+<p>
+\(\text{Time} = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}}\)
+</p></li>
+<li><p>
+10 processors 
+</p>
+
+<p>
+\(t = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}} = 1010 \times t_{\text{add}}\)
+Speedup = 10010/1010 = 9.9 (99% of potential)
+</p></li>
+<li><p>
+100 processors 
+</p>
+
+<p>
 \(t = 10 \times t_{\text{add}} + 10000/100 \times t_{\text{add}} = 110 \times t_{\text{add}}\)
-Speedup = 10010/110 = 91 (91&amp; of potential)</li>
+Speedup = 10010/110 = 91 (91&amp; of potential)
+</p></li>
 </ul>
 </div>
 </div>

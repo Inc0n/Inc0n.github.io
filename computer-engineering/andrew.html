@@ -261,11 +261,11 @@
 <li><a href="#orgf4462b7">1.5. Power considerations</a></li>
 <li><a href="#org274e653">1.6. Power signatures</a>
 <ul>
-<li><a href="#org140c69c">1.6.1. Commentary</a></li>
+<li><a href="#org6914642">1.6.1. Commentary</a></li>
 </ul>
 </li>
 <li><a href="#org403b06f">1.7. Transmission line effects</a></li>
-<li><a href="#orge80649d">1.8. Background reading:</a></li>
+<li><a href="#org72ad738">1.8. Background reading:</a></li>
 </ul>
 </li>
 <li><a href="#org8009deb">2. Micro-programming</a>
@@ -279,7 +279,7 @@
 <ul>
 <li><a href="#orgd98908a">2.6.1. Microengine</a></li>
 <li><a href="#org0ea9930">2.6.2. Microcoded Instructions</a></li>
-<li><a href="#org72ad738">2.6.3. Background reading:</a></li>
+<li><a href="#org326a96c">2.6.3. Background reading:</a></li>
 </ul>
 </li>
 </ul>
@@ -337,7 +337,7 @@ Signals take time to propagate, the clock is sync on all parts of the circuit.
 </p>
 <ul class="org-ul">
 <li>time &prop; wire length</li>
-<li>difficult to control or predict 
+<li>difficult to control or predict
 Much like water in a pipe electricity bounce off the wire</li>
 </ul>
 </div>
@@ -345,7 +345,7 @@ Much like water in a pipe electricity bounce off the wire</li>
 <h4 id="org1b23fe0"><span class="section-number-4">1.3.1</span> How/why does this happen?</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
-In a large system, a single clock may not have sufficient fanout to drive all the necessary devices, so it becomes necessary to provide copies of the clock. Creating these copies implies buffers, and buffering causes delays, which are load dependent as well as electrical load sensitive. (Recall the lectures on realisation of Boolean algebra as digital circuits.)A number of techniques may be employed to address this:Shear balancing:We don't know what the skew will be, and we can't control it or predict it, but we can make sure that it's the same all over, so there will be no net skew. Ensuring that the physical layout of the clock tree is temporally (geometrically) symmetrical is one way of achieving this.Globally asynchronous, locally synchronous (GALS):Small, localised islands of logic are driven from a single clock. The islands are sufficiently small that clock skew is negligible, or at any rate can be comfortable accommodated. The individual islands communicate with each other via a fully asynchronous protocol, so there is no inter-island clock to skew anyway.Fully asynchronous systems:There is no notion of clock, global or otherwise. The propagation of information through the system is entirely data-driven, via a series of backward-facing data-ready/acknowledge signals. Asynchronous design is extremely difficult, and probably for this reason alone is not widespread. There is a vicious circle of EDA tool development: everyone agrees that the techniques are too complex for manual design. The tools don't exist, so no-one attempts development. Tool vendors are unwilling to make the development investment because there is no extant market for the technology. 
+In a large system, a single clock may not have sufficient fanout to drive all the necessary devices, so it becomes necessary to provide copies of the clock. Creating these copies implies buffers, and buffering causes delays, which are load dependent as well as electrical load sensitive. (Recall the lectures on realisation of Boolean algebra as digital circuits.)A number of techniques may be employed to address this:Shear balancing:We don't know what the skew will be, and we can't control it or predict it, but we can make sure that it's the same all over, so there will be no net skew. Ensuring that the physical layout of the clock tree is temporally (geometrically) symmetrical is one way of achieving this.Globally asynchronous, locally synchronous (GALS):Small, localised islands of logic are driven from a single clock. The islands are sufficiently small that clock skew is negligible, or at any rate can be comfortable accommodated. The individual islands communicate with each other via a fully asynchronous protocol, so there is no inter-island clock to skew anyway.Fully asynchronous systems:There is no notion of clock, global or otherwise. The propagation of information through the system is entirely data-driven, via a series of backward-facing data-ready/acknowledge signals. Asynchronous design is extremely difficult, and probably for this reason alone is not widespread. There is a vicious circle of EDA tool development: everyone agrees that the techniques are too complex for manual design. The tools don't exist, so no-one attempts development. Tool vendors are unwilling to make the development investment because there is no extant market for the technology.
 </p>
 </div>
 </div>
@@ -369,7 +369,7 @@ injecting current at point causes local "ground" potential to rise transiently u
 </p>
 
 <p>
-Think of the substrate not as a universal conducting sheet, but instead as a very fine grained mesh of discrete, non-zero valued resistors. (Which is almost what it is.) If you 'ground' one edge of the sheet -or a few discrete points on it, and inject current into some other part, the current will flow through the mesh from the point of injection towards the grounded points. Current flow through resistors generates voltage, and as one end of the current path is grounded, the consequence is a local rise in potential of the grid at the point at which the current is injected.As the grid is strongly two-dimensionally connected, the potential of the vertices on the grid not directly on the path between injection and drain will also rise. Depending on the layout geometry, signals that are hugely separate topologically can affect each other; typically '0' can transiently turn into '1', depending on the physically adjacent data traffic.The silicon substrate has an intrinsic resistance, and with power levels continually rising and logic voltages falling (there goes the noise margin), this becomes a more and more serious problem.A further effect is known as metal migration. This is the tendency of metallic ions to migrate in the direction of current flow - the electrons physically collide with the metal ions and 'knock them along'. The effect is current density dependent, and because the current density is greater in a thinned track, the net effect will be to continue to thin the track, so the process, once started, will continue with greater and greater effect because an unstable positive feedback loop develops. The effect is less of a problem in CMOS circuits than bipolar because the current levels tend to be lower, although the current levels at which this becomes a problem are not high: typically uA/um2. 
+Think of the substrate not as a universal conducting sheet, but instead as a very fine grained mesh of discrete, non-zero valued resistors. (Which is almost what it is.) If you 'ground' one edge of the sheet -or a few discrete points on it, and inject current into some other part, the current will flow through the mesh from the point of injection towards the grounded points. Current flow through resistors generates voltage, and as one end of the current path is grounded, the consequence is a local rise in potential of the grid at the point at which the current is injected.As the grid is strongly two-dimensionally connected, the potential of the vertices on the grid not directly on the path between injection and drain will also rise. Depending on the layout geometry, signals that are hugely separate topologically can affect each other; typically '0' can transiently turn into '1', depending on the physically adjacent data traffic.The silicon substrate has an intrinsic resistance, and with power levels continually rising and logic voltages falling (there goes the noise margin), this becomes a more and more serious problem.A further effect is known as metal migration. This is the tendency of metallic ions to migrate in the direction of current flow - the electrons physically collide with the metal ions and 'knock them along'. The effect is current density dependent, and because the current density is greater in a thinned track, the net effect will be to continue to thin the track, so the process, once started, will continue with greater and greater effect because an unstable positive feedback loop develops. The effect is less of a problem in CMOS circuits than bipolar because the current levels tend to be lower, although the current levels at which this becomes a problem are not high: typically uA/um2.
 </p>
 </div>
 </div>
@@ -381,13 +381,13 @@ Think of the substrate not as a universal conducting sheet, but instead as a ver
 Getting 200A of electrical current into a system where the PC line-widths are &lt; 1mm
 Getting 180W of thermal power out of a system &lt; 100mm^2.
 Generateing 900mV at 200A
-Absolute thermal effects 
+Absolute thermal effects
 </p>
 <ul class="org-ul">
 <li>physical destruction</li>
 </ul>
 <p>
-Relative thermal effects 
+Relative thermal effects
 </p>
 <ul class="org-ul">
 <li>unbalancing matched component</li>
@@ -395,11 +395,11 @@ Relative thermal effects
 <li>decreased MTBF</li>
 </ul>
 <p>
-Thermal cycling 
+Thermal cycling
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org37c19b2"></a>Commentary<br />
+<li><a id="org140c69c"></a>Commentary<br />
 <div class="outline-text-5" id="text-1-5-0-1">
 <p>
 The electrical and thermal effects of such high energies in such a small area are truly horrendous, and will probably become one of the rate limiting problems that will halt the decrease in device geometry size. The intrinsic voltage drop of a semiconductor diode (which is a subcomponent of all transistors) is a few hundred millivolts for silicon. Using more esoteric materials can lower this - a bit -but lowering the headroom indefinitely is out of the question. Almost nothing behaves as we would like at these low voltages.It is instructive to look inside a "typical" computing box. Twenty years ago you could easily identify the principle building blocks of the machine: memory, processor, graphics cards and so on. Then the CPU got buried under massive fins and fans; nowadays most of the infrastructure in a reasonably powered machine is heat pipes and cooling subsystems.The "dark silicon" problem refers to an inability to remove heat from the silicon fast enough that in turn means that (significant) areas of silicon have to be powered down, simply because the power density associated with using all the real estate simultaneously will lead to system failure.The clock in a synchronous system synchronises not only information transfer and translation, but also power dissipation. An average dissipation of 180 W is bad enough, but a clock mark:space of 100:1 means that the transient power dissipation during the time slot when the clock is high will approach 18kW. The smoothing effects of the thermal capacitance in the equivalent thermal network -heat flow can be represented by a network: "across" is temperature, "through" is heat flow - mean that the thermal energy is pretty much averages, but the electrical input will feel the spikes.
@@ -421,8 +421,8 @@ Synchronous system dissipate energy at every clock edge.
 </p>
 </div>
 
-<div id="outline-container-org140c69c" class="outline-4">
-<h4 id="org140c69c"><span class="section-number-4">1.6.1</span> Commentary</h4>
+<div id="outline-container-org6914642" class="outline-4">
+<h4 id="org6914642"><span class="section-number-4">1.6.1</span> Commentary</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 It is possible - in certain very controlled conditions - to look at the power time history drawn by a circuit and make deductions about what is happening inside. This has obvious cryptographic applications, but the hype has far exceeded the practicality; although it has been demonstrated in laboratory conditions.A similar side-channel attack is possible on cathode-ray tube VDUs; it is possible, using relatively unsophisticated and cheap equipment, to reproduce the image on a CRT screen using a receiver on the other side of a wall. With the rise of flat screen VDUs, this issue has faded to irrelevance.As a side comment, TV detector vans operate(d) by exploiting the phenomenon whereby the internals of an analogue television set would radiate a copy of the screen image back up the aerial line. By using sensitive directional receivers, the licensing authority could triangulate (from the road - i.e. without setting foot on private property) whether - and what - a television was being used for. The advent of digital television has now made this impossible, so now the licensing authorities have to rely on other means.
@@ -436,7 +436,7 @@ It is possible - in certain very controlled conditions - to look at the power ti
 <p>
 Interconnects are unidirectional, instantaneous, iso-potential structures. THEY ARE NOT.
 they are more like a network of open guttering of watering at one point and come out the other.
-Charge propagates at edges: Like a water wave 
+Charge propagates at edges: Like a water wave
 </p>
 <ul class="org-ul">
 <li>the edges spreads out with time and distrance (a pulse can disappear)</li>
@@ -444,7 +444,7 @@ Charge propagates at edges: Like a water wave
 </ul>
 <p>
 Ground bounce can "tilt" parts of the network physically adjacent (that may or may not be electrically connected)
-Propagating edges can 
+Propagating edges can
 </p>
 
 <p>
@@ -452,8 +452,8 @@ In the limit, you can't even model interconnects as delays. A metal track separa
 </p>
 </div>
 </div>
-<div id="outline-container-orge80649d" class="outline-3">
-<h3 id="orge80649d"><span class="section-number-3">1.8</span> Background reading:</h3>
+<div id="outline-container-org72ad738" class="outline-3">
+<h3 id="org72ad738"><span class="section-number-3">1.8</span> Background reading:</h3>
 <div class="outline-text-3" id="text-1-8">
 <p>
 This section of the course tries to introduce the importance of the adjacency between the analogue and digital domains, and is not well covered in any computer architecture text; there is little to be found in any of the three textbooks we recommend.In the absence of any single place where these issues are bought together coherently and accessibly, we think the www has to be your friend, although a brief scan about indicates that - like so many other things - if you know what you're after, it's easy to find things, but if you don't, it's very easy to miss things.
@@ -735,8 +735,8 @@ Work your way through an example, using the method sketched out above, and then 
 </li>
 </ol>
 </div>
-<div id="outline-container-org72ad738" class="outline-4">
-<h4 id="org72ad738"><span class="section-number-4">2.6.3</span> Background reading:</h4>
+<div id="outline-container-org326a96c" class="outline-4">
+<h4 id="org326a96c"><span class="section-number-4">2.6.3</span> Background reading:</h4>
 <div class="outline-text-4" id="text-2-6-3">
 <p>
 Stallings: The chapter on Reduced Instruction Set Computers.

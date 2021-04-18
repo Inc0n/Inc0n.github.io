@@ -299,10 +299,10 @@
 <li><a href="#orgd97cb03">3.2.7. Why more registers</a></li>
 </ul>
 </li>
-<li><a href="#org094198d">3.3. Endianness</a>
+<li><a href="#org9d8d218">3.3. Endianness</a>
 <ul>
 <li><a href="#org365b262">3.3.1. Alignment</a></li>
-<li><a href="#org4bc288e">3.3.2. Endianness</a></li>
+<li><a href="#org094198d">3.3.2. Endianness</a></li>
 </ul>
 </li>
 <li><a href="#org49a54ae">3.4. Addressing</a>
@@ -748,15 +748,15 @@ Special values
 <h3 id="org039ce67"><span class="section-number-3">2.3</span> Trade offs</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-Logic gates and wires are actually analogue component 
+Logic gates and wires are actually analogue component
 </p>
 </div>
 <div id="outline-container-org2d766cc" class="outline-4">
 <h4 id="org2d766cc"><span class="section-number-4">2.3.1</span> Gate delay</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <p>
-Depends on gate type 
-Depends on signal value 
+Depends on gate type
+Depends on signal value
 Depends on load
 We can model delay as a constant
 </p>
@@ -766,7 +766,7 @@ We can model delay as a constant
 <h4 id="orgf59b75f"><span class="section-number-4">2.3.2</span> Glitch Generator</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
-Pulse generator 
+Pulse generator
 </p>
 </div>
 </div>
@@ -803,7 +803,7 @@ Delay proportional to n
 <p>
 Size proportional to n<sup>2</sup>
 Delay constant
-G = AB 
+G = AB
 P = A &oplus; B
 C<sub>out</sub> = PC<sub>in</sub> + G
 </p>
@@ -1231,8 +1231,8 @@ Smaller code size &rarr; faster loading
 </div>
 </div>
 
-<div id="outline-container-org094198d" class="outline-3">
-<h3 id="org094198d"><span class="section-number-3">3.3</span> Endianness</h3>
+<div id="outline-container-org9d8d218" class="outline-3">
+<h3 id="org9d8d218"><span class="section-number-3">3.3</span> Endianness</h3>
 <div class="outline-text-3" id="text-3-3">
 </div>
 <div id="outline-container-org365b262" class="outline-4">
@@ -1246,8 +1246,8 @@ An access to an object of size s at address A is aligned if A%s = 0
 </div>
 </div>
 
-<div id="outline-container-org4bc288e" class="outline-4">
-<h4 id="org4bc288e"><span class="section-number-4">3.3.2</span> Endianness</h4>
+<div id="outline-container-org094198d" class="outline-4">
+<h4 id="org094198d"><span class="section-number-4">3.3.2</span> Endianness</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 Encoding 0x12345678 in memory:
