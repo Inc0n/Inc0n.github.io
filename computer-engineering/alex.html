@@ -268,7 +268,7 @@
 <li><a href="#org93ba756">1.6.2. shift</a></li>
 </ul>
 </li>
-<li><a href="#org445f50c">1.7. branch instructions</a>
+<li><a href="#orgaece190">1.7. branch instructions</a>
 <ul>
 <li><a href="#org9c1186c">1.7.1. branch if equal - beq rs, rt, L1</a></li>
 <li><a href="#orge68b108">1.7.2. branch if not equal - bne rs, rt, L1</a></li>
@@ -292,7 +292,7 @@
 <ul>
 <li><a href="#org03fa019">2.1. r-format instruction</a></li>
 <li><a href="#org7dbaa08">2.2. load/store instructions</a></li>
-<li><a href="#org0d19578">2.3. branch instructions</a></li>
+<li><a href="#orge54a8aa">2.3. branch instructions</a></li>
 <li><a href="#org4ba6fe7">2.4. each data-path element can only do one function at a time</a></li>
 <li><a href="#org949ae4a">2.5. implement jumps</a></li>
 <li><a href="#org893e59f">2.6. data-path operation</a></li>
@@ -425,9 +425,9 @@
 <li><a href="#org204e2ed">7.1.4. I<sup>2</sup>C Bus</a></li>
 </ul>
 </li>
-<li><a href="#org52907c6">7.2. I/O Mapping</a>
+<li><a href="#org4534961">7.2. I/O Mapping</a>
 <ul>
-<li><a href="#orgdc25010">7.2.1. I/O Mapping</a></li>
+<li><a href="#org45511f6">7.2.1. I/O Mapping</a></li>
 <li><a href="#orgc33b42c">7.2.2. interfacing</a></li>
 <li><a href="#orgb931ebc">7.2.3. I/O command</a></li>
 <li><a href="#org332d35b">7.2.4. I/O Interface type</a></li>
@@ -655,8 +655,8 @@ j for jump
 <h4 id="org93ba756"><span class="section-number-4">1.6.2</span> shift</h4>
 </div>
 </div>
-<div id="outline-container-org445f50c" class="outline-3">
-<h3 id="org445f50c"><span class="section-number-3">1.7</span> branch instructions</h3>
+<div id="outline-container-orgaece190" class="outline-3">
+<h3 id="orgaece190"><span class="section-number-3">1.7</span> branch instructions</h3>
 <div class="outline-text-3" id="text-1-7">
 </div>
 <div id="outline-container-org9c1186c" class="outline-4">
@@ -796,8 +796,8 @@ store: write register value to memory
 </p>
 </div>
 </div>
-<div id="outline-container-org0d19578" class="outline-3">
-<h3 id="org0d19578"><span class="section-number-3">2.3</span> branch instructions</h3>
+<div id="outline-container-orge54a8aa" class="outline-3">
+<h3 id="orge54a8aa"><span class="section-number-3">2.3</span> branch instructions</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 read register operands
@@ -861,7 +861,7 @@ write result of function back to register, if applicable</li>
 <h3 id="org07cc711"><span class="section-number-3">2.7</span> performance of single-cycle processor</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
-performance of single-cycle processor constrained by slowest instruction 
+performance of single-cycle processor constrained by slowest instruction
 </p>
 </div>
 <div id="outline-container-org9b690ce" class="outline-4">
@@ -1936,12 +1936,12 @@ multi-drop bus protocol
 </div>
 </div>
 </div>
-<div id="outline-container-org52907c6" class="outline-3">
-<h3 id="org52907c6"><span class="section-number-3">7.2</span> I/O Mapping</h3>
+<div id="outline-container-org4534961" class="outline-3">
+<h3 id="org4534961"><span class="section-number-3">7.2</span> I/O Mapping</h3>
 <div class="outline-text-3" id="text-7-2">
 </div>
-<div id="outline-container-orgdc25010" class="outline-4">
-<h4 id="orgdc25010"><span class="section-number-4">7.2.1</span> I/O Mapping</h4>
+<div id="outline-container-org45511f6" class="outline-4">
+<h4 id="org45511f6"><span class="section-number-4">7.2.1</span> I/O Mapping</h4>
 <div class="outline-text-4" id="text-7-2-1">
 <ul class="org-ul">
 <li>Memory mapped I/O
@@ -2165,26 +2165,23 @@ Total number of operations: \(10 + 10\times10 = 110\)
 <li><p>
 single processor time:
 </p>
-
-<p>
-\(\text{Time} = (10 + 100) \times t_{\text{add}}\)
-</p></li>
+\begin{equation*}
+ \text{Time} = (10 + 100) \times t_{\text{add}}
+\end{equation*}</li>
 <li><p>
 10 processors 
 </p>
-
-<p>
-\(t = 10 \times t_{\text{add}} + 100/10 \times t_{\text{add}} = 20 \times t_{\text{add}}\)
-Speedup = 110/20 = 5.5 (55% of potential)
-</p></li>
+\begin{align*}
+t = 10 \times t_{\text{add}} + \frac{100}{10} \times t_{\text{add}} = 20 \times t_{\text{add}} \\  
+\text{Speedup} = \frac{110}{20} = 5.5 (55\% \text{ of potential})
+\end{align*}</li>
 <li><p>
 100 processors 
 </p>
-
-<p>
-\(t = 10 \times t_{\text{add}} + 100/100 \times t_{\text{add}} = 11 \times t_{\text{add}}\)
-Speedup = 110/11 = 10 (10% of potential)
-</p></li>
+\begin{align*}
+ t = 10 \times t_{\text{add}} + 100/100 \times t_{\text{add}} = 11 \times t_{\text{add}} \\  
+ \text{Speedup} = 110/11 = 10 (10\% \text{ of potential})
+\end{align*}</li>
 </ul>
 </div>
 </div>
@@ -2200,26 +2197,23 @@ Total number of operations: \(10 + 100\times100 = 10010\)
 <li><p>
 single processor time:
 </p>
-
-<p>
-\(\text{Time} = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}}\)
-</p></li>
+\begin{equation*}
+  \text{Time} = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}}  
+\end{equation*}</li>
 <li><p>
-10 processors 
+10 processors
 </p>
-
-<p>
-\(t = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}} = 1010 \times t_{\text{add}}\)
-Speedup = 10010/1010 = 9.9 (99% of potential)
-</p></li>
+\begin{equation*}
+  t = 10 \times t_{\text{add}} + 10000/10 \times t_{\text{add}} = 1010 \times t_{\text{add}} \\
+  \text{Speedup} = 10010/1010 = 9.9 (99\% \text{ of potential})
+\end{equation*}</li>
 <li><p>
-100 processors 
+100 processors
 </p>
-
-<p>
-\(t = 10 \times t_{\text{add}} + 10000/100 \times t_{\text{add}} = 110 \times t_{\text{add}}\)
-Speedup = 10010/110 = 91 (91&amp; of potential)
-</p></li>
+\begin{align*}
+  t = 10 \times t_{\text{add}} + 10000/100 \times t_{\text{add}} = 110 \times t_{\text{add}} \\
+  \text{Speedup} = 10010/110 = 91 (91\% \text{ of potential})
+\end{align*}</li>
 </ul>
 </div>
 </div>
