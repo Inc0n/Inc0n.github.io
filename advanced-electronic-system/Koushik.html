@@ -1,0 +1,1572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb0fb6b0">1. BJT</a>
+<ul>
+<li><a href="#org27c4a63">1.1. bias circuit</a></li>
+<li><a href="#org0cbddd5">1.2. simple bias circuit</a></li>
+<li><a href="#org5690d9c">1.3. small signal analysis of CE amplifier</a></li>
+</ul>
+</li>
+<li><a href="#orgd734910">2. Frequency response of CE Amplifier</a>
+<ul>
+<li><a href="#orgdc9a0ae">2.1. Lower frequency response of a CE amplifier</a></li>
+<li><a href="#org4668505">2.2. The effect of the emitter capacitor C<sub>E</sub></a></li>
+<li><a href="#orgf5bd571">2.3. Choosing Coupling and Emitter Decoupling Capacitors</a></li>
+<li><a href="#org978ac46">2.4. Numerical example</a></li>
+</ul>
+</li>
+<li><a href="#org86eca62">3. Upper cutoff frequency</a>
+<ul>
+<li><a href="#org0bda9d2">3.1. Model</a></li>
+<li><a href="#orgf7703ae">3.2. The Miller effect</a></li>
+<li><a href="#orgc968b01">3.3. Modified circuit for CE amplifier</a></li>
+<li><a href="#org64f2d63">3.4. Upper 3db Bandwidth</a></li>
+<li><a href="#org10fb503">3.5. Full small-signal equivalent circuit and the Miller approx</a></li>
+<li><a href="#orgb8fae52">3.6. Example</a></li>
+</ul>
+</li>
+<li><a href="#org1ebbf16">4. Common emitter amplifier</a>
+<ul>
+<li><a href="#org982fe55">4.1. Common base amplifier</a>
+<ul>
+<li><a href="#org58f504d">4.1.1. High frequency model</a></li>
+</ul>
+</li>
+<li><a href="#orgd2fc8b0">4.2. Common collector amplifier (Emitter Follower)</a>
+<ul>
+<li><a href="#org4fa39cf">4.2.1. The effect of bias resistors and the source resistors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6043c32">5. Long tailed pair</a>
+<ul>
+<li><a href="#org49f5e70">5.1. Large signal analysis</a></li>
+<li><a href="#org3965227">5.2. DC Analysis</a></li>
+<li><a href="#org12c055f">5.3. The merits of the Long Tailed Pair</a></li>
+</ul>
+</li>
+<li><a href="#org6f3ad3d">6. Feedback amplifier</a>
+<ul>
+<li><a href="#org47171b1">6.1. What is feedback</a></li>
+<li><a href="#orgb0bd1e4">6.2. Why should we do this?</a></li>
+<li><a href="#orga57eb33">6.3. The ideal feedback equation</a>
+<ul>
+<li><a href="#orgb53e939">6.3.1. terminology</a></li>
+</ul>
+</li>
+<li><a href="#org4ce7f22">6.4. Gain sensitivity</a></li>
+<li><a href="#org4fc5d1e">6.5. Reduction of distortion</a></li>
+<li><a href="#org328bf96">6.6. Feedback configuration</a>
+<ul>
+<li><a href="#orgfe8e333">6.6.1. Series voltage or Series shunt</a></li>
+<li><a href="#orgcafc752">6.6.2. Series voltage configuration</a></li>
+<li><a href="#orgdeb5b0c">6.6.3. Shunt voltage or Shunt shunt</a></li>
+<li><a href="#org681cda9">6.6.4. Series current</a></li>
+<li><a href="#org20a60ff">6.6.5. Shunt current</a></li>
+<li><a href="#orgcd2ea1a">6.6.6. Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgfd01f01">7. Effects of Negative Feedback</a>
+<ul>
+<li><a href="#org6728bd6">7.1. Effect of the negative feedback on bandwidth</a></li>
+<li><a href="#orgf5e3e2b">7.2. The stability of Feedback amplifiers</a></li>
+<li><a href="#orgd535777">7.3. Op-amp</a></li>
+<li><a href="#org64cb536">7.4. Simplified Estimation of Gain</a></li>
+<li><a href="#orge541257">7.5. Compensation</a></li>
+<li><a href="#org3b3c961">7.6. Dominant pole compensation.</a></li>
+<li><a href="#org0b58262">7.7. slew rate</a></li>
+<li><a href="#org03eeb9e">7.8. Limitation of Op-amp</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb0fb6b0" class="outline-2">
+<h2 id="orgb0fb6b0"><span class="section-number-2">1</span> BJT</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org27c4a63" class="outline-3">
+<h3 id="org27c4a63"><span class="section-number-3">1.1</span> bias circuit</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+as temperature changes V_BE varies
+</p>
+</div>
+</div>
+<div id="outline-container-org0cbddd5" class="outline-3">
+<h3 id="org0cbddd5"><span class="section-number-3">1.2</span> simple bias circuit</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+feedback circuit
+potential divider bias circuit
+</p>
+</div>
+</div>
+<div id="outline-container-org5690d9c" class="outline-3">
+<h3 id="org5690d9c"><span class="section-number-3">1.3</span> small signal analysis of CE amplifier</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+where gain is most important. mid band region.
+In this region C<sub>1</sub>, C<sub>2</sub>, C<sub>E</sub> would not have much impact and treated as shorted
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd734910" class="outline-2">
+<h2 id="orgd734910"><span class="section-number-2">2</span> Frequency response of CE Amplifier</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Okay guys so if our last lecture we have seen that how we can fix the bias resistances, and also we find out the gain of our amplifier in the mid band range, this is very important for us, because mid band range is on the frequency range over which we want my gains to be constant, so that we can have a nice operation.
+</p>
+
+<p>
+At high frequency the frequency response of an amplifier
+</p>
+
+<p>
+Carefully choose capacitance, that our lower frequency of interest falls into our mid band range.
+At the high frequency range the cutoff of this high frequency range is actually defined by parasitic capacitors those capacitors as we already seen, C<sub>&pi;</sub> C<sub>&mu;</sub> etc, that needs different types of mathematical treatment. (next lecture)
+Today's lecture, we are mainly concerned with defining the boundaries of the mid-band-range, and how we can choose the values of coupling and de-coupling resistors for selecting the lower boundary, to do this we must go for frequency analysis, which is typically done in s-plane (the complex frequency plane), we must do the mathematical treatment in a different way. 
+</p>
+
+<p>
+Coupling capacitors are used to allow AC signals to pass from one stage to another while blocking DC voltage.
+Coupling capacitors are used between stages.
+</p>
+</div>
+<div id="outline-container-orgdc9a0ae" class="outline-3">
+<h3 id="orgdc9a0ae"><span class="section-number-3">2.1</span> Lower frequency response of a CE amplifier</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The same hybrid pi model, to simplify the mathematical equations. The coupling capacitors C<sub>1</sub> and C<sub>2</sub> will be considered separately from the emitter de-coupling capacitors C<sub>E</sub>.
+</p>
+
+<p>
+Traditional hybrid pi model to a <b>2 port model of the amplifier</b>.
+</p>
+
+<p>
+By frequency response, we want to find out how the gain is varying over the different frequency. With the frequency response we can find out at what frequency gain is falling out, this would the starting point of the mid-band, lower frequency.
+</p>
+\begin{align*}
+  \frac{V_{o}(f)}{V_{i}(f)}
+\end{align*}
+
+<p>
+We can find out the input voltage and the output voltage and their division as the gain.
+</p>
+
+<p>
+<b>Considering the input circuit</b> separately. In frequency analysis everything needs to be in s-plane.
+</p>
+
+<p>
+Now we have our input source in terms of S, the impedance of a capacitor is \(\frac{1}{CS}\). The first circuit has a very simple voltage divider structure, and the input voltage is the voltage across \(R_{in}\). 
+</p>
+\begin{align*}
+  V_{in}(s) &= \frac{R_{in}V_s(s)}{R_{in}+R_{s}+\frac{1}{C_{1}s}} \\
+         &= \frac{C_{1}sR_{in}V_s(s)}{1+C_{1}s(R_s+R_{in})}
+\end{align*}
+<p>
+The output side of the circuit. The output voltage is also called by convention the load voltage that is across the load resistance.
+</p>
+\begin{align*}
+  V_{out}(s) &= \frac{R_{I}AV_s(s)}{R_{I}+R_{out}+\frac{1}{C_{2}s}} \\
+         &= \frac{C_{1}sR_{out}AV_{in}(s)}{1+C_{2}s(R_I+R_{out})}
+\end{align*}
+
+<p>
+Combining these equations, the <b>amplifier gain</b> is given by:
+</p>
+\begin{align*}
+  A(S) = \frac{V_L}{V_S} = \frac{s\tau_{in}}{1+s\tau_{in}}\frac{s\tau_{out}}{1+s\tau_{out}}A_m
+\end{align*}
+<p>
+Where \(A_m\) is the mid-band gain given by
+</p>
+\begin{align*}
+  A_m = \frac{R_{in}}{R_{in}+R_S}\frac{R_I}{R_I+R_{out}}A
+\end{align*}
+<p>
+and \(\tau_{in}, \tau_{out}\) are given by
+</p>
+\begin{align*}
+  \tau_{in} &= C_1(R_s+R_{in}) \\
+  \tau_{out }&= C_2(R_{out}+R_{in}) \\
+\end{align*}
+<p>
+We are simplifying the equation with the time constants.
+</p>
+
+<p>
+Looking at the response, we don't have any zeroes. There are two different poles, which are -1/&tau;<sub>in</sub> and -1/&tau;<sub>out</sub>.
+</p>
+
+<p>
+To find the gain function at a frequency f, replace s by \(2\pi fj\). The magnitude and phase form:
+</p>
+\begin{align*}
+  |A(s)| &= \left|\frac{j2\pi f\tau_{in}}{1+j2\pi f\tau_{in}}\right|\left|\frac{j2\pi f\tau_{out}}{1+j2\pi f\tau_{out}}\right|A_m \\
+  \angle A(s) &= \angle\left(\frac{j2\pi f\tau_{in}}{1+j2\pi f\tau_{in}}\right)+\angle\left(\frac{j2\pi f\tau_{out}}{1+j2\pi f\tau_{out}}\right) \\
+\end{align*}
+<p>
+The Clearly at very low frequencies gain rises as f<sup>2</sup>, while at high frequency it is constant.
+</p>
+\begin{align*}
+  |A(s=2\pi f)|_{f\to0 &}\to |j2\pi f\tau_{in}||j2\pi f\tau_{out}|A_m \to f^2 \\
+  |A(s=2\pi f)|_{f\to\infty &}\to A_m \to \text{constant} \\
+\end{align*}
+<p>
+While the frequency becoming high, the gain function becomes constant, where it is approaching the mid-band range.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4668505" class="outline-3">
+<h3 id="org4668505"><span class="section-number-3">2.2</span> The effect of the emitter capacitor C<sub>E</sub></h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The analysis is rather more complicated than for the coupling capacitors.
+</p>
+
+<p>
+The best way is to take the expression for the CE amplifier with an unbipassed emitter resistor and replace R<sub>e</sub> with Z<sub>e</sub>, i.e. R<sub>E</sub> in parallel with C<sub>E</sub>.
+For simplicity we ignore source impedance R<sub>s</sub> (i.e. assume it is zero)
+</p>
+
+\begin{align*}
+  A_V = \frac{V_C}{V_b}=\frac{-g_{m}R_c}{1+g_{m}Z_{e}(1+\frac{1}{\beta})} \\
+\end{align*}
+<p>
+where,
+</p>
+\begin{align*}
+  Z_{e} = R_{E} \parallel C_{E} = \frac{R_{E}}{1+R_{E}C_{E}s}
+\end{align*}
+
+<p>
+The equation can be further simplified into:
+</p>
+\begin{align*}
+  A_V(s) &= \frac{-g_{m}R_c}{1+g_{m}(1+\frac{1}{\beta})\frac{R_{E}}{1+R_{E}C_{E}s}} \\
+&= -(g_{m}R)\frac{1+R_{E}C_{E}s}{1+\frac{(1+\beta)R_E}{r_{\pi}}+R_{E}C_{E}S}
+\end{align*}
+<p>
+It can be seen that there is a zero at z and a pole at p introduced by the emitter decoupling capacitor
+</p>
+\begin{align*}
+  z &= -\frac{1}{R_{E}C_{E}} \\
+  p &= -\frac{1}{R_{E}C_{E}}\left(1+\frac{(1+\beta)R_E}{r_{\pi}}\right)
+\end{align*}
+
+<p>
+Bode plot showing effect of emitter capacitor
+break points are at
+</p>
+\begin{align*}
+  \omega_1 = \frac{1}{R_{E}C_{E}}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgf5bd571" class="outline-3">
+<h3 id="orgf5bd571"><span class="section-number-3">2.3</span> Choosing Coupling and Emitter Decoupling Capacitors</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+The coupling and decoupling capacitors must be chosen so that the pole frequencies they introduce are below the lowest frequency of interest.
+</p>
+
+<p>
+If &omega;<sub>0</sub> is the lowest frequency of interest this implies
+</p>
+\begin{align*}
+  \omega_0 &> \frac{1}{C_1(r_{\pi}+R_S)} \quad\rightarrow \; C_{1} > \frac{1}{\omega_0(r_{\pi}+R_s)}\\
+  \omega_0 &> \frac{1}{C_2(R_{C}+R_I)} \quad\rightarrow \; C_{2} > \frac{1}{\omega_0(R_C+R_I)} \\
+  \omega_0 &> \frac{g_m}{C_E}\qquad\qquad\rightarrow \;\frac{1}{\omega_{0}C_E} \ll \frac{1}{g_m}
+\end{align*}
+
+<p>
+The 2 coupling capacitors and the emitter decoupling capacitor implies 3 breakpoints. Which means the lower frequency of interest (&omega;<sub>0</sub>) needs to be bigger than all 3 of these breakpoints, otherwise, system would be unstable on those break-point points.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org978ac46" class="outline-3">
+<h3 id="org978ac46"><span class="section-number-3">2.4</span> Numerical example</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Design an amplifier, by choosing suitable capacitances.
+</p>
+\begin{align*}
+  C_1 &\rightarrow \frac{1}{C_1(R_s+R_{in})} \quad C_2 \rightarrow \frac{1}{C_2(R_c+R_L)} \quad C_E \rightarrow \frac{g_m}{C_E} \\
+R_L &= 33k\Omega, \quad R_s = 1k\Omega, \quad f_0 = 10kHz \\
+C_1 &> \frac{1}{\omega_0(R_s+R_{in})} \rightarrow C_1 \geq 12nF \\
+C_2 &> \frac{1}{\omega_0(R_c+R_L)} \rightarrow C_2 \geq 0.5nF \\
+C_E &> \frac{g_m}{\omega_0} 
+\end{align*}
+</div>
+</div>
+</div>
+
+<div id="outline-container-org86eca62" class="outline-2">
+<h2 id="org86eca62"><span class="section-number-2">3</span> Upper cutoff frequency</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org0bda9d2" class="outline-3">
+<h3 id="org0bda9d2"><span class="section-number-3">3.1</span> Model</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Need to find out the upper cutoff frequency of the mid-band-range.
+Analysis done with the high frequency hybrid pi model.
+</p>
+
+<p>
+It has been assumed that r<sub>o</sub> is large and maybe neglected and that the bias resistors have a value &Gt; r<sub>&pi;</sub>. It's easy to include these if required.
+Need to find out how the response (gain, V<sub>o</sub>/V<sub>s</sub>) varies with the frequency. 
+At what frequency we have less gain, to derive the cutoff frequency.
+</p>
+
+<p>
+Find out the current equation.
+</p>
+\begin{align*}
+\frac{V_s}{R_s} &= V_{\pi}sC+\frac{V_{\pi}}{r_{\pi}} + (V_{\pi}-V_L)sC_{\mu} \\
+(V_{\pi}-V_L)sC_{\mu} &= g_{m}V_{\pi}+ \frac{V_{L}}{R_L}
+\end{align*}
+<p>
+Solving these equations gives:
+</p>
+\begin{equation*}
+A_{V} = \frac{V_c}{V_s} = -\frac{g_{m}R_{L}r_{\pi}}{R_S+r_{\pi}}\times\frac{1-sC_{\mu}/g_m}{1+sR_{\pi}(C_{\pi}+(1+g_{m}R_L)C_{\mu})+sR_{L}C_{\mu}+s^{2}R_{\mu}R_{L}C_{\mu}C_{\pi}}
+\end{equation*}
+<p>
+where
+</p>
+\begin{equation*}
+ R_{\pi} = \frac{r_{\pi}R_S}{r_{\pi}+R_S}
+\end{equation*}
+<p>
+We also use an approximation, which is called the miller approximation.
+</p>
+
+<p>
+The biggest problem of this model, is the capacitor sitting between the input and output C<sub>&mu;</sub>, that is why the system analysis is very difficult, what miller approximation says, we can so how remove this capacitance in terms of models, with equivalent capacitance which replicate the overall effects. Then the input and the output side are completely decoupled, simplifying the mathematics in the process.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf7703ae" class="outline-3">
+<h3 id="orgf7703ae"><span class="section-number-3">3.2</span> The Miller effect</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Consider an amplifier with a voltage gain of -A <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> and capacitance C<sub>f</sub> between its input and output.
+</p>
+
+<p>
+The amplifier assumed to be ideal (infinite input impedance, zero output impedance)
+</p>
+\begin{align*}
+V_{o} &= -AV_{s} \\
+V_{C_f} &= V_{s} - (-AV_s) = V_s(1+A)
+\end{align*}
+<p>
+Change the input voltage by \(\Delta v\)
+</p>
+\begin{align*}
+  V_s+\Delta v &\rightarrow -A(V_s+\Delta v) \\
+  V_{C_f}' &\rightarrow V_s+\Delta v - (-A(V_s+\Delta v)) =  V_s(1+A)+\Delta v(1+A) \\
+\end{align*}
+<p>
+A change \(\Delta v\) at the input changes the voltage across C<sub>f</sub> by \(\Delta v(1+A)\).
+</p>
+\begin{align*}
+  V_{c_f}' - V_{c_f} = \Delta v(1+A)
+\end{align*}
+<p>
+Thus the charge supplied at the input is given by
+</p>
+\begin{align*}
+C &= \frac{Q}{v} \\
+  \Delta q &= C_{f}(1+A)\Delta v
+\end{align*}
+<p>
+The effect is equivalent to removing C<sub>f</sub> and replacing it by a capacitance of value C<sub>in</sub> between the input and ground, where
+</p>
+\begin{align*}
+  C_{in} = \frac{\Delta q}{\Delta v} = (1+A)C_{f}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgc968b01" class="outline-3">
+<h3 id="orgc968b01"><span class="section-number-3">3.3</span> Modified circuit for CE amplifier</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+From the miller effect:
+</p>
+\begin{align*}
+  C_{in} = \frac{\Delta q}{\Delta v} = (1+A)C_{f}
+\end{align*}
+<p>
+The miller capacitance:
+</p>
+\begin{align*}
+  C_m = (1+g_{m} R_L) C_{\mu}
+\end{align*}
+<p>
+The analysis is much more simple. The effective input impedance is 2 capacitances and 1 resistance.
+</p>
+\begin{align*}
+  Z_{\pi} = \frac{r_{\pi}}{1+r_{\pi}(C_{\pi}+(1+g_{m}R_L)C_{\mu}s)}
+\end{align*}
+<p>
+V<sub>&pi;</sub> fit into this circuit as part of a potential divider configuration:
+</p>
+\begin{align*}
+  V_{\pi} = \frac{Z_{\pi}+V_s}{R_s+Z_{\pi}}
+\end{align*}
+<p>
+Finally, the frequency dependent voltage gain:
+</p>
+\begin{align*}
+A_V(s) &= \frac{V_o}{V_s} = \frac{-g_{m}^{}R_{L}V_{\pi}}{V_{s}} \\
+&= -\frac{g_{m}R_{L}r_{\pi}}{R_{s}+r_{\pi}}\frac{1}{1+R_{\pi}(C_{\pi}+(1+g_{m}R_{L})C_{\mu})s}
+\end{align*}
+<p>
+This is similar to the full model, but does not include the second pole or the zero.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org64f2d63" class="outline-3">
+<h3 id="org64f2d63"><span class="section-number-3">3.4</span> Upper 3db Bandwidth</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Using the miller approximation the frequency response of a CE amplifier has a single higher frequency pole.
+</p>
+\begin{align*}
+  A_{v} (s) = \frac{A_{0}}{1+s\tau}
+\end{align*}
+<p>
+where
+</p>
+\begin{align*}
+  A_{0} = -\frac{g_{m}R_{L}r_{\pi}}{R_{s}+r_{\pi}} \\
+\tau = (C_{\pi}+(1+g_{m}R_{L})C_{\mu})R_{\pi}
+\end{align*}
+<p>
+Replacing s by j&omega; gives the frequency response
+</p>
+\begin{align*}
+  A_{v} = \frac{A_{0}}{1+j\omega\tau} \quad\text{hence,} |A_{v}| = \frac{A_{0}}{\sqrt{1+(\omega\tau)^{2}}}
+\end{align*}
+<p>
+therefore, the upper cutoff frequency is:
+</p>
+\begin{equation*}
+f_{3db} = \frac{1}{2\pi\tau}
+\end{equation*}
+</div>
+</div>
+<div id="outline-container-org10fb503" class="outline-3">
+<h3 id="org10fb503"><span class="section-number-3">3.5</span> Full small-signal equivalent circuit and the Miller approx</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Comparison of the full small-signal equivalent circuit and the Miller approx.
+</p>
+
+<p>
+Gain bandwidth product = A &Delta; f
+Gain can be sacrificed to make the amplifier work on a bigger range of frequencies.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb8fae52" class="outline-3">
+<h3 id="orgb8fae52"><span class="section-number-3">3.6</span> Example</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+frequency range 20Hz - 20kHz
+Choose the potential divider resistances
+R<sub>1</sub>,R<sub>2</sub>,R<sub>C</sub>,R<sub>E</sub>
+Select the capacitances according to 20Hz, and the upper cutoff frequency satisfy 20kHz.
+C<sub>1</sub>,C<sub>2</sub>,C<sub>E</sub>
+Some parameter needs to be assumed
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1ebbf16" class="outline-2">
+<h2 id="org1ebbf16"><span class="section-number-2">4</span> Common emitter amplifier</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Two other type of amplifier
+</p>
+</div>
+<div id="outline-container-org982fe55" class="outline-3">
+<h3 id="org982fe55"><span class="section-number-3">4.1</span> Common base amplifier</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<img src="images/common-base-circuit.png" alt="common-base-circuit.png" />
+It looks very much similar to the common emitter amplifier, interms of R<sub>1</sub>,R<sub>2</sub>,R<sub>c</sub>. 
+The only difference is in the common emitter amplifier, the emitter is grounded, the input is even at the base terminal, the output is taken out of the collector terminal. 
+In the common base amplifier, the output is taken out of the collector X, but the input is actually taken out of the emitter terminal. 
+</p>
+
+<p>
+The bias requirement is pretty much the same. C<sub>1</sub>,C<sub>2</sub>,C<sub>B</sub>.
+</p>
+
+<p>
+Replace the transistor a hybrid pi model, and ground all the resistors around it.
+<img src="images/common-base-small-signal-model.png" alt="common-base-small-signal-model.png" />
+Essentially a low frequency hybrid pi model.
+</p>
+
+<p>
+V<sub>&pi;</sub> = voltage between emitter and base  = V<sub>B</sub> - V<sub>e</sub> = -V<sub>e</sub>.
+Because \(V_{\pi} = -V_{e }\;\rightarrow\; g_{m}V_{\pi} = -g_{m}V_{e}\).
+</p>
+
+<p>
+For the other resistance, since we are doing ac analysis, all the internal power source will be grounded. This is a standard technique.
+</p>
+
+<p>
+r<sub>0</sub> is ignored. Splitting the current source, 
+</p>
+
+<p>
+Look another interesting concept, what is a current source? Current source is nothing but a voltage and a resistance (\(V=IR\)). Therefore, a current source can be represented alternatively as a voltage and a resistance component.
+</p>
+
+
+<div id="orgbb1ff97" class="figure">
+<p><img src="./images/split-current-source.png" alt="split-current-source.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Splitting current source</p>
+</div>
+
+<div id="org9e07ff3" class="figure">
+<p><img src="./images/split-current-source-simplified.png" alt="split-current-source-simplified.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Simplifying the current sources</p>
+</div>
+
+\begin{align*}
+  R_{in} = \left(\frac{1}{r_{\pi}}+g_{m}\right)^{-1} =  \left(\frac{1}{\beta}+g_{m}\right)^{-1} \approx \frac{1}{g_m}
+\end{align*}
+<p>
+Thus the CB amplifier generally has a very <b>low input impedance</b> (of order 25&Omega; @ collector current of 1mA)
+Usually R<sub>E</sub> can be neglected since it is much  greater than 1/g<sub>m</sub>.
+</p>
+
+<p>
+The analysis for the gain:
+</p>
+\begin{align*}
+  V_{c} &= g_{m}R_{c}V_{e} \\ 
+ &\approx \frac{1/g_{m}}{R_s+1/g_m}g_{m}R_{c}V_{s} = \frac{g_mR_c_{}V_{s}}{1+R_{s}g_{m}}
+\end{align*}
+<p>
+The voltage gain of the CB stage is therefore:
+</p>
+\begin{align*}
+ A = \frac{V_{c}}{V_{s}} = \frac{g_{m}R_{c}}{1+R_{s}g_{m}}
+\end{align*}
+<p>
+If R<sub>s</sub> is very small the stage voltage gain has the same magnitude as the CE stage.
+</p>
+\begin{align*}
+ A = \frac{g_{m}R_{c}}{1+R_{s}g_{m}} \approx g_mR_{c}
+\end{align*}
+<p>
+Which is the same as the CE gain. The reason why CB amplifier is not widely used, is because the low input impedance it has.
+</p>
+
+<p>
+We want our amplifier to have high input impedance so the amplifier can amplifier the full range of the voltage (since less voltage will be dropped in the source impedance). We also want low output impedance, more on this later.
+</p>
+
+<p>
+However, the current gain of the stage is of order unity (&alpha;<sub>f</sub>).
+</p>
+
+<p>
+The circuit is not widely used but may be useful for high frequency amplifiers since there is no capacitive feedback from output to input.
+</p>
+</div>
+<div id="outline-container-org58f504d" class="outline-4">
+<h4 id="org58f504d"><span class="section-number-4">4.1.1</span> High frequency model</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<p>
+No capacitor between the input and the output. Which is easier to handle, since no Miller approximation is required.
+</p>
+
+<p>
+A potential divider structure. To find out V<sub>e</sub>. V<sub>o</sub> is V<sub>c</sub>.
+</p>
+\begin{align*}
+  V_o = \frac{R_cg_m}{1+R_sg_m}\frac{1}{1+\tau_iS}\frac{1}{1+\tau_oS}V_{s}
+\end{align*}
+<p>
+where
+</p>
+\begin{align*}
+  \tau_i = \frac{R_{sC_{\pi}}}{1+R_sg_m}, \quad \tau_o = R_cC_{\mu}
+\end{align*}
+</div>
+</div>
+</div>
+<div id="outline-container-orgd2fc8b0" class="outline-3">
+<h3 id="orgd2fc8b0"><span class="section-number-3">4.2</span> Common collector amplifier (Emitter Follower)</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+In the collector side, there is no output resistance. Input comes at the base, the output is at the emitter terminal. This is the difference.
+</p>
+
+<p>
+voltage gain, using \(g_{m} = \beta/r_{\pi}\):
+</p>
+\begin{align*}
+  A_v = \frac{V_e}{V_s} = \frac{R_{e(1+\beta)}}{r_{\pi}+R_e(1+\beta)}
+\end{align*}
+<p>
+The term in the denominator  is smaller than the term above, this implies that this amplifier provides no voltage gain. However, if we choose R<sub>E</sub> to be very high, then r<sub>&pi;</sub> will become negligible, and the gain becomes 1. Hence, the Emitter Follower, it sends whatever voltage input to the output given that R<sub>E</sub> is high.
+</p>
+\begin{align*}
+  i_b = \frac{1}{r_{\pi}}(v_s_{-V_e}) = \frac{V_s}{r_{\pi}}(1 - \frac{R_e(1+\beta)}{r_{\pi}+R_E(1+\beta)}) = \frac{V_s}{r_{\pi}R_{E}(1+\beta)}_{}
+\end{align*}
+<p>
+hence,
+</p>
+\begin{align*}
+ R_{in} = \frac{V_s}{i_b} = r_{\pi} + R_E(1+\beta)
+\end{align*}
+<p>
+We can adjust R<sub>in</sub>, we can make it very high.
+</p>
+</div>
+<div id="outline-container-org4fa39cf" class="outline-4">
+<h4 id="org4fa39cf"><span class="section-number-4">4.2.1</span> The effect of bias resistors and the source resistors</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+Define \(R_s'\):
+</p>
+\begin{align*}
+  R_s' = R_{s} \parallel R_{1} \parallel R_{2}
+\end{align*}
+<p>
+Output impedance
+</p>
+\begin{align*}
+  i_o = V_o\left(\frac{g_mr_{\pi}}{R_s+r_{\pi}} + \frac{1}{R_s+r_{\pi}}\right) = \frac{(1+\beta)V_{o}}{R_s+r_{\pi}}
+\end{align*}
+<p>
+the output resistance is given by:
+</p>
+\begin{align*}
+  R_o = \frac{v_o}{i_o} = \frac{R_s' +r_{\pi}}{1++\beta}
+\end{align*}
+
+<p>
+Now,
+</p>
+\begin{align*}
+ R_{in} = \frac{V_s}{i_b} = r_{\pi} + R_E(1+\beta)
+\end{align*}
+<p>
+By adjusting R<sub>E</sub> we can get very high input impedance. And we use a small output resistance by making R<sub>s</sub> small, if R<sub>s</sub> is small, then R<sub>s</sub>' is small. and it will also make R<sub>o</sub> small.
+</p>
+
+<p>
+Although, this amplifier has a gain of unity, by controlling R<sub>s</sub>' and other resistors we can set up the input and the output impedance.
+Basically, this amplifier can perform an <b>impedance matching</b>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org6043c32" class="outline-2">
+<h2 id="org6043c32"><span class="section-number-2">5</span> Long tailed pair</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Both of the emitter side of the transistor are collected into a current source.
+Define some parameters.
+V<sub>din</sub>, differential voltage. V<sub>cin</sub>, common mode voltage.
+</p>
+\begin{align*}
+  \text{Differential voltage} \quad V_{din} &= V_{B1} - V_{B2} \\
+\text{Common mode voltage} \quad V_{cin }&= (V_{B1}+ V_{B2})/2
+\end{align*}
+\begin{align*}
+  I_{C}=
+\end{align*}
+</div>
+<div id="outline-container-org49f5e70" class="outline-3">
+<h3 id="org49f5e70"><span class="section-number-3">5.1</span> Large signal analysis</h3>
+<div class="outline-text-3" id="text-5-1">
+\begin{align*}
+I_{c1} = I_{s}e^{\frac{V_{B1}-V_{E}}{V_{T}}} \\
+I_{c2} = I_{s}e^{\frac{V_{B2}-V_{E}}{V_{T}}}
+\end{align*}
+<p>
+where \(V_{T} = kT/q\).
+</p>
+\begin{align*}
+  \frac{I_{c1}}{I_{C2}} &= e^{\frac{V_{B2}-V_{B1}}{V_{T}}} = e^{\frac{V_{din}}{V_{T}}}\\
+I_{E }&= -(I_{E1}+I_{E2}) = I_{C1}(1+\frac{1}{\beta_{1}}) + I_{C2}(1+\frac{1}{\beta_{2}}) \\
+\therefore \frac{I_{E}}{I_{C1}} &= (1+\frac{1}{\beta_{1}})(1+\frac{I_{C2}}{I_{C1}})
+\end{align*}
+
+<p>
+The tail current (I<sub>E</sub>) is constant. If these two transistors are identical, then &beta;<sub>1</sub> = &beta;<sub>2</sub> = &beta;.
+Solving these equations, gives, after some manipulation: 
+</p>
+\begin{align*}
+I_{C1} = \frac{\beta I_{E}}{(1+\beta)(1+exp(-V_{din}/V_{T}))}\\
+I_{C2} = \frac{\beta I_{E}}{(1+\beta)(1+exp(+V_{din}/V_{T}))}
+\end{align*}
+<p>
+Either one of them is increasing, or decreasing. The potential between Q<sub>1</sub> and Q<sub>2</sub> is constant.
+The maximum value of the I<sub>C</sub>s are \(\frac{\beta I_{E}}{1+\beta}\).
+</p>
+</div>
+</div>
+<div id="outline-container-org3965227" class="outline-3">
+<h3 id="org3965227"><span class="section-number-3">5.2</span> DC Analysis</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+For pure common mode input V<sub>b1</sub> = V<sub>b2</sub>.
+Common mode gain different to differential gain.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12c055f" class="outline-3">
+<h3 id="org12c055f"><span class="section-number-3">5.3</span> The merits of the Long Tailed Pair</h3>
+<div class="outline-text-3" id="text-5-3">
+<ol class="org-ol">
+<li>it provides a differential input (and output if required) with a large differential gain and small common mode gain.</li>
+<li>If the transistors are well matched changes in V<sub>BE</sub> due to temperature appear as a common mode voltage. Hence the amplification of thermally induced voltages is small. This makes the LTP suitable as a DC amplifier.</li>
+<li>It provides good gain and good thermal stability with no de-coupling capacitor, very useful for IC design.</li>
+<li>Provided the common mode voltage is limited, the circuit may be designed so that neither transistor saturates on overload gives fast recovery.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6f3ad3d" class="outline-2">
+<h2 id="org6f3ad3d"><span class="section-number-2">6</span> Feedback amplifier</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org47171b1" class="outline-3">
+<h3 id="org47171b1"><span class="section-number-3">6.1</span> What is feedback</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+The concept of NFB is to take some of the output signal from an amplifier and subtract/add it from the input signal.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb0bd1e4" class="outline-3">
+<h3 id="orgb0bd1e4"><span class="section-number-3">6.2</span> Why should we do this?</h3>
+<div class="outline-text-3" id="text-6-2">
+<ol class="org-ol">
+<li>To stabilise the gain
+it reduces the sensitivity to changes in bias current, temperature, etc</li>
+<li>To reduce distortion (reduction in gain)</li>
+<li>To increase bandwidth</li>
+<li>To control input and output impedances</li>
+</ol>
+<p>
+The price
+</p>
+<ol class="org-ol">
+<li>Reduced gain
+gain is cheap</li>
+<li>Instability
+the amplifier may oscillate unless care is taken
+Stability is important. The issue is essentially the same as stability of control systems and the mathematical techiniques will be considered in more detail</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orga57eb33" class="outline-3">
+<h3 id="orga57eb33"><span class="section-number-3">6.3</span> The ideal feedback equation</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+A fraction k of the output signal is fed back and subtracted from the input. 
+</p>
+\begin{align*}
+  S_{fb}  &= kS_{0} \\ 
+S_{\epsilon }&= S_{i} - S_{fb} = S_{i} - kS_{0} \\
+S_{O }&= AS_{\epsilon} = A(S_{i}-kS_{o})
+\end{align*}
+<p>
+Hence, the closed loop gain, which is reduced
+</p>
+\begin{align*}
+  A_{cl} = \frac{S_{o}}{S_{i}} = \frac{A}{1+Ak}
+\end{align*}
+</div>
+<div id="outline-container-orgb53e939" class="outline-4">
+<h4 id="orgb53e939"><span class="section-number-4">6.3.1</span> terminology</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<p>
+A is called the OPEN LOOP GAIN
+k is called the FEEDBACK FRACTION
+T = Ak is called the LOOP GAIN (or, return ratio)
+A<sub>cl</sub> is called the CLOSED LOOP GAIN
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ce7f22" class="outline-3">
+<h3 id="org4ce7f22"><span class="section-number-3">6.4</span> Gain sensitivity</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+Consider the fractional change in closed loop gain for changes in A and k
+</p>
+\begin{align*}
+  \frac{\Delta A_{cl}}{A_{cl}} = (\frac{1+Ak}{A})\frac{\partial A_{cl}}{\partial A}\Delta A + (\frac{1+Ak}{A})\frac{\partial A_{cl}}{\partial k}\Delta k
+\end{align*}
+<p>
+where
+</p>
+\begin{align*}
+\frac{\partial A_{cl}}{\partial A} = \frac{1}{(1+Ak)^{2}}
+\frac{\partial A_{cl}}{\partial k} = \frac{-A^{2}}{(1+Ak)^{2}}
+\end{align*}
+<p>
+hence,
+</p>
+\begin{align*}
+  \frac{\Delta A_{cl}}{A_{cl}} = \frac{1}{1+Ak}\frac{\Delta A}{A} - \frac{Ak}{1+Ak}\frac{\Delta k}{k}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org4fc5d1e" class="outline-3">
+<h3 id="org4fc5d1e"><span class="section-number-3">6.5</span> Reduction of distortion</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+Distortion is taken to mean the variation of gain with signal amplitude.
+Higher linearity means the circuit (amplifier) can perform under a higher range of voltage for inputs and outputs.
+</p>
+</div>
+</div>
+<div id="outline-container-org328bf96" class="outline-3">
+<h3 id="org328bf96"><span class="section-number-3">6.6</span> Feedback configuration</h3>
+<div class="outline-text-3" id="text-6-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">input</th>
+<th scope="col" class="org-left">output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">V</td>
+<td class="org-left">I</td>
+</tr>
+
+<tr>
+<td class="org-left">V</td>
+<td class="org-left">V</td>
+</tr>
+
+<tr>
+<td class="org-left">I</td>
+<td class="org-left">V</td>
+</tr>
+
+<tr>
+<td class="org-left">I</td>
+<td class="org-left">I</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outline-container-orgfe8e333" class="outline-4">
+<h4 id="orgfe8e333"><span class="section-number-4">6.6.1</span> Series voltage or Series shunt</h4>
+<div class="outline-text-4" id="text-6-6-1">
+<p>
+Feedback network senses output voltage and subtracts voltage from the input.
+In this case we have input as voltage and output as voltage.
+Applying input voltage is applying in series to the actual amplifier input voltage to the amplifier.
+What quantity we are getting out of the output
+</p>
+</div>
+</div>
+<div id="outline-container-orgcafc752" class="outline-4">
+<h4 id="orgcafc752"><span class="section-number-4">6.6.2</span> Series voltage configuration</h4>
+<div class="outline-text-4" id="text-6-6-2">
+<p>
+Feedback voltage V<sub>fb</sub>, output voltage V<sub>o</sub>, input voltage V<sub>i</sub>.
+</p>
+\begin{align*}
+A_{cl} &= \frac{V_{o}}{V_{i}} \\
+A &= \frac{V_{o}}{V_{e}} \\
+V_{o} &= AV \\
+V_{i} &= V_{e} + kV_{o} \\
+&= V_{e} + AkV_{e} \\
+&= V_{e} (1+Ak) \\
+\therefore A_{cl} &= \frac{AV_{e}}{V_{e}(1+Ak)} = \frac{A}{1+Ak}
+\end{align*}
+<p>
+The input resistance, R<sub>i</sub>
+</p>
+\begin{align*}
+  R_{i} = \frac{V_{i}}{i_{i}} = \frac{V_{e}(1+Ak)}{i_{i}} = r_{i}(1+Ak)
+\end{align*}
+<p>
+The output resistance R<sub>o</sub>
+R<sub>o</sub> = \frac{V<sub>o</sub>}{i<sub>o</sub>}
+i<sub>o</sub> = \frac{V<sub>o</sub>-AV<sub>e</sub>}{V<sub>o</sub>} = \frac{V<sub>o</sub>+AkV<sub>o</sub>}{r<sub>o</sub>}
+R<sub>o</sub> = \frac{r<sub>o</sub>}{1+Ak}
+</p>
+</div>
+</div>
+<div id="outline-container-orgdeb5b0c" class="outline-4">
+<h4 id="orgdeb5b0c"><span class="section-number-4">6.6.3</span> Shunt voltage or Shunt shunt</h4>
+<div class="outline-text-4" id="text-6-6-3">
+\begin{align*}
+A_{cl} &= \frac{V_{o}}{i_{i}} \rightarrow \Omega \\
+V_{o} &= Ai_{e} \\
+i_{i} &= i_{e} + i_{fb} = i_{e} + kV_{o} = i_{e} + Aki_{e} = i_{e}(1+A) \\
+\frac{V_{o}}{i_{i}} &= A_{cl} = \frac{Ai_{e}}{i_{e}(1+Ak)} = \frac{A}{1+Ak} \\
+R_{in} &= \frac{V_{i}}{i_{i}} = \frac{r_{i}i_{e}}{i_{e}(1+Ak)} = \frac{r_{i}}{1+Ak}
+\end{align*}
+<p>
+In this configuration our input impedance of the ideal amplifier is actually reduced by a factor of 1+Ak
+</p>
+\begin{align*}
+R_{out} &= \frac{V_{o}}{i_{o}} \\
+i_{o }&= \frac{V_{o}-Ai_{e}}{r_{o}} = \frac{V_{o} + AkV_{o}}{r_{o}} = \frac{V_{o}(1+Ak)}{r_{o}} \\
+i_{e} &= -i_{fb} = -kV_{o}, \quad R_{o} = \frac{V_{o}}{i_{o}} = \frac{r_{o}}{1+Ak}\Omega
+\end{align*}
+<p>
+"k" is actually the conductance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org681cda9" class="outline-4">
+<h4 id="org681cda9"><span class="section-number-4">6.6.4</span> Series current</h4>
+<div class="outline-text-4" id="text-6-6-4">
+<p>
+Input is voltage and output is current.
+</p>
+\begin{align*}
+A_{cl} &= \frac{i_{o}}{V_{i}} \\
+i_{o} &= AV_{e} \\
+V_{i} &= V_{e} + ki_{o} = V_{e}(1+Ak) \\
+A_{cl} &= \frac{AV_{e}}{V_{e}(1+Ak)}
+\end{align*}
+<p>
+Input resistance
+</p>
+\begin{align*}
+R_{i} &= \frac{V_{i}}{i_{i}} \\
+V_{i} &= i_{i}r_{i} + ki_{o} = i_{i}r_{i} + kAV_{e} = V_{e} + AK V_{e} = V_{e}(1+Ak) \\
+R_{i} &= \frac{V_{i}}{i_{i}} = \frac{V_{e}(1+Ak)}{i_{i}} = \frac{r_{i}}{1+Ak}
+\end{align*}
+<p>
+Output resistance
+</p>
+\begin{align*}
+R_{o} &= \frac{V_{o}}{i_{o}} \\
+i_{o} &= AV_{e}+\frac{V_{o}}{r_{o}} \\
+&= -Aki_{o} + \frac{V_{o}}{r_{o}} \\
+i_{o} (1+Ak) &= \frac{V_{o}}{r_{o}} \\
+V_{o} &= -ki_{o}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-org20a60ff" class="outline-4">
+<h4 id="org20a60ff"><span class="section-number-4">6.6.5</span> Shunt current</h4>
+<div class="outline-text-4" id="text-6-6-5">
+<p>
+Current amplifier 
+</p>
+\begin{align*}
+A_{cl} &= \frac{i_{o}}{i_{i}} \\
+i_{o} &= Ai_{e} \\
+i_{i} &= i_{e} + ki_{o} = i_{e}(1+Ak) \\
+A_{cl } &= \frac{Ai_{e}}{i_{e}(1+Ak)} = \frac{A}{1+Ak}
+\end{align*}
+<p>
+Input resistance
+R<sub>in</sub> = \frac{V<sub>i</sub>}{i<sub>i</sub>} = \frac{r<sub>i</sub>i<sub>e</sub>}{i<sub>e</sub>(1+Ak)} = \frac{r<sub>i</sub>}{1+Ak}
+Output resistance
+</p>
+\begin{align*}
+R_{out} &= \frac{V_{o}}{i_{o}} \\
+i_{e} &= -ki_{o} \\
+i_{o} &= Ai_{e} + \frac{V_{o}}{r_{o}} \\
+ &= -Aki_{o} + \frac{V_{o}}{r_{o}}\\
+ i_{o}(1+Ak) &= \frac{V_{o}}{r_{o}}\\
+ R_{out} &= \frac{V_{o}}{i_{o}} = r_{o}(1+Ak)
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgcd2ea1a" class="outline-4">
+<h4 id="orgcd2ea1a"><span class="section-number-4">6.6.6</span> Summary</h4>
+<div class="outline-text-4" id="text-6-6-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Configuration</th>
+<th scope="col" class="org-left">Amplifier</th>
+<th scope="col" class="org-left">R<sub>in</sub></th>
+<th scope="col" class="org-left">R<sub>out</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Series voltage</td>
+<td class="org-left">voltage</td>
+<td class="org-left">high</td>
+<td class="org-left">low</td>
+</tr>
+
+<tr>
+<td class="org-left">shunt voltage</td>
+<td class="org-left">transimpedance</td>
+<td class="org-left">low</td>
+<td class="org-left">low</td>
+</tr>
+
+<tr>
+<td class="org-left">shunt current</td>
+<td class="org-left">current</td>
+<td class="org-left">low</td>
+<td class="org-left">high</td>
+</tr>
+
+<tr>
+<td class="org-left">series current</td>
+<td class="org-left">transconductrance</td>
+<td class="org-left">high</td>
+<td class="org-left">high</td>
+</tr>
+</tbody>
+</table>
+<p>
+NOTES: in this analysis:
+Feedback is ideal, no loading
+No feed-forward, feedback unilateral 
+Real amplifiers may only approximate these features.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfd01f01" class="outline-2">
+<h2 id="orgfd01f01"><span class="section-number-2">7</span> Effects of Negative Feedback</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org6728bd6" class="outline-3">
+<h3 id="org6728bd6"><span class="section-number-3">7.1</span> Effect of the negative feedback on bandwidth</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+Consider an amplifier with a single dominant pole in its open loop response (e.g. an op-amp).
+</p>
+\begin{align*}
+A(s) = \frac{A_{o}}{1+s/p}
+\end{align*}
+<p>
+The open loop 3db bandwidth is given by \(\omega_{3db} = p\)
+Suppose that the amplifier is used in a feedback loop with feedback fraction k (assumed real), then the closed loop gain is given by
+</p>
+\begin{align*}
+A_{cl}(s) = \frac{A(s)}{1+kA(s)} = \frac{A_{0}}{1+kA_{0}}\frac{1}{1+\frac{s}{p(1+kA_{0})}}
+\end{align*}
+<p>
+The gain is reduced by a factor of \(\frac{A_{0}}{1+kA_{0}}\). The bandwidth is extended by the same factor, \(\therefore \omega_{3db} = p(1+kA_{0})\).
+This is called the gain bandwidth product.
+</p>
+\begin{align*}
+  A\Delta f = \text{constant}
+\end{align*}
+
+<p>
+For a fully compensated opamp, the gain bandwidth product is the same as the unity gain frequency, f<sub>T</sub>.
+Gain A = 1, the bandwidth f<sub>T</sub>. \(\therefore \Delta f = f_{T}\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgf5e3e2b" class="outline-3">
+<h3 id="orgf5e3e2b"><span class="section-number-3">7.2</span> The stability of Feedback amplifiers</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+Closed loop gain
+A<sub>CL</sub> = \frac{A(s)}{1+k(s)A(s)} = \frac{A(s)}{1+T(s)}
+The gain will become unstable if \(1+kA = 0\).
+To avoid unstability, this equation must be unsatisfied, the two conditions:
+</p>
+\begin{align*}
+| A(s)k(s) | = 1 \\
+\angle(Ak) = 180^{\circ}
+\end{align*}
+<p>
+Bode plot, 2 criteria
+</p>
+<ul class="org-ul">
+<li>The <b>phase margin</b>:
+The amount by which the phase shift is less than 180<sup>&circ;</sup> at the unity gain frequency.</li>
+<li>The <b>gain margin</b>:
+The amount by which the gain is less than 0db at the frequency where the phase shift is 180<sup>&circ;</sup></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd535777" class="outline-3">
+<h3 id="orgd535777"><span class="section-number-3">7.3</span> Op-amp</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+Most operational amplifier are based on 3 stages
+</p>
+<ol class="org-ol">
+<li>A differential input stage (LTP)</li>
+<li>A common emitter (or common source) voltage gain stage</li>
+<li>A class B output stage</li>
+</ol>
+<p>
+741, a typical of a bipolar op-amp IC.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org64cb536" class="outline-3">
+<h3 id="org64cb536"><span class="section-number-3">7.4</span> Simplified Estimation of Gain</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+Assume current gain &beta; of 100
+</p>
+
+<p>
+First stage
+This stage acts as a trans-conductance amplifier providing a current drive i<sub>i</sub> to Q<sub>7</sub>.
+i<sub>1</sub> = i<sub>C3</sub> - i<sub>C2</sub> = g<sub>m</sub>V<sub>diff</sub>
+typical g<sub>m</sub> &asymp; 40I<sub>C</sub>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge541257" class="outline-3">
+<h3 id="orge541257"><span class="section-number-3">7.5</span> Compensation</h3>
+<div class="outline-text-3" id="text-7-5">
+<p>
+With several stages the basic amplifier will have several poles in its transfer function.
+</p>
+
+<p>
+The phase shift will exceed 180<sup>&circ;</sup> before the amplifier gain has fallen to unity (0dB).
+</p>
+
+<p>
+The consequence of this is that with negative feedback the amplifier may become unstable especially with a large feedback fraction (low closed loop gain).
+</p>
+
+<p>
+Many applications require a large amount of feedback (unity gain buffer, integrator).
+</p>
+
+<p>
+To ensure stability the op-amp is compensated to give a single dominant pole.
+</p>
+
+<p>
+They incorporate a capacitor between the second and the first stage.
+This is referred as the 
+</p>
+</div>
+</div>
+<div id="outline-container-org3b3c961" class="outline-3">
+<h3 id="org3b3c961"><span class="section-number-3">7.6</span> Dominant pole compensation.</h3>
+<div class="outline-text-3" id="text-7-6">
+<p>
+Suppose the natural poles are all around or over 1MHz and open loop gain is 100dB.
+</p>
+
+<p>
+The gain falls at 20dB/decade due to a single pole, therefore the introduced dominant pole must be at about 10Hz to ensure the gain has fallen to 0dB at the frequency of the natural poles.
+</p>
+
+<p>
+The dominant pole is obtained using the "Miller Capacitance" added to the second stage. This allows the use of a moderate value capacitance (30pF) can be realised on-chip.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">f</td>
+<td class="org-right">gain</td>
+</tr>
+
+<tr>
+<td class="org-left">1</td>
+<td class="org-right">100</td>
+</tr>
+
+<tr>
+<td class="org-left">10</td>
+<td class="org-right">80</td>
+</tr>
+
+<tr>
+<td class="org-left">100</td>
+<td class="org-right">60</td>
+</tr>
+
+<tr>
+<td class="org-left">1k</td>
+<td class="org-right">40</td>
+</tr>
+
+<tr>
+<td class="org-left">10k</td>
+<td class="org-right">20</td>
+</tr>
+
+<tr>
+<td class="org-left">100k</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0b58262" class="outline-3">
+<h3 id="org0b58262"><span class="section-number-3">7.7</span> slew rate</h3>
+<div class="outline-text-3" id="text-7-7">
+<p>
+The small signal bandwidth is not the only factor governing the high frequency response. For large signals there is a maximum rate of change of output voltage - the slew rate.
+</p>
+
+<p>
+The origin of the slew rate <b>limitation is that the current available to change the compensation capacitor</b>, C, is limited by the quiescent current of the input stage. The voltage across C is the same as the output voltage, so we can write
+</p>
+\begin{align*}
+  \frac{dv_{out}}{dt} = \frac{i_{1}}{C}
+\end{align*}
+<p>
+The maximum value of i<sub>1</sub> is the tail current of the LTP stage. For a 741 the tail current is about 20&mu; A and C is 30pF, giving a slew rate of 20&mu; A/30pF, or, 0.67V/&mu; s.
+</p>
+</div>
+</div>
+<div id="outline-container-org03eeb9e" class="outline-3">
+<h3 id="org03eeb9e"><span class="section-number-3">7.8</span> Limitation of Op-amp</h3>
+<div class="outline-text-3" id="text-7-8">
+<p>
+The consideration of the differential pair of op-amp is the same, in analysis, but the transistors cannot be the same practically.
+</p>
+
+<ul class="org-ul">
+<li>Input bias current - need to bias input transistors.
+<ul class="org-ul">
+<li>Less than 200nA for most bipolar op-amps</li>
+<li>Avoided by using JFET (or MOSFET) input transistors.</li>
+<li>Minimised by the use of bias current compensation</li>
+</ul></li>
+
+<li>input offset voltage - imbalance leading to non-zero output voltage when v<sub>diff</sub> = 0
+<ul class="org-ul">
+<li>Usually &lt; 2mV for general purpose bipolar</li>
+<li>JFET op-amps usually inferior to bipolar</li>
+</ul></li>
+
+<li>input offset current - difference in bias currents for the two inputs
+<ul class="org-ul">
+<li>For bias current compensate op-amps the input offset current may exceed the bias current.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">because we are trying to match it with the typical common amplifier, hence the negative sign</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

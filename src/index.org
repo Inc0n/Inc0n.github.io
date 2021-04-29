@@ -2,3 +2,4 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 - [[file:computer-engineering/sitemap.html][Computer Engineering]]
+- [[file:advanced-electronic-system/sitemap.html][Advanced Electronic]]

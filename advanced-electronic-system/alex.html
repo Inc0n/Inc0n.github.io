@@ -1,0 +1,1499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgc978f51">1. Filter</a>
+<ul>
+<li><a href="#org3141258">1.1. What is filter</a></li>
+<li><a href="#orgebc607c">1.2. Type of Filter</a></li>
+<li><a href="#orgc43808e">1.3. Usage</a></li>
+<li><a href="#org8720ce2">1.4. Why not just do everything digitally</a></li>
+<li><a href="#orgaad445a">1.5. Aliasing and sampling</a></li>
+<li><a href="#orgc5e8875">1.6. Filter performance</a>
+<ul>
+<li><a href="#orgff86593">1.6.1. Evaluating filter performance</a></li>
+<li><a href="#org10faa36">1.6.2. 3dB Frequency</a></li>
+<li><a href="#orga5c0870">1.6.3. 3dB Bandwidth</a></li>
+<li><a href="#org331fffb">1.6.4. Q-factor</a></li>
+<li><a href="#orgf869155">1.6.5. Ripple</a></li>
+</ul>
+</li>
+<li><a href="#org02871fe">1.7. Active Vs. Passive filter</a>
+<ul>
+<li><a href="#orge2d0b1e">1.7.1. Active filter</a></li>
+</ul>
+</li>
+<li><a href="#org5421664">1.8. Roll-off</a></li>
+<li><a href="#org63f664d">1.9. Filter approximation</a></li>
+<li><a href="#org11c61a9">1.10. Filter transfer function, poles and zeros</a></li>
+<li><a href="#orge23e967">1.11. poles and zeros</a></li>
+<li><a href="#org4035d9f">1.12. Low-pass Filter</a></li>
+<li><a href="#org2392898">1.13. Low-pass Filter Standard Equation</a></li>
+<li><a href="#org5898875">1.14. Constructing Higher-Order Filters</a></li>
+<li><a href="#org10ff9ca">1.15. Analogue signal chain</a></li>
+<li><a href="#org459cf70">1.16. Digital signal chain</a></li>
+<li><a href="#orgdc7523e">1.17. Filter Order</a></li>
+<li><a href="#org9a05714">1.18. Filter Q-factor</a></li>
+<li><a href="#org4d3ccf6">1.19. Filter Phase response</a></li>
+<li><a href="#org77df608">1.20. Butterworth polynomial</a></li>
+<li><a href="#org520c155">1.21. Sallen-key Low-pass filter</a></li>
+<li><a href="#org156d91b">1.22. Filter design table</a></li>
+<li><a href="#orgce9056d">1.23. Design a fourth order butterworth LPF</a></li>
+<li><a href="#org95fa1c6">1.24. Frequency and Impedance Scaling</a></li>
+<li><a href="#org9dd1d3c">1.25. Convert a LPF to a HPF</a></li>
+</ul>
+</li>
+<li><a href="#org9fcf741">2. Power supplies</a>
+<ul>
+<li><a href="#orgc8ab79c">2.1. Basics of power</a></li>
+<li><a href="#org4705b91">2.2. Cause of Losses</a></li>
+<li><a href="#org57562e1">2.3. Quantify time-varying voltage</a></li>
+<li><a href="#org5496468">2.4. RMS voltage and current</a></li>
+<li><a href="#org8a8b945">2.5. Expressing Voltage and currents</a></li>
+<li><a href="#org0dcfb88">2.6. Transformers</a></li>
+<li><a href="#org441289b">2.7. Rectification</a>
+<ul>
+<li><a href="#org153263c">2.7.1. half-wave</a></li>
+<li><a href="#orgef839aa">2.7.2. Full-wave</a></li>
+<li><a href="#org31cdfb6">2.7.3. Bridge</a></li>
+<li><a href="#org0ad7b67">2.7.4. Ripple</a></li>
+<li><a href="#org63b1ab4">2.7.5. Controlling ripple</a></li>
+</ul>
+</li>
+<li><a href="#org390a7fc">2.8. Quantify power supply effectiveness</a></li>
+<li><a href="#org2662eae">2.9. Properties of Power Supplies</a></li>
+<li><a href="#orgd30a318">2.10. Linear vs. Switching power supples</a>
+<ul>
+<li><a href="#orgc3fc1f3">2.10.1. Linear</a></li>
+<li><a href="#orgcd474fe">2.10.2. Switching</a></li>
+</ul>
+</li>
+<li><a href="#orgc10508d">2.11. Simple Series linear regulator</a></li>
+<li><a href="#orga995bbb">2.12. Series linear regulator operation</a></li>
+<li><a href="#org4a1f5ca">2.13. Simple shunt linear regulator</a></li>
+<li><a href="#org06ccc57">2.14. Switching convertor</a>
+<ul>
+<li><a href="#org28d541b">2.14.1. Continuous mode</a></li>
+<li><a href="#orge631274">2.14.2. Buck-boost inverting switching converter</a></li>
+<li><a href="#org6b99a5b">2.14.3. Buck-boost hybrid switching converter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org2042539">3. Power supply - Regulator</a>
+<ul>
+<li><a href="#org8875864">3.1. Zener Diode Regulators</a></li>
+<li><a href="#org57aed9a">3.2. Transistor based series regulator</a></li>
+<li><a href="#org9170744">3.3. Issue with Transistor-based Regulator</a></li>
+<li><a href="#orga33f902">3.4. Op-amp based series regulator</a></li>
+<li><a href="#orgf947cac">3.5. Op-amp based Shunt regulator</a></li>
+<li><a href="#org0f3db20">3.6. short-circuit protection</a></li>
+<li><a href="#org596cb4d">3.7. Current limiting</a></li>
+</ul>
+</li>
+<li><a href="#org0f9e6ae">4. Data Conversion</a>
+<ul>
+<li><a href="#orga251ed1">4.1. DAC Performance Characteristics</a></li>
+<li><a href="#orgbeb3802">4.2. Principles and properties of DAC</a></li>
+<li><a href="#org3ffc767">4.3. Binary weighted DAC</a></li>
+<li><a href="#org7a98ece">4.4. R-2R Ladder DAC</a></li>
+<li><a href="#orgd12b67e">4.5. Reconstruction Filters and Signal Integrity</a></li>
+<li><a href="#org1ec0220">4.6. Complete System with Data conversion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc978f51" class="outline-2">
+<h2 id="orgc978f51"><span class="section-number-2">1</span> Filter</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org3141258" class="outline-3">
+<h3 id="org3141258"><span class="section-number-3">1.1</span> What is filter</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Attenuate unwanted signal component
+Passes (or amplifiers) other parts of a signal
+Transition frequency f<sub>t</sub>
+</p>
+</div>
+</div>
+<div id="outline-container-orgebc607c" class="outline-3">
+<h3 id="orgebc607c"><span class="section-number-3">1.2</span> Type of Filter</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Low-pass, High-pass, 
+Band-pass, band-stop (notch filter)
+All-pass, flat amplitude response, but modifies phase.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc43808e" class="outline-3">
+<h3 id="orgc43808e"><span class="section-number-3">1.3</span> Usage</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Communications
+Filter which are excluding carrier frequency</li>
+<li>Consumer audio
+tweeter, woofer
+Passive filter (high frequency component)</li>
+<li>Anti-aliasing, signal reconstruction</li>
+<li>Other instrumentation applications where noise/other signals need to be excluded</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8720ce2" class="outline-3">
+<h3 id="org8720ce2"><span class="section-number-3">1.4</span> Why not just do everything digitally</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+digital filters, works very well, but computational intensive.
+Analogue input signals need to be anti-aliased first.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgaad445a" class="outline-3">
+<h3 id="orgaad445a"><span class="section-number-3">1.5</span> Aliasing and sampling</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+The sampled signals must not contain frequency higher than half the ADC sampling rate. Nyquist frequency.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc5e8875" class="outline-3">
+<h3 id="orgc5e8875"><span class="section-number-3">1.6</span> Filter performance</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Filter performance is never ideal.
+Getting ideal performance meaning trade off in other areas.
+More ideal performance leads to more complex design.
+</p>
+</div>
+<div id="outline-container-orgff86593" class="outline-4">
+<h4 id="orgff86593"><span class="section-number-4">1.6.1</span> Evaluating filter performance</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<ul class="org-ul">
+<li>Magnitude vs. frequency
+<ul class="org-ul">
+<li>Ripple (stop-band and pass-band)</li>
+<li>-3dB (cutoff) frequency / bandwidth</li>
+<li>Q-factor</li>
+<li>Pass-band gain</li>
+<li>Stop-band rejection</li>
+</ul></li>
+<li>Phase/delay characteristics
+<ul class="org-ul">
+<li>group delay or phase delay</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org10faa36" class="outline-4">
+<h4 id="org10faa36"><span class="section-number-4">1.6.2</span> 3dB Frequency</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p>
+Is the point at which the
+</p>
+<ul class="org-ul">
+<li>Power is halved</li>
+<li>Amplitude is reduced by \(1/\sqrt{2}\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga5c0870" class="outline-4">
+<h4 id="orga5c0870"><span class="section-number-4">1.6.3</span> 3dB Bandwidth</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<p>
+3dB Bandwidth is the frequency separation of the two -3dB points.
+</p>
+</div>
+</div>
+<div id="outline-container-org331fffb" class="outline-4">
+<h4 id="org331fffb"><span class="section-number-4">1.6.4</span> Q-factor</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<p>
+Specifies the 'sharpness' of the filter
+For band-pass the ratio of center frequency to -3dB bandwidth (f<sub>1</sub> and f<sub>2</sub>)
+</p>
+\begin{align*}
+  Q = \frac{f_{0}}{(f_{2}-f_{1})}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-orgf869155" class="outline-4">
+<h4 id="orgf869155"><span class="section-number-4">1.6.5</span> Ripple</h4>
+<div class="outline-text-4" id="text-1-6-5">
+<p>
+stop-band and pass-band
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org02871fe" class="outline-3">
+<h3 id="org02871fe"><span class="section-number-3">1.7</span> Active Vs. Passive filter</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Passive filters: filters that are just using the passive components: resistors, capacitors, inductors.
+</p>
+<ul class="org-ul">
+<li>Poor performance with low impedance load 
+Because these type of filter has no amplification.</li>
+<li>Poor low-f / good high-f performance</li>
+<li>Signal degrades with multiple stages.</li>
+</ul>
+</div>
+<div id="outline-container-orge2d0b1e" class="outline-4">
+<h4 id="orge2d0b1e"><span class="section-number-4">1.7.1</span> Active filter</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<p>
+Include active elements: op-amps, transistors
+</p>
+<ul class="org-ul">
+<li>Good performance with low output impedance</li>
+<li>Good low-f / poor high-f performance</li>
+<li>amplify signal as well as filter (many stages ok)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5421664" class="outline-3">
+<h3 id="org5421664"><span class="section-number-3">1.8</span> Roll-off</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+for a basic RC filter, roll-off is -20dB/decade
+roll-off is after the corner frequency, or critical frequency, f<sub>c</sub>.
+The roll-off is generally steeper for more complex filter 'approximations'
+</p>
+</div>
+</div>
+
+<div id="outline-container-org63f664d" class="outline-3">
+<h3 id="org63f664d"><span class="section-number-3">1.9</span> Filter approximation</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Butterworth
+Chebyyshev type 1
+Chebyyshev type 2 
+Elliptic
+</p>
+</div>
+</div>
+<div id="outline-container-org11c61a9" class="outline-3">
+<h3 id="org11c61a9"><span class="section-number-3">1.10</span> Filter transfer function, poles and zeros</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Filter transfer function T(s):
+</p>
+\begin{align*}
+T(s) = \frac{a_{M}s^{M}+a_{M-1}s^{M-1}+\cdots+ a_{0}}{s^{N}+b_{N-1}s^{N-1}+\cdots+ b_{0}}
+\end{align*}
+<p>
+Degree of denominator is filter order
+For filter to be realisable, degree of numerator &le; degree of denominator (M &le; N)
+Coefficients are real numbers, can be factored
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge23e967" class="outline-3">
+<h3 id="orge23e967"><span class="section-number-3">1.11</span> poles and zeros</h3>
+<div class="outline-text-3" id="text-1-11">
+\begin{align*}
+T(s) = \frac{a_{M}(s-z_{1})(s-z_{2})\cdots(s-z_{M})}{(s-p_{1})(s-p_{2})\cdots(s-p_{N})}
+\end{align*}
+<ul class="org-ul">
+<li>Numerator roots (z<sub>1</sub>, z<sub>2</sub>, etc) are transmission zeros</li>
+<li>Denominator roots (p<sub>1</sub>, p<sub>2</sub>, etc) are transmission poles or natural modes</li>
+<li>Each pole or zero can be real or complex</li>
+<li>If complex, must occur in conjugate pairs</li>
+</ul>
+
+<p>
+In stop band, transmission must be small.
+Transmission zeros normally placed on j&omega; axis at stop-band frequencies.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4035d9f" class="outline-3">
+<h3 id="org4035d9f"><span class="section-number-3">1.12</span> Low-pass Filter</h3>
+<div class="outline-text-3" id="text-1-12">
+\begin{align*}
+  A(s) = \frac{A_{0}}{\Pi_{i}(a_{i}s+b_{i}s^{2})}
+\end{align*}
+<ul class="org-ul">
+<li>Multiplication of denominator terms with each other gives and nth-order polynomial
+<ul class="org-ul">
+<li>n is the order of the filter</li>
+<li>Determines approximate roll-off of filter above f<sub>c</sub>, with -n&sdot; 20 dB/decade</li>
+</ul></li>
+<li>Coefficients a<sub>i</sub> and b<sub>i</sub> determines pass-band performance</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2392898" class="outline-3">
+<h3 id="org2392898"><span class="section-number-3">1.13</span> Low-pass Filter Standard Equation</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li><p>
+The standard equation for a second-order LPF
+</p>
+ \begin{align*}
+H_{LP} = \frac{K}{-(\frac{f}{f_{c}})^{2} + \frac{jf}{Qf_{c}} + 1} 
+\end{align*}
+<p>
+where f<sub>c</sub> is corner frequency, Q is Q-factor
+</p></li>
+<li>When f &Lt; f<sub>c</sub>, reduces to K, so circuit pass signals multiplied by K.</li>
+<li>When f = f<sub>c</sub>, reduces to -jKQ, so circuit enhanced by factor Q, shifted by 90<sup>&circ;</sup>.</li>
+<li>When f &Gt; f<sub>c</sub>, reduces to \(-K(\frac{f_{c}}{f})^{2}\), so circuit attenuated by square of frequency ratio, shifted by 180<sup>&circ;</sup>.</li>
+<li>With attenuation at high frequencies increasing by a power of 2, the formula describes a second-order LPF.</li>
+
+<li><p>
+Single-stage second-order low-pass filter:
+</p>
+\begin{align*}
+A(s) = \frac{A_{0}}{1+a_{i}s+b_{i}s^{2}}
+\end{align*}</li>
+<li><p>
+For a first-order filter, coefficient b = 0, thus:
+</p>
+\begin{align*}
+A(s) = \frac{A_{0}}{1+a_{1}s}
+\end{align*}</li>
+<li>often filter operate at unity gain (A<sub>0</sub> = 1) to reduce demands on op-amps open-loop gain</li>
+<li>These are building blocks of higher-order filters</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5898875" class="outline-3">
+<h3 id="org5898875"><span class="section-number-3">1.14</span> Constructing Higher-Order Filters</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+Cascade 1st and 2nd order filters.
+Even order, only second-order filters cascaded.
+Odd order, begin with first order filter
+Odd orders are rarely used.
+</p>
+</div>
+</div>
+<div id="outline-container-org10ff9ca" class="outline-3">
+<h3 id="org10ff9ca"><span class="section-number-3">1.15</span> Analogue signal chain</h3>
+<div class="outline-text-3" id="text-1-15">
+<ul class="org-ul">
+<li>Signals remain analogue throughout</li>
+</ul>
+
+<div id="orgffee8d0" class="figure">
+<p><img src="graph/analogue-signal-chain.png" alt="analogue-signal-chain.png" />
+</p>
+</div>
+
+<p>
+The sensor could be an accelerometer
+</p>
+</div>
+</div>
+
+<div id="outline-container-org459cf70" class="outline-3">
+<h3 id="org459cf70"><span class="section-number-3">1.16</span> Digital signal chain</h3>
+<div class="outline-text-3" id="text-1-16">
+<ul class="org-ul">
+<li>input stages</li>
+</ul>
+
+<div id="orgcee9645" class="figure">
+<p><img src="graph/digital-input-stage.png" alt="digital-input-stage.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>Interface amplifier
+amplifies the input signal</li>
+<li>Anti-alias Filter
+remove high frequency component</li>
+</ul>
+<ul class="org-ul">
+<li>Signal can now be digitally processed</li>
+<li>output stages</li>
+</ul>
+
+<div id="org0d4a2cb" class="figure">
+<p><img src="graph/digital-output-stage.png" alt="digital-output-stage.png" />
+</p>
+</div>
+<ul class="org-ul">
+<li>Reconst. Filter
+DAC creates rapid transition between the samples</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdc7523e" class="outline-3">
+<h3 id="orgdc7523e"><span class="section-number-3">1.17</span> Filter Order</h3>
+<div class="outline-text-3" id="text-1-17">
+<p>
+Higher order filter have a sharper response.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9a05714" class="outline-3">
+<h3 id="org9a05714"><span class="section-number-3">1.18</span> Filter Q-factor</h3>
+<div class="outline-text-3" id="text-1-18">
+<p>
+A higher q-factor gives a sharper response, but introduce ripple
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4d3ccf6" class="outline-3">
+<h3 id="org4d3ccf6"><span class="section-number-3">1.19</span> Filter Phase response</h3>
+<div class="outline-text-3" id="text-1-19">
+<p>
+Phase goes through -90 degress at f<sub>c</sub>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org77df608" class="outline-3">
+<h3 id="org77df608"><span class="section-number-3">1.20</span> Butterworth polynomial</h3>
+<div class="outline-text-3" id="text-1-20">
+<p>
+Butterworth polynomial gives maximally flat response in passband and rolls off gently towards zero in the stopband
+Defined as:
+</p>
+\begin{align*}
+G(\omega) = \sqrt{\frac{1}{1+\omega^{2n}}}
+\end{align*}
+<p>
+where n is the number of poles, &omega; is frequency.
+Alternatively:
+</p>
+\begin{align*}
+G(\omega) = \sqrt{\frac{1}{1+\frac{\omega{}}{\omega_{0}}^{2n}}}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org520c155" class="outline-3">
+<h3 id="org520c155"><span class="section-number-3">1.21</span> Sallen-key Low-pass filter</h3>
+<div class="outline-text-3" id="text-1-21">
+<p>
+Simple RC low-pass filter with amplifier at the output
+</p>
+<ul class="org-ul">
+<li>Op amp in non-inverting configuration.</li>
+<li>Input of amplifier presents very high impedance to R<sub>B</sub> C<sub>B</sub> part of network</li>
+<li>Effectively isolates this section of network from load</li>
+<li>Second RC section from R<sub>A</sub> and C<sub>A</sub></li>
+<li><p>
+Full derivation to follow
+</p>
+\begin{align*}
+f_{c} = \frac{1}{2\pi\sqrt{R_{A}C_{A}R_{B}C_{B}}}
+\end{align*}</li>
+<li>in most design, simplify by R<sub>A</sub> = R<sub>B</sub> = R, C<sub>A</sub> = C<sub>B</sub> = C.</li>
+<li><p>
+Therefore corner frequency given by
+</p>
+\begin{align*}
+f_{c} = \frac{1}{2\pi RC}
+\end{align*}</li>
+<li><p>
+Closed-loop gain, A<sub>v</sub> is determined by R<sub>1</sub> and R<sub>2</sub>
+</p>
+\begin{align*}
+A_{v} = 1+\frac{R_{1}}{R_{2}}
+\end{align*}</li>
+<li>Effective starting point</li>
+<li>Components in &Omega; and F, giving an &omega;<sub>0</sub> of 1 rad/s</li>
+<li><p>
+Derivation
+</p>
+<ul class="org-ul">
+<li>Redraw the circuit with the amplifier replaces by a voltage source.</li>
+<li>Transfer function to obtain frequency response</li>
+</ul>
+<p>
+H(j&omega;) = \frac{v<sub>0</sub>}{v<sub>s</sub>}
+</p>
+<ul class="org-ul">
+<li>Apply KVL to the two mesh currents</li>
+</ul>
+\begin{align*}
+  v_{s}
+\end{align*}
+<ul class="org-ul">
+<li>A<sub>v</sub> is gain of non-inverting amplifier</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org156d91b" class="outline-3">
+<h3 id="org156d91b"><span class="section-number-3">1.22</span> Filter design table</h3>
+<div class="outline-text-3" id="text-1-22">
+<ul class="org-ul">
+<li></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgce9056d" class="outline-3">
+<h3 id="orgce9056d"><span class="section-number-3">1.23</span> Design a fourth order butterworth LPF</h3>
+<div class="outline-text-3" id="text-1-23">
+<ul class="org-ul">
+<li>Design a four-pole low-pass Butterworth filter which has a 3dB corner frequency of 250Hz</li>
+<li><p>
+The RC time constant of each section is
+</p>
+\begin{align*}
+RC = \frac{1}{2\pi(250Hz)} \approx 0.637ms
+\end{align*}</li>
+<li>Assume capacitor value is 220nF; then resistor is 2.9k&Omega;</li>
+<li><p>
+Gain of first stage is
+</p>
+\begin{align*}
+1.152 = 1 + \frac{R_{1}}{R_{2}}
+\end{align*}</li>
+<li>If R<sub>2</sub> = 10k&Omega; then R<sub>1</sub> is 1.52 k&Omega;</li>
+<li><p>
+Gain of second stage is
+</p>
+\begin{align*}
+2.235 = 1 + \frac{R_{1}}{10k\Omega}
+\end{align*}</li>
+<li>so R<sub>1</sub> is 12.4k&Omega;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org95fa1c6" class="outline-3">
+<h3 id="org95fa1c6"><span class="section-number-3">1.24</span> Frequency and Impedance Scaling</h3>
+<div class="outline-text-3" id="text-1-24">
+<ul class="org-ul">
+<li>Impedance scaling: increase resistor sizes by factor, and decrease capacitor sizes by same factor (just the components connected to non-inverting terminal)</li>
+<li>This maintains the &omega;<sub>0</sub>, so need to modify this &ctdot;</li>
+<li>To shift &omega;<sub>0</sub>, decrease capacitor values by that amount</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9dd1d3c" class="outline-3">
+<h3 id="org9dd1d3c"><span class="section-number-3">1.25</span> Convert a LPF to a HPF</h3>
+<div class="outline-text-3" id="text-1-25">
+<ul class="org-ul">
+<li>For Butterworth filter, simply sway filter R and C components</li>
+<li>This is due to fact all stages of Butterworth are designed for f<sub>c</sub></li>
+<li>For other filter optimisations, have to re-visit equations (as designed for different frequency response on each stage)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9fcf741" class="outline-2">
+<h2 id="org9fcf741"><span class="section-number-2">2</span> Power supplies</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgc8ab79c" class="outline-3">
+<h3 id="orgc8ab79c"><span class="section-number-3">2.1</span> Basics of power</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Electrical power is produced by
+<ol class="org-ol">
+<li>Electromagnetic induction in generator</li>
+<li>Chemical reactions in batteries or fuel cells</li>
+<li>Photoeletric generation in solar cells/panels</li>
+<li>Some other effects (e.g. thermoeletric, piezoeletric&#x2026;)</li>
+</ol></li>
+<li>Source may produce direct current (DC) or alternating current (AC) output, and voltage needs to be controlled.</li>
+<li>For use in electronic devices, usually require low-voltage DC.</li>
+
+<li>Power P is rate of generation, transfer, or dissipation of energy E
+P = \frac{dE}{dt}</li>
+<li>Voltage is work done (energy transferred) per unit quantity of electricity (charge, Q):
+V = \frac{dE}{dQ}</li>
+<li><p>
+Current is the rate of flow of charge
+</p>
+\begin{align*}
+I = \frac{dQ}{dt}
+\end{align*}</li>
+<li><p>
+Combining these equations, instantaneous eletrical power is
+</p>
+\begin{align*}
+P = \frac{dE}{dt} = \frac{dE}{dQ}\frac{dQ}{dt} = IV
+\end{align*}</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4705b91" class="outline-3">
+<h3 id="org4705b91"><span class="section-number-3">2.2</span> Cause of Losses</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Major cause of loss is resistance in power lines</li>
+<li>Ohmic loss is proportional to square of current flow (P = I<sup>2</sup>R)</li>
+<li>System efficiency can be enhanced by operating at a higher voltage, with reduce current flow.</li>
+<li>This is easy to do for AC, using a step-up transformer, but more difficult for DC.</li>
+<li>This is one reason why mains electricity is AC; also because traditional generation methods produced AC output</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org57562e1" class="outline-3">
+<h3 id="org57562e1"><span class="section-number-3">2.3</span> Quantify time-varying voltage</h3>
+<div class="outline-text-3" id="text-2-3">
+<ol class="org-ol">
+<li>Instantaneous value
+Voltage at any time instant</li>
+<li>Peak value
+Maximum voltage amplitude of signal</li>
+<li>Peak-to-peak value
+Voltage difference between positive and negative peaks</li>
+<li>Average value
+Mean value, or DC component of signal (integrate over a complete cycle, then divide by cycle length)</li>
+<li>Effective value:
+Root-mean-square value</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org5496468" class="outline-3">
+<h3 id="org5496468"><span class="section-number-3">2.4</span> RMS voltage and current</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Effective voltage of time varying voltage v(t) or v(&omega; t) applied to resistor R, the instantaneous power dissipated in R is :
+</p>
+\begin{align*}
+p = vi = \frac{v^{2}}{R}
+\end{align*}
+<p>
+Averag power dissipated P<sub>av</sub> is :
+</p>
+\begin{align*}
+  P_{AV} = \frac{1}{T}\int_{0}^{T}
+\end{align*}
+<p>
+If V<sub>RMS</sub> is steady voltage value that would cause same power dissipation in R as varying voltage V:
+</p>
+\begin{align*}
+P_{AV} = \frac{V_{RMS}^{2}}{R} = \frac{1}{2\pi}\int_{0}^{2\pi}\frac{v^{2}(\omega t)}{R}d(\omega t)
+\end{align*}
+
+<p>
+From which
+</p>
+\begin{align*}
+V_{RMS}= \sqrt{\frac{1}{2\pi}\int_{0}^{2\pi}v^{2}(\omega t)d(\omega t)}
+\end{align*}
+
+<p>
+Sinusoidally-varying voltage may be expressed as:
+v = V<sub>m</sub>sin(&omega; t)
+where V<sub>m</sub> is amplitude, &omega; is angular frequency (= 2&pi; f)
+Substituting for v in earlier equation for RMS
+</p>
+\begin{align*}
+V_{RMS}= \sqrt{\frac{1}{2\pi}\int_{0}^{2\pi}V_{m}^{2}\sin^{2}(\omega t)d(\omega t)}
+\end{align*}
+<p>
+Using relationship
+</p>
+\begin{align*}
+V_{RMS}= \sqrt{\frac{V_{M}^{2}}{4\pi}\int_{0}^{2\pi}(1-\cos(2\omega t))d(\omega t)}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org8a8b945" class="outline-3">
+<h3 id="org8a8b945"><span class="section-number-3">2.5</span> Expressing Voltage and currents</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>If a time-varying voltage (or current) is specified in volts (or amps) with no other description, it will normally be referring to the RMS value.</li>
+<li>Example: in the EU, mains voltage is 230V; this means an RMS value of 230V, so the power flow through a resistive load is equivalent to a DC voltage of 230V.</li>
+<li>So in the EU, the peak voltage is typically \(230\sqrt{2} = 325V\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0dcfb88" class="outline-3">
+<h3 id="org0dcfb88"><span class="section-number-3">2.6</span> Transformers</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li>Used to convert between AC voltages</li>
+<li>Depends on number of turns on primary (N<sub>P</sub>) and secondary (N<sub>S</sub>) windings (or ratio a)</li>
+<li>Ideal transformer equation:</li>
+</ul>
+\begin{align*}
+  \frac{V_{P}}{V_{S}} = \frac{N_{P}}{N_{s}} = a
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-org441289b" class="outline-3">
+<h3 id="org441289b"><span class="section-number-3">2.7</span> Rectification</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Rectification is the process of converting AC to DC.
+</p>
+</div>
+<div id="outline-container-org153263c" class="outline-4">
+<h4 id="org153263c"><span class="section-number-4">2.7.1</span> half-wave</h4>
+<div class="outline-text-4" id="text-2-7-1">
+<ul class="org-ul">
+<li>Single diode rectification.</li>
+<li>To reduce ripple, add capacitor parallel to load</li>
+<li>Ripple voltage V<sub>r</sub> is maximum deviation in output</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgef839aa" class="outline-4">
+<h4 id="orgef839aa"><span class="section-number-4">2.7.2</span> Full-wave</h4>
+<div class="outline-text-4" id="text-2-7-2">
+<p>
+centre-tapped transformer
+</p>
+</div>
+</div>
+<div id="outline-container-org31cdfb6" class="outline-4">
+<h4 id="org31cdfb6"><span class="section-number-4">2.7.3</span> Bridge</h4>
+<div class="outline-text-4" id="text-2-7-3">
+<p>
+No need for centre-tapped transformer
+require twice as many diodes, and current through each diode is halved.
+</p>
+</div>
+</div>
+<div id="outline-container-org0ad7b67" class="outline-4">
+<h4 id="org0ad7b67"><span class="section-number-4">2.7.4</span> Ripple</h4>
+<div class="outline-text-4" id="text-2-7-4">
+<p>
+AC-DC power supplies generally aim to deliver a constant ouput voltage, so need to smooth the rectifier output
+Adding capacitrance (a filter) to the load reduces ripple.
+Voltage decay follows v<sub>0</sub>(t) = V<sub>p</sub>e<sup>-t/RC</sup>
+t is the time since peak, V<sub>p</sub> is voltage of peak
+</p>
+
+<p>
+Approximation with triangle-wave, assume chargin of capacitor is instantaneous
+For periodic signal, voltage decay follows relationship
+v<sub>o</sub>(t) = V<sub>p</sub>e<sup>-T/RC</sup> (T is period)
+Can approximate using Taylor series: \(exp(-x) = 1 - x +\)
+if x is small \(\exp(-x) \approx 1 - x\), therefore \(V_{C_{min}} = V_{p}(1-\frac{T}{RC})\)
+Hence if RC &Gt; T, can approximate ripple to \(V_{r} \approx \frac{V_{P}T}{RC}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org63b1ab4" class="outline-4">
+<h4 id="org63b1ab4"><span class="section-number-4">2.7.5</span> Controlling ripple</h4>
+<div class="outline-text-4" id="text-2-7-5">
+<p>
+Example: how large must C<sub>1</sub> be for a &lt; 5% ripple with a 50Hz source? Assume \(V_{r} \approx \frac{V_{p}T}{RC}\)
+Using \(V_{r} \approx \frac{V_{p}T}{RC}\), to give \(V_{r}/V_{p} = 0.05\).
+C = T/0.05R
+Given T = 0.02 and R = 16k&Omega;.
+Therefore, \(C = 25\mu F\).
+</p>
+
+<p>
+Larger C leads to smaller ripple; e.g. for 0.5% ripple, C = 250&mu; F
+For a lower load R, could increase C to limit ripple
+Need another strategy to limit ripple &#x2026;
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org390a7fc" class="outline-3">
+<h3 id="org390a7fc"><span class="section-number-3">2.8</span> Quantify power supply effectiveness</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li>line regulation
+Measurement of the ability of a power supply to maintain a constant output despite changes in the input voltage.</li>
+<li>Normally expressed as a single value (e.g. 4mV) for a range of input voltages (e.g. 8V &le; V<sub>i</sub>n &le; 12V).</li>
+<li>Load regulation is a measure of the ability of a voltage regulator to maintain a constant output voltage despite changes in load current</li>
+<li>Normally expressed as a single value (e.g. 10mV) for a range of output currents (e.g. 5mA to 1.5A)</li>
+<li><p>
+Ripple Rejection is the change in output voltage that results from a change in input voltage, units in dB.
+</p>
+\begin{align*}
+  \text{Ripple rejection} = \frac{\Delta V_{IN}}{\Delta V_{OUT}}
+\end{align*}</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2662eae" class="outline-3">
+<h3 id="org2662eae"><span class="section-number-3">2.9</span> Properties of Power Supplies</h3>
+<div class="outline-text-3" id="text-2-9">
+<ul class="org-ul">
+<li>Quiescent current
+The baseline or static current used by the device. This means that efficiency at low current outputs is very low</li>
+<li><p>
+Efficiency is the proportion of power output vs. power input
+</p>
+\begin{align*}
+ \text{Efficiency} = \frac{P_{OUT}}{P_{IN}}
+ \end{align*}</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd30a318" class="outline-3">
+<h3 id="orgd30a318"><span class="section-number-3">2.10</span> Linear vs. Switching power supples</h3>
+<div class="outline-text-3" id="text-2-10">
+</div>
+<div id="outline-container-orgc3fc1f3" class="outline-4">
+<h4 id="orgc3fc1f3"><span class="section-number-4">2.10.1</span> Linear</h4>
+<div class="outline-text-4" id="text-2-10-1">
+<ul class="org-ul">
+<li>Device operates in 'linear' region</li>
+<li>Simple: fewer components</li>
+<li>Inefficient: Power dissipated through resistor or transistor</li>
+<li>Stable: little ripple/Switching noise</li>
+<li>Step-down only: acts to regulate supply, cannot step-up or invert.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcd474fe" class="outline-4">
+<h4 id="orgcd474fe"><span class="section-number-4">2.10.2</span> Switching</h4>
+<div class="outline-text-4" id="text-2-10-2">
+<ul class="org-ul">
+<li>Device operates as on/off switch
+Duty cycle</li>
+<li>Complex: inductor, diode, capacitor
+Inductor can be large</li>
+<li>Efficient: no intentional dissipation of energy</li>
+<li>Noisy: output will have switching transients</li>
+<li>Flexible: Can step up as well as down, and provide negative voltages.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc10508d" class="outline-3">
+<h3 id="orgc10508d"><span class="section-number-3">2.11</span> Simple Series linear regulator</h3>
+<div class="outline-text-3" id="text-2-11">
+<ul class="org-ul">
+<li>Sample circuit: Detects any change in the output voltage (V<sub>OUT</sub>).
+Feedback output voltage</li>
+<li>Error detector: compares the ouput from the sample cirucit to the reference voltage.
+bipolar transistor and resistor</li>
+<li>Control element: Compensates for any change in output voltage by increasing/decreasing load current
+Op-amp</li>
+<li>Reference voltage
+Generally done with a diode and resistor</li>
+</ul>
+
+<p>
+output Voltage
+</p>
+\begin{align*}
+V_{out} \approx (1+\frac{R_{2}}{R_{3}})V_{REF}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orga995bbb" class="outline-3">
+<h3 id="orga995bbb"><span class="section-number-3">2.12</span> Series linear regulator operation</h3>
+<div class="outline-text-3" id="text-2-12">
+<p>
+Responds to ensure output voltage is steady
+Decrease the base voltage to maintain the output voltage.
+</p>
+</div>
+</div>
+<div id="outline-container-org4a1f5ca" class="outline-3">
+<h3 id="org4a1f5ca"><span class="section-number-3">2.13</span> Simple shunt linear regulator</h3>
+<div class="outline-text-3" id="text-2-13">
+<p>
+A bit robust 
+</p>
+<ul class="org-ul">
+<li>Sample circuit: detects any change in output voltage (V<sub>OUT</sub>)</li>
+<li>Error detector: Compares the output from the sample circuit to the reference voltage</li>
+<li>Control element: Compensates for any change in output voltage by increasing/decreasing load current</li>
+
+<li>Output voltage:</li>
+</ul>
+\begin{align*}
+V_{out} \approx (1+\frac{R_{3}}{R_{4}})V_{REF}
+\end{align*}
+
+<ul class="org-ul">
+<li><p>
+Maximum current supplied to load:
+</p>
+\begin{align*}
+I_{L(max)} = \frac{V_{in}}{R_{1}}
+\end{align*}</li>
+<li>The circuit response to a decrease in V<sub>in</sub> or in R<sub>L</sub></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org06ccc57" class="outline-3">
+<h3 id="org06ccc57"><span class="section-number-3">2.14</span> Switching convertor</h3>
+<div class="outline-text-3" id="text-2-14">
+<p>
+A converter with a control element that is operated as a switch, making it more efficient than a linear voltage regulator.
+Switching converters are used primarily in:
+</p>
+<ul class="org-ul">
+<li>high-power applications</li>
+<li>applications where efficiency is a primary concern</li>
+</ul>
+</div>
+<div id="outline-container-org28d541b" class="outline-4">
+<h4 id="org28d541b"><span class="section-number-4">2.14.1</span> Continuous mode</h4>
+<div class="outline-text-4" id="text-2-14-1">
+<ul class="org-ul">
+<li>Current through inductor never falls to zero.
+Convertor is working at its maximum throughout rate, where the load current is high.</li>
+<li><p>
+Switching frequency generally does not change, but duty cycle does
+</p>
+\begin{align*}
+ V_{OUT} = (\frac{t_{on}}{T})V_{in}
+\end{align*}</li>
+<li><p>
+Again, switching frequency generally does not change
+</p>
+\begin{align*}
+V_{out} = \frac{V_{in}}{1-t_{on}/T}
+\end{align*}</li>
+<li>The circuit action when Q<sub>1</sub> is on</li>
+<li>The circuit action when Q<sub>1</sub> is off
+The polarity of the inductor is switched, it will add to the input voltage.</li>
+</ul>
+
+
+<p>
+When the closes switches, the inductor stores the energy, with positive polarity.
+</p>
+
+<p>
+The circuit response to a decrease in V<sub>out</sub>
+</p>
+</div>
+</div>
+<div id="outline-container-orge631274" class="outline-4">
+<h4 id="orge631274"><span class="section-number-4">2.14.2</span> Buck-boost inverting switching converter</h4>
+<div class="outline-text-4" id="text-2-14-2">
+<ul class="org-ul">
+<li>Allow voltage to be stepped up as well as down</li>
+<li>However, always 'inverts' the output, output opposite polarity to input</li>
+<li>Not a problem if power supply isolated from load</li>
+<li>The circuit action when Q<sub>1</sub> is on</li>
+<li>The circuit action when Q<sub>1</sub> is off</li>
+<li>When -V<sub>out</sub> tries to decrease, t<sub>on</sub> decreases, causing V<sub>L</sub> to increase.
+This compensates for the attempted decrease in -V<sub>out</sub>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6b99a5b" class="outline-4">
+<h4 id="org6b99a5b"><span class="section-number-4">2.14.3</span> Buck-boost hybrid switching converter</h4>
+<div class="outline-text-4" id="text-2-14-3">
+<ul class="org-ul">
+<li>Alternative to the inverting Buck-boost converter</li>
+<li>A combination of a buck and boost converter</li>
+<li>Output is same polarity as input</li>
+<li>May use a single inductor and multiple switches</li>
+<li>Alternatively, may use multiple inductors but only one switch</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2042539" class="outline-2">
+<h2 id="org2042539"><span class="section-number-2">3</span> Power supply - Regulator</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Protect circuit against shorts
+</p>
+</div>
+<div id="outline-container-org8875864" class="outline-3">
+<h3 id="org8875864"><span class="section-number-3">3.1</span> Zener Diode Regulators</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+For operation:
+</p>
+<ul class="org-ul">
+<li>Input voltage (V<sub>s</sub>) must be greater than V<sub>z</sub></li>
+<li><p>
+Current must be between I<sub>Z<sub>min</sub></sub> and I<sub>Z<sub>max</sub></sub> from KCL, minimum current:
+</p>
+\begin{align*}
+I_{Z_{min}} = \frac{V_{s} - V_{Z}}{R_{s}}
+\end{align*}
+
+<p>
+If delivering constant output from variable supply (supply varies between V<sub>smin</sub> and V<sub>smax</sub>), needs to provide stable output V<sub>z</sub>. Therefore minimum current must flow when V<sub>s</sub> at minimum value:
+</p>
+\begin{align*}
+I_{Z_{min}} = \frac{V_{s_{min}} - V_{Z}}{R_{s}}
+\end{align*}
+<p>
+Maximum current applied when supply is at maximum value
+</p>
+\begin{align*}
+I_{Z_{max}} = \frac{V_{s_{max}} - V_{Z}}{R_{s}}
+\end{align*}
+<p>
+So size of R<sub>s</sub> must ensure at least I<sub>Z<sub>min</sub></sub> flows at V<sub>smin</sub> and no more than I<sub>Z<sub>max</sub></sub> flows at V<sub>smax</sub>.
+</p></li>
+<li>In a real Zener, voltage across terminals varies with current</li>
+<li>Caused by voltage drop across internal series resistance</li>
+<li>A typical values of r<sub>Z</sub> may be 10-20&Omega;, voltage drop is added to V<sub>Z</sub></li>
+<li><p>
+We can analyse this circuit ob observe line regulation (sensitivity to V<sub>s</sub>)
+</p>
+
+<p>
+Applying KVL to input
+V<sub>s</sub> = I<sub>Z</sub>R<sub>s</sub> + I<sub>Z</sub>r<sub>Z</sub> + V<sub>Z</sub>
+And KVL to the output
+</p>
+\begin{align*}
+v_{out} = I_{Z}r_{z} + V_{z}
+\end{align*}
+
+<p>
+By substitution
+</p>
+\begin{align*}
+v_{out} &= \frac{r_{z}(V_{s} - V_{z})}{R_{s}+r_{Z}} + V_{Z} \\
+v_{out} &= \frac{r_{z}V_{s}}{R_{s}+r_{Z}} - \frac{r_{z}V_{z}}{R_{s}+r_{Z}} + V_{Z}
+\end{align*}
+
+<p>
+So line regulation can be calculated as \(\Delta v_{out}/\Delta V_{s}\):
+</p>
+\begin{align*}
+\frac{\Delta v_{out}}{\Delta V_{s}} = \frac{\Delta}{\Delta V_{s}}(\frac{r_{z}V_{s}}{R_{s}+r_{Z}} - \frac{r_{z}V_{z}}{R_{s}+r_{Z}} + V_{Z}) ＝ \frac{r_{z}}{R_{s}+r_{Z}}
+\end{align*}
+
+<p>
+And since R<sub>s</sub> &Gt; r<sub>z</sub>:
+</p>
+\begin{align*}
+\frac{\Delta v_{out}}{\Delta V_{s}} = \frac{r_{Z}}{R_{s}}
+\end{align*}</li>
+</ul>
+
+
+<p>
+Up to now, circuits considered have had no load, adding a load to the ouput, and applying KVL:
+</p>
+\begin{align*}
+  V_{s} = (I_{z} + I_{L})R_{s}+V_{Z}
+\end{align*}
+
+<p>
+For a given load current, required value of R<sub>s</sub> given by V<sub>smin</sub> and I<sub>Z<sub>min</sub></sub>:
+R<sub>s</sub> = \frac{V<sub>smin</sub>-V<sub>z</sub>}{I<sub>L</sub>+I<sub>Z<sub>min</sub></sub>}
+</p>
+
+<p>
+The regulator will only behave correctly if Zener diode current remains between I<sub>Z<sub>min</sub></sub> and I<sub>Z<sub>max</sub></sub>.
+</p>
+<ul class="org-ul">
+<li>Need to size components carefully</li>
+<li>Circuit is restricted in the range of load currents it can effectively regulate for.</li>
+<li>Can be difficult to cope with range of output impedance.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org57aed9a" class="outline-3">
+<h3 id="org57aed9a"><span class="section-number-3">3.2</span> Transistor based series regulator</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Assume V<sub>z</sub> is constant, any change in V<sub>o</sub> results in change in V<sub>BE</sub>.
+So, if V<sub>o</sub> increases then V<sub>BE</sub> decreases to maintain balance (transistor conducts less heavily reduces load current)
+</p>
+
+<p>
+Suitable value R<sub>s</sub> given by:
+</p>
+\begin{align*}
+R_{s} = \frac{v_{in(min)} - V_{z}}{I_{Z(min)}+ I_{B}}
+\end{align*}
+
+<p>
+As I<sub>B</sub> &asymp; I<sub>L</sub>/&beta;:
+</p>
+\begin{align*}
+R_{s} = \frac{v_{in(min)}-V_{z}}{I_{Z(min)}+I_{L}/\beta}
+\end{align*}
+
+<p>
+As load current does not flow through R<sub>s</sub>, can have much large value. So stability, given by
+</p>
+\begin{align*}
+\frac{\Delta v_{out}}{\Delta V_{s}} = \frac{r_{Z}}{R_{s}}
+\end{align*}
+
+<p>
+is substantially improved.
+</p>
+</div>
+</div>
+<div id="outline-container-org9170744" class="outline-3">
+<h3 id="org9170744"><span class="section-number-3">3.3</span> Issue with Transistor-based Regulator</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>Output voltage determines required value of V<sub>Z</sub> chosen</li>
+<li>Zener diodes with low temperature coefficients have V<sub>z</sub></li>
+<li>Need an effective way to provide a wider range of V<sub>O</sub>, unrestricted by V<sub>Z</sub></li>
+<li>Substantial power loss through R<sub>s</sub>, ideally want to minimise this (keep to I<sub>Z<sub>min</sub></sub>)</li>
+<li>Feedback needs large loop gain: errors need to be responded to quickly</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga33f902" class="outline-3">
+<h3 id="orga33f902"><span class="section-number-3">3.4</span> Op-amp based series regulator</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>Amplifier output proportional to V<sub>Z</sub> - V<sub>f</sub></li>
+<li>If V<sub>O</sub> increases, V<sub>f</sub> increases and amplifier output decreases</li>
+<li>Cause base voltage transistor to drop, conduct less</li>
+<li>Feedback stabilise output</li>
+
+<li>Op-amp is non-inverting amplifier with V<sub>z</sub> input and V<sub>f</sub> feedback</li>
+<li>Closed-loop gain is
+A<sub>cf</sub> = \frac{V<sub>O</sub>'}{V<sub>Z</sub>}= 1 + \frac{R<sub>1</sub>}{R<sub>2</sub>}</li>
+<li>Ignoring the base-emitter voltage
+V<sub>0</sub> &asymp; V<sub>o</sub>' = (1 + \frac{R<sub>1</sub>}{R<sub>2</sub>})V<sub>z</sub></li>
+
+<li>output voltage can be varied from minimum of V<sub>Z</sub> to maximum value determined by resistor ratio and v<sub>in</sub></li>
+<li>As op-amp has very high input impedance, R<sub>s</sub> can purely be sized to deliver I<sub>Z<sub>min</sub></sub> across expeceted range of v<sub>in</sub>.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf947cac" class="outline-3">
+<h3 id="orgf947cac"><span class="section-number-3">3.5</span> Op-amp based Shunt regulator</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>Same principle, but inputs on op-amp reversed</li>
+<li>This is because increas in V<sub>O</sub> leads to increase in V<sub>f</sub> but needs to respond by increasing the base voltage to conduct more</li>
+<li>This causes more current to flow through R<sub>3</sub> and hence a larger voltage drop across it</li>
+<li>Shunt regulator is less commonly used, but has one major advantage: will not damaged by short-circuit currents</li>
+<li>Short-circuit current limited to v<sub>in</sub>/R<sub>3</sub>. Assuming R<sub>3</sub> is able to tolerate short-circuit current, no damage.</li>
+<li>However, there are modifications available for series regulator to provide current-limiting.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0f3db20" class="outline-3">
+<h3 id="org0f3db20"><span class="section-number-3">3.6</span> short-circuit protection</h3>
+<div class="outline-text-3" id="text-3-6">
+<ul class="org-ul">
+<li>Series linear regulator are susceptible to damage from short-circuit</li>
+<li>Under a short-circuit, the full input voltage appears across the transistor</li>
+<li>With a short-circuit on the output, V<sub>f</sub> = 0, and V<sub>Z</sub> on non-inverting input of amplifier, this drives output high</li>
+<li>This causes transistor to conduct heavily &#x2026; high current level may damage transistor (and potentially other parts of circuit e.g. rectifier diodes).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org596cb4d" class="outline-3">
+<h3 id="org596cb4d"><span class="section-number-3">3.7</span> Current limiting</h3>
+<div class="outline-text-3" id="text-3-7">
+<ul class="org-ul">
+<li>To avoid damange from short-circuit, linear regulators include current limits on output</li>
+<li>The voltage across R3 is the base-emitter voltage for Q2</li>
+<li>When V<sub>BE2</sub> reaches 0.7V, Q2 begins to conduct heavily.</li>
+<li>This causes current that would have flowed into base of Q1 to be diverted to collector of Q2</li>
+<li>This protects Q1 &#x2026; Current through Q2 may reach as high as sourcing capability of op-amp (a few tens of mA)</li>
+<li>beyond I<sub>L(max)</sub> output voltage reduces to zero with a small additional increase in curent</li>
+<li><p>
+Maximum short-circuit current is value required to produce 0.7V across R3
+</p>
+\begin{align*}
+I_{L(max)} = \frac{0.7}{R_{3}}
+\end{align*}</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org0f9e6ae" class="outline-2">
+<h2 id="org0f9e6ae"><span class="section-number-2">4</span> Data Conversion</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orga251ed1" class="outline-3">
+<h3 id="orga251ed1"><span class="section-number-3">4.1</span> DAC Performance Characteristics</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Resolution:
+The difference in output between each 'step', measured in mV.
+May also be expressed as the number of bits that are converted - i.e. the number of input bits</li>
+<li>Accuracy:
+A comparison of the actual output of a DAC with the expected output. It is expressed as a percentage of full-scale, or maximum, output voltage.</li>
+<li>Linearity:
+A linear error is a deviation from the ideal straight-line output of a DAC. A special case is an offset error, which is amount of output voltage when the input bits are all zeros</li>
+<li>Settling time:
+The time it takes a DAC to settle within &plusmn;\frac{1}{2} LSB of its final value when a change occurs in the input code. This may also be expressed as the update rate (the inverse of settling time)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbeb3802" class="outline-3">
+<h3 id="orgbeb3802"><span class="section-number-3">4.2</span> Principles and properties of DAC</h3>
+</div>
+<div id="outline-container-org3ffc767" class="outline-3">
+<h3 id="org3ffc767"><span class="section-number-3">4.3</span> Binary weighted DAC</h3>
+</div>
+<div id="outline-container-org7a98ece" class="outline-3">
+<h3 id="org7a98ece"><span class="section-number-3">4.4</span> R-2R Ladder DAC</h3>
+</div>
+<div id="outline-container-orgd12b67e" class="outline-3">
+<h3 id="orgd12b67e"><span class="section-number-3">4.5</span> Reconstruction Filters and Signal Integrity</h3>
+</div>
+<div id="outline-container-org1ec0220" class="outline-3">
+<h3 id="org1ec0220"><span class="section-number-3">4.6</span> Complete System with Data conversion</h3>
+</div>
+</div>
+</div>
+</body>
+</html>
