@@ -1,0 +1,693 @@
+#+title: Me writing my sudoku solver
+
+Encountered a stuck solution problem
+
+* setup                                 :noexport:
+
+#+begin_src lisp
+(defpackage cl-sudoku.test
+  (:use #:cl #:cl-sudoku.solver #:cl-sudoku.sudoku))
+(in-package :cl-sudoku.test)
+
+(defparameter foo
+  (sudoku-from-2d-array
+   #2A((0 0 0 3 4 5 0 2 0)
+       (3 4 9 7 0 6 0 0 1)
+       (2 0 6 0 0 1 4 7 0)
+       (1 0 2 0 7 9 0 8 5)
+       (5 9 0 0 0 0 0 0 0)
+       (0 6 0 0 0 0 2 1 9)
+       (9 1 0 0 0 7 0 4 2)
+       (0 2 7 9 1 3 0 6 0)
+       (0 0 0 0 0 0 0 0 0))))
+#+end_src
+
+#+RESULTS:
+: FOO
+
+#+begin_src lisp :results raw
+(in-package :cl-sudoku.test)
+
+(sreset! foo)
+(loop repeat 11
+      collect (step-sudoku foo))
+#+end_src
+
+#+RESULTS:
+((3 1 . 3) (3 6 . 6) (3 3 . 4) (1 7 . 5) (1 6 . 8) (1 4 . 2) (7 6 . 5)
+ (6 6 . 3) (4 7 . 3) (8 7 . 9)
+ "No progress found for the run, try stepping again")
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(defvar steps
+  '((3 1 . 3) (3 6 . 6) (3 3 . 4)
+    (1 7 . 5) (1 6 . 8) (1 4 . 2)
+    (7 6 . 5) (6 6 . 3) (4 7 . 3)
+    (8 7 . 9)))
+#+end_src
+
+#+RESULTS:
+: STEPS
+
+* try step for breakdown                :noexport:
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+
+(defun try-i-step (i &optional (s foo) (steps* steps))
+  (loop repeat i
+        with arr = (alexandria:copy-array (sudoku--board s))
+        for (x y . num) in steps*
+        do (setf (aref arr x y) num)
+        finally (return arr)))
+#+end_src
+
+#+RESULTS:
+: TRY-I-STEP
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(sreset! foo)
+(try-i-step 1)
+#+end_src
+
+#+RESULTS:
+: #2A((0 0 0 3 4 5 0 2 0)
+:     (3 4 9 7 0 6 0 0 1)
+:     (2 0 6 0 0 1 4 7 0)
+:     (1 3 2 0 7 9 0 8 5)
+:     (5 9 0 0 0 0 0 0 0)
+:     (0 6 0 0 0 0 2 1 9)
+:     (9 1 0 0 0 7 0 4 2)
+:     (0 2 7 9 1 3 0 6 0)
+:     (0 0 0 0 0 0 0 0 0))
+
+#+begin_src lisp :results output
+(in-package :cl-sudoku.test)
+(format t "~a~%" (nth 0 steps))
+(format t "~a~%" (try-i-step 1))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+(3 1 . 3)
+#2A((0 0 0 3 4 5 0 2 0)
+    (3 4 9 7 0 6 0 0 1)
+    (2 0 6 0 0 1 4 7 0)
+    (1 3 2 0 7 9 0 8 5)
+    (5 9 0 0 0 0 0 0 0)
+    (0 6 0 0 0 0 2 1 9)
+    (9 1 0 0 0 7 0 4 2)
+    (0 2 7 9 1 3 0 6 0)
+    (0 0 0 0 0 0 0 0 0))
+#+end_example
+
+
+#+begin_src lisp :results output
+(in-package :cl-sudoku.test)
+(format t "~a~%~a" (nth 1 steps) (try-i-step 2))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+(3 6 . 6)
+#2A((0 0 0 3 4 5 0 2 0)
+    (3 4 9 7 0 6 0 0 1)
+    (2 0 6 0 0 1 4 7 0)
+    (1 3 2 0 7 9 6 8 5)
+    (5 9 0 0 0 0 0 0 0)
+    (0 6 0 0 0 0 2 1 9)
+    (9 1 0 0 0 7 0 4 2)
+    (0 2 7 9 1 3 0 6 0)
+    (0 0 0 0 0 0 0 0 0))
+#+end_example
+
+#+begin_src lisp :results output
+(in-package :cl-sudoku.test)
+(format t "~a~%~a" (nth 2 steps) (try-i-step 3))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+(3 3 . 4)
+#2A((0 0 0 3 4 5 0 2 0)
+    (3 4 9 7 0 6 0 0 1)
+    (2 0 6 0 0 1 4 7 0)
+    (1 3 2 4 7 9 6 8 5)
+    (5 9 0 0 0 0 0 0 0)
+    (0 6 0 0 0 0 2 1 9)
+    (9 1 0 0 0 7 0 4 2)
+    (0 2 7 9 1 3 0 6 0)
+    (0 0 0 0 0 0 0 0 0))
+#+end_example
+
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(list (nth 3 steps) (try-i-step 4))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+((1 7 . 5)
+ #2A((0 0 0 3 4 5 0 2 0)
+     (3 4 9 7 0 6 0 5 1)
+     (2 0 6 0 0 1 4 7 0)
+     (1 3 2 4 7 9 6 8 5)
+     (5 9 0 0 0 0 0 0 0)
+     (0 6 0 0 0 0 2 1 9)
+     (9 1 0 0 0 7 0 4 2)
+     (0 2 7 9 1 3 0 6 0)
+     (0 0 0 0 0 0 0 0 0)))
+#+end_example
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(list (nth 4 steps) (try-i-step 5))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+((1 6 . 8)
+ #2A((0 0 0 3 4 5 0 2 0)
+     (3 4 9 7 0 6 8 5 1)
+     (2 0 6 0 0 1 4 7 0)
+     (1 3 2 4 7 9 6 8 5)
+     (5 9 0 0 0 0 0 0 0)
+     (0 6 0 0 0 0 2 1 9)
+     (9 1 0 0 0 7 0 4 2)
+     (0 2 7 9 1 3 0 6 0)
+     (0 0 0 0 0 0 0 0 0)))
+#+end_example
+
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(list (nth 5 steps) (try-i-step 6))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+((1 4 . 2)
+ #2A((0 0 0 3 4 5 0 2 0)
+     (3 4 9 7 2 6 8 5 1)
+     (2 0 6 0 0 1 4 7 0)
+     (1 3 2 4 7 9 6 8 5)
+     (5 9 0 0 0 0 0 0 0)
+     (0 6 0 0 0 0 2 1 9)
+     (9 1 0 0 0 7 0 4 2)
+     (0 2 7 9 1 3 0 6 0)
+     (0 0 0 0 0 0 0 0 0)))
+#+end_example
+
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(list (nth 6 steps) (try-i-step 7))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+((7 6 . 5)
+ #2A((0 0 0 3 4 5 0 2 0)
+     (3 4 9 7 2 6 8 5 1)
+     (2 0 6 0 0 1 4 7 0)
+     (1 3 2 4 7 9 6 8 5)
+     (5 9 0 0 0 0 0 0 0)
+     (0 6 0 0 0 0 2 1 9)
+     (9 1 0 0 0 7 0 4 2)
+     (0 2 7 9 1 3 5 6 0)
+     (0 0 0 0 0 0 0 0 0)))
+#+end_example
+
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(list (nth 7 steps) (try-i-step 8))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+((6 6 . 3)
+ #2A((0 0 0 3 4 5 0 2 0)
+     (3 4 9 7 2 6 8 5 1)
+     (2 0 6 0 0 1 4 7 0)
+     (1 3 2 4 7 9 6 8 5)
+     (5 9 0 0 0 0 0 0 0)
+     (0 6 0 0 0 0 2 1 9)
+     (9 1 0 0 0 7 3 4 2)
+     (0 2 7 9 1 3 5 6 0)
+     (0 0 0 0 0 0 0 0 0)))
+#+end_example
+
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(list (nth 8 steps) (try-i-step 9))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+((4 7 . 3)
+ #2A((0 0 0 3 4 5 0 2 0)
+     (3 4 9 7 2 6 8 5 1)
+     (2 0 6 0 0 1 4 7 0)
+     (1 3 2 4 7 9 6 8 5)
+     (5 9 0 0 0 0 0 3 0)
+     (0 6 0 0 0 0 2 1 9)
+     (9 1 0 0 0 7 3 4 2)
+     (0 2 7 9 1 3 5 6 0)
+     (0 0 0 0 0 0 0 0 0)))
+#+end_example
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(list (nth 9 steps) (try-i-step 10))
+#+end_src
+
+#+RESULTS:
+#+begin_example
+((8 7 . 9)
+ #2A((0 0 0 3 4 5 0 2 0)
+     (3 4 9 7 2 6 8 5 1)
+     (2 0 6 0 0 1 4 7 0)
+     (1 3 2 4 7 9 6 8 5)
+     (5 9 0 0 0 0 0 3 0)
+     (0 6 0 0 0 0 2 1 9)
+     (9 1 0 0 0 7 3 4 2)
+     (0 2 7 9 1 3 5 6 0)
+     (0 0 0 0 0 0 0 9 0)))
+#+end_example
+
+* Introduction
+** Layout and the structure of this "blog"
+
+** Why I wanted to write this Sudoku solver
+I have tried writing a Sudoku solver before, one completed using a very simple brute-force depth-first backtrack searcher in C++ for an university assignment, another using a constraint based depth-first searcher in Clojure, in common lisp, etc, /in-completed/.
+
+The simple brute-force was elegant, efficient and does the job, however, I have thought about how I myself solves the sudoku when I see it right in front of me, I want to make a program that solve the sudoku that way. This is the main motivation with this program, and there are two main goals behind this attempt:
+
+1) to see to myself finishing a project from start to finish
+   # manifest the outcome that I wished for.
+2) to challenge myself, to complete something that I hadn't completed individually yet and with sudoku it isn't something too difficult that I would give up mid-way like many times before.
+   # to beat past old myself, and make this step forward. Therefore, as much as this is a technical challenge (perhaps just two pieces of cake for some), there is as much as this is a psychological and spiritual challenge for me.
+
+* analysis end game                     :noexport:
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(sreset! foo)
+(loop repeat 11
+      collect (step-sudoku foo))
+#+end_src
+
+#+RESULTS:
+: ((3 1 . 3) (3 6 . 6) (3 3 . 4) (1 7 . 5) (1 6 . 8) (1 4 . 2) (7 6 . 5) (6 6 . 3) (4 7 . 3) (8 7 . 9) No progress found for the run, try stepping again)
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(sudoku--board foo)
+#+end_src
+
+#+RESULTS:
+: #2A((0 0 0 3 4 5 0 2 0)
+:     (3 4 9 7 2 6 8 5 1)
+:     (2 0 6 0 0 1 4 7 0)
+:     (1 3 2 4 7 9 6 8 5)
+:     (5 9 0 0 0 0 0 3 0)
+:     (0 6 0 0 0 0 2 1 9)
+:     (9 1 0 0 0 7 3 4 2)
+:     (0 2 7 9 1 3 5 6 0)
+:     (0 0 0 0 0 0 0 9 0))
+
+#+begin_src lisp :results output
+(in-package :cl-sudoku.test)
+(loop for i from 0 below 9
+      do (format t "~a ~a~%"
+                 (1+ i) (srow-encoding foo i)))
+#+end_src
+
+#+RESULTS:
+: 1 #*100001111
+: 2 #*000000000
+: 3 #*001010011
+: 4 #*000000000
+: 5 #*110101110
+: 6 #*001110110
+: 7 #*000011010
+: 8 #*000100010
+: 9 #*111111110
+
+#+begin_src lisp :results output
+(in-package :cl-sudoku.test)
+(loop for i from 0 below 9
+      do (format t "~a ~a~%"
+                 (1+ i) (scol-encoding foo i)))
+#+end_src
+
+#+RESULTS:
+: 1 #*000101110
+: 2 #*000010110
+: 3 #*101110010
+: 4 #*110011010
+: 5 #*001011011
+: 6 #*010100010
+: 7 #*100000101
+: 8 #*000000000
+: 9 #*001101110
+
+#+begin_src lisp :results output
+(in-package :cl-sudoku.test)
+(loop for i from 0 below 9
+      do (format t "~a ~a~%"
+                 (1+ i) (sregion-encoding foo i)))
+#+end_src
+
+#+RESULTS:
+: 1 #*100010110
+: 2 #*000000011
+: 3 #*001001001
+: 4 #*000100110
+: 5 #*111011010
+: 6 #*000100100
+: 7 #*001111010
+: 8 #*010111010
+: 9 #*100000110
+
+
+#+begin_src lisp
+(in-package :cl-sudoku.test)
+(loop for i from 0 below 9
+      append
+      (loop for j from 0 below 9
+            if (zerop (sref foo i j))
+              collect (list
+                       i j
+                       (get-candidates-at-ij foo i j))))
+#+end_src
+
+#+RESULTS:
+| 0 | 0 | (6 7 8)     |
+| 0 | 1 | (7 8)       |
+| 0 | 2 | (1 8)       |
+| 0 | 6 | (1 7 9)     |
+| 0 | 8 | (6 7 8)     |
+| 2 | 1 | (5 8)       |
+| 2 | 3 | (5 8)       |
+| 2 | 4 | (3 5 8 9)   |
+| 2 | 8 | (3 8)       |
+| 4 | 2 | (1 4 8)     |
+| 4 | 3 | (1 2 6 8)   |
+| 4 | 4 | (6 8)       |
+| 4 | 5 | (2 4 8)     |
+| 4 | 6 | (1 7)       |
+| 4 | 8 | (4 6 7 8)   |
+| 5 | 0 | (4 7 8)     |
+| 5 | 2 | (3 4 5 8)   |
+| 5 | 3 | (5 8)       |
+| 5 | 4 | (3 5 8)     |
+| 5 | 5 | (4 8)       |
+| 6 | 2 | (5 8)       |
+| 6 | 3 | (5 6 8)     |
+| 6 | 4 | (5 6 8)     |
+| 7 | 0 | (4 8)       |
+| 7 | 8 | (4 8)       |
+| 8 | 0 | (4 6 7 8)   |
+| 8 | 1 | (5 7 8)     |
+| 8 | 2 | (1 3 4 5 8) |
+| 8 | 3 | (1 2 5 6 8) |
+| 8 | 4 | (3 5 6 8)   |
+| 8 | 5 | (2 4 8)     |
+| 8 | 6 | (1 7)       |
+| 8 | 8 | (3 4 6 7 8) |
+
+* about                                 :noexport:
+ Mind-draft, the approach and methodology behind the algorithm
+
+* Introduction to Sudoku
+# first version of the constrained Sudoku solver
+
+#+begin_src lisp :results output :exports none
+(in-package cl-sudoku.solver)
+(pprint-sudoku foo)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+―――――――――――――
+│...│345│.2.│
+│349│7.6│..1│
+│2.6│..1│47.│
+―――――――――――――
+│1.2│.79│.85│
+│59.│...│...│
+│.6.│...│219│
+―――――――――――――
+│91.│..7│.42│
+│.27│913│.6.│
+│...│...│...│
+―――――――――――――
+#+end_example
+
+Let's go through the basics of a sudoku, i.e. what is a sudoku.
+
+The rule and the goal of sudoku is as follows: fill in the 9 by 9 grid with numbers from 1 to 9 in each columns and rows such that all columns, rows, and sub-grid contain a number from 1 to 9 uniquely. Here are some properties of a typical 9 by 9 sudoku:
+
+- 9 rows, each labelled with 'i's
+- 9 columns, each labelled with 'j's 
+- and 9 sub-grid as seen in the ascii diagram below labelled from A to I
+
+#+begin_example
+   jjj jjj jjj
+  ―――――――――――――
+i │...│...│...│
+i │.A.│.B.│.C.│
+i │...│...│...│
+  ―――――――――――――
+i │...│...│...│
+i │.D.│.E.│.F.│
+i │...│...│...│
+  ―――――――――――――
+i │...│...│...│
+i │.G.│.H.│.I.│
+i │...│...│...│
+  ―――――――――――――
+#+end_example
+
+For example, the following are "illegal":
+#+begin_example
+―――――――――――――
+│251│...│..1│
+│349│...│..2│
+│286│...│..3│
+―――――――――――――
+│...│...│..4│
+│...│...│..7│
+│...│...│..8│
+―――――――――――――
+│...│...│..6│
+│...│...│..5│
+│123│455│789│
+―――――――――――――
+#+end_example
+
+* Algorithm approach
+
+Solving Sudoku is a solved and known problem, there are many widely available algorithms for solving Sudoku. For example, in as part of my University programming course, the most common approach was to use back-tracking. This time I want to experiment and figure out an approach.
+
+Now this is a random sudoku I copied from one of the sudoku sites, which I googled for.
+
+#+NAME: the-sudoku-table
+#+begin_src lisp :results output :exports results
+(in-package :cl-sudoku.test)
+(pprint-sudoku foo :enclosed? t)
+#+end_src
+
+#+NAME: the-sudoku-table
+#+RESULTS:
+#+begin_example
+―――――――――――――
+│...│345│.2.│
+│349│7.6│..1│
+│2.6│..1│47.│
+―――――――――――――
+│1.2│.79│.85│
+│59.│...│...│
+│.6.│...│219│
+―――――――――――――
+│91.│..7│.42│
+│.27│913│.6.│
+│...│...│...│
+―――――――――――――
+#+end_example
+
+I solved sudoku before, this time I want to come up with an algorithm that almost approach a sudoku like how I approached it as a human. So, how do I usually solve a sudoku problem?
+
+First, I would look through the entire sudoku itself 9 by 9, simply with a glance, it's done with a combination of subconscious and the conscious! Then I would start to look at a position and start to reason what numbers can be placed at this position. For instance, at =(0,0)= there are 3,4,5 and 2 on the same row then column-wise, there are 3,2,1,5 and 9 reading down the first column in order. Combining the two gives a set of 1,2,3,4,5,,,9 with 6,7,8 missing. Ouu, but hang on I've missed out on the sub-grid A, which gives another 6. Finally that leaves the available candidates as either 7 or 8.
+
+Actually we can narrow one step further, by taking advantage of the information from the other sub-grids, for instance, 7s in B and C have occupied the bottom two lanes, then the 7 must be in the top row for grid A. And then the same can be done for sub-grid D and G (which are the two sub-grids below A) etc.
+
+Ok the above is what my brain does by doing a series of reasoning to eliminate and find out the right candidate or candidates, in this case its plural because there are multiple choices. By repeating this methodology, eventually there will be one position that will only have one possible candidate and the domino fall from there and after X number of steps the sudoku is solved.
+
+** How to translate into lisp code
+
+First of all, a data-structure is needed to hold the representation of a sudoku board in memory. In this case it's trivia to select a 2d array. In other more complicated computer problems, choosing and implementing the right data-structure will often help facilitate progress rather than hinder it, and choosing poorly will cause hindrance.
+
+Anyhow, with a 2d array, the rows of a sudoku can be accessed with =O(1)= time. Accessing the columns is requires a bit more work. Although these matters less compared to the algorithm as because accessors for rows and columns are effectively function calls and the cost of the function in this case being row is both faster and cheaper can be optimized later on.
+
+Moving onto the algorithm side, the program will start looking at one position at a time. For a position (i,j) it will look into the i-th row and j-th column and starts filtering down the possible candidates from there.
+
+Normally, I would use a set to represent the combination of unique numbers from the row and column, for instance, in [[sudoku-foo--numbers-in-row0][numbers in 1st row]] we have the numbers from 1st row, and <> is the 1st column. The combined set is as shown in <>, with <> showing the missing numbers for that position.
+
+#+name: sudoku-foo--numbers-in-row0
+#+begin_src lisp :results value :exports results
+(in-package :cl-sudoku.test)
+(list
+ (prin1-to-string
+  (encoding->list-of-nums (bit-not (srow-encoding foo 0))))))
+#+end_src
+
+#+caption: Numbers in 1st row
+#+RESULTS: sudoku-foo--numbers-in-row0
+| (2 3 4 5) |
+
+#+begin_src lisp :results value :exports results
+(in-package :cl-sudoku.test)
+(list
+ (prin1-to-string
+  (encoding->list-of-nums (bit-not (scol-encoding foo 0)))))
+#+end_src
+
+#+caption: Numbers in 1st column
+#+RESULTS:
+| (1 2 3 5 9) |
+
+#+begin_src lisp :results value :exports results
+(in-package :cl-sudoku.test)
+(list
+ (prin1-to-string
+  (encoding->list-of-nums
+   (bit-ior (bit-not (srow-encoding foo 0))
+            (bit-not (scol-encoding foo 0))))))
+#+end_src
+
+#+caption: Numbers in 1st row and 1st column
+#+RESULTS:
+| (1 2 3 4 5 9) |
+
+#+begin_src lisp :results value :exports results
+(in-package :cl-sudoku.test)
+(list
+ (prin1-to-string
+  (encoding->list-of-nums
+   (bit-and (srow-encoding foo 0)
+            (scol-encoding foo 0)))))
+#+end_src
+
+#+caption: Numbers missing with consideration in 1st row and 1st column
+#+RESULTS:
+| (6 7 8) |
+
+Set is a good tool for holding the data I need. However, I wanted to try something different this time, with compactness in mind. The problem space here is, a way to encode the state of a row, column and region (sub-grid), given that each number from 1 to 9 are either present or missing. After some time I realized bit-mask is the right tool for this, what's better is that, there are boolean operation that helps combining two encodings. I settled with 1 as missing and 0 as present because of overlooked the operation "binary nor" and "binary and" only works with the chosen schema.
+
+So as an example, if there is an encoding of =#*111000000= this means =1,2,3= are missing and the rest are present.
+
+** More on encoding
+
+#+begin_src lisp :exports none
+(bits-and*
+ (srow-encoding s i)
+ (scol-encoding s j)
+ (sregion-encoding s (s-row-col->region i j)))
+#+end_src
+
+let's say i is 0 and j is 6 and we get the following encoding:
+
+|--------+-------------|
+| Name   | encoding    |
+|--------+-------------|
+| row    | #*000001001 |
+| column | #*100011011 |
+| region | #*001011001 |
+|--------+-------------|
+| and*   | #*000001001 |
+|--------+-------------|
+
+The encoding translate back into the possible candidates for this position which are (counted from the LSB as 1):
+
+| 6, | 9 |
+
+My solver started to step through the sudoku and filling in the numbers in their respective positions.
+But then it halted at step 10
+
+* the second version
+
+After looking carefully at the final state of the sudoku puzzle from the currently stuck position, I find out that all the empty spots were having more than 1 possible candidates, this prevented the solver from advancing to the next state.
+
+It didn't took long to find out the solver wasn't taking the advantage of the numbers/information from the other "lanes" (rows and/or columns) to help narrow down the choice.
+
+#+NAME: the-sudoku-table-second-time
+#+begin_example
+―――――――――――――
+│...│345│.2.│
+│349│7.6│..1│
+│2.6│..1│47.│
+―――――――――――――
+│1.2│.79│.85│
+│59.│...│...│
+│.6.│...│219│
+―――――――――――――
+│91.│..7│.42│
+│.27│913│.6.│
+│...│...│...│
+―――――――――――――
+#+end_example
+
+Let's look at position =(4,0)= there are may be up to four possible candidates judging by the 1,2,5,6,9 in the grid. However, if we were to take advantage of the 7s in the grid to the right and below, we can see the only possible place is =(4,0)=. This way of reasoning is what the algorithm need to progress further from the stuck state.
+
+* the third version
+** motivation
+Stepping through the sudoku puzzle once more and this time we stopped at step 23.
+
+Looking at the message it tells me the solver is unable to find a position with any candidates. Looking at the board right now, I see this is because there are  some contradicting numbers placed onto the board.
+
+For instance, the 6 at =(0 . 6)= should have been a 9 instead. But why did the program decide to put that 6 there. Back to the encodings:
+
+|---------+-------------|
+| Name    | encoding    |
+|---------+-------------|
+| row     | #*000001001 |
+| column  | #*100011011 |
+| region  | #*001011001 |
+|---------+-------------|
+| result  | #*000001001 |
+| numbers | 6, 9        |
+|---------+-------------|
+
+This tells me the newly added logic that took advantage of the information/numbers from the other lanes has mis-lead the program. Because for =(0 . 6)= and =(0 . 8)= either could have put a 6 or 9 down, but due to design of the searcher that simply goes column first then onto the next row meant that =(0 . 6)= got filled with a =6=.
+
+Time to revise the searcher from positional to regional. The searcher should take into account of the impact of a conflicting choices, which tend to happen to spots within the same row, column or region. Instead of computing for one position at a time, the searcher should compute for 3 rows, 3 columns and 1 region.
+
+** progress 
+
+I thought to myself the best way to approach this is to start with a regional view, where we will consider the problem for all three rows, three columns and one single region.
+
+# Before we dive deeper into the inner working of the mechanics. Let's define a few concepts,
+
+# - *encoding*, is a 9bit mask which indicates which numbers are present and which are missing for any given row/column/region. For the benefit of easier computing 1 was chosen to represent when that number is missing and 0 for when it is present.
+
+#   so =#*100111100= means ='(1 4 5 6 7)= are missing and ='(2 3 8 9)= are present
+
+# - The final *mask* = row encoding & column encoding & region encoding.
+
+#   The final mask refers to the combination of the encoding from row, column and region. The previous example also applies here.
+
+From here the new algorithm is as follows:
+- Start from one region, typically starts from region X, where X can be anything from 0 to 8
+- Within region X, there are Y number of empty positions, and Z number of empty positions that has a mask with only 1 bit asserted
+- there are Y number of masks for each of the empty position, where Y satisfy 0 < Y < X.
+- From the Y masks there are Z number of masks with only 1 bit asserted
+- Finally, those Z masks are translated back into the integer to fill back into the Sudoku board.
+
+With the algorithm detailed above implemented after stepping through the program a couple times the Sudoku board is finally solved
