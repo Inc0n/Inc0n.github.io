@@ -1,3 +1,4 @@
 #+TITLE: Blog Posts
+#+OPTIONS: author:nil
 
-- [[file:cl-sudoku-write-up.org][Me writing my sudoku solver]]
+- [2026-01-11 Sun]  [[file:cl-sudoku-write-up.org][Me writing my sudoku solver]]

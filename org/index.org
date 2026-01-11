@@ -2,6 +2,5 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/style.css" />
 #+OPTIONS: author:nil
 
-- [[file:computer-engineering/sitemap.html][Computer Engineering]]
-- [[file:advanced-electronic-system/sitemap.html][Advanced Electronic]]
 - [[file:blogs/index.org][blogs]]
+- [[file:archives/index.org][archives]]
