@@ -4,7 +4,7 @@ Encountered a stuck solution problem
 
 * setup                                 :noexport:
 
-#+begin_src lisp
+#+begin_src lisp :exports none
 (defpackage cl-sudoku.test
   (:use #:cl #:cl-sudoku.solver #:cl-sudoku.sudoku))
 (in-package :cl-sudoku.test)
@@ -282,7 +282,6 @@ Encountered a stuck solution problem
 
 * Introduction
 ** Layout and the structure of this "blog"
-
 ** Why I wanted to write this Sudoku solver
 I have tried writing a Sudoku solver before, one completed using a very simple brute-force depth-first backtrack searcher in C++ for an university assignment, another using a constraint based depth-first searcher in Clojure, in common lisp, etc, /in-completed/.
 
@@ -644,7 +643,7 @@ It didn't took long to find out the solver wasn't taking the advantage of the nu
 ―――――――――――――
 #+end_example
 
-Let's look at position =(4,0)= there are may be up to four possible candidates judging by the 1,2,5,6,9 in the grid. However, if we were to take advantage of the 7s in the grid to the right and below, we can see the only possible place is =(4,0)=. This way of reasoning is what the algorithm need to progress further from the stuck state.
+Let's look at position =(5,0)= there are may be up to four possible candidates judging by the 1,2,5,6,9 in the grid. However, if we were to take advantage of the 7s in the grid to the right and below, we can see the only possible place is =(5,0)=. This way of reasoning is what the algorithm need to progress further from the stuck state.
 
 * the third version
 ** motivation
