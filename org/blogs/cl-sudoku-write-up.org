@@ -2,6 +2,26 @@
 
 Encountered a stuck solution problem
 
+* util                                  :noexport:
+
+This is used for 
+
+#+name: my/add-hline
+#+begin_src emacs-lisp
+(append
+   (list (car *this*) 'hline)
+   (cdr *this*))
+#+end_src
+
+#+name: my/box-the-table
+#+begin_src emacs-lisp
+`(hline
+  ,(car *this*)
+  hline
+  ,@(cdr *this*)
+  hline)
+#+end_src
+
 * setup                                 :noexport:
 
 #+begin_src lisp :exports none
@@ -503,8 +523,7 @@ Now this is a random sudoku I copied from one of the sudoku sites, which I googl
 (pprint-sudoku foo :enclosed? t)
 #+end_src
 
-#+NAME: the-sudoku-table
-#+RESULTS:
+#+RESULTS: the-sudoku-table
 #+begin_example
 ―――――――――――――
 │...│345│.2.│
@@ -537,60 +556,74 @@ Anyhow, with a 2d array, the rows of a sudoku can be accessed with =O(1)= time. 
 
 Moving onto the algorithm side, the program will start looking at one position at a time. For a position (i,j) it will look into the i-th row and j-th column and starts filtering down the possible candidates from there.
 
-Normally, I would use a set to represent the combination of unique numbers from the row and column, for instance, in [[sudoku-foo--numbers-in-row0][numbers in 1st row]] we have the numbers from 1st row, and <> is the 1st column. The combined set is as shown in <>, with <> showing the missing numbers for that position.
+Normally, I would use a set to represent the combination of unique numbers from the row and column, for instance, in [[sudoku-foo--numbers-table][table of numbers]] we see what the set of numbers are existing in row0 then in col0 (column 0), in the third table row it shows what's the combined set of row 0 and column 0. The last table row showing the missing numbers from the combined set.
 
-#+name: sudoku-foo--numbers-in-row0
-#+begin_src lisp :results value :exports results
+#+name: sudoku-foo--numbers-table
+#+begin_src lisp :results value :exports results :post my/box-the-table
 (in-package :cl-sudoku.test)
-(list
- (prin1-to-string
-  (encoding->list-of-nums (bit-not (srow-encoding foo 0))))))
+`(("PLACE" "SET OF NUMBERS")
+  ("row0"
+   ,(prin1-to-string
+     (encoding->list-of-nums (bit-not (srow-encoding foo 0)))))
+  ("col0"
+   ,(prin1-to-string
+     (encoding->list-of-nums (bit-not (scol-encoding foo 0)))))
+  ("row0 + col0"
+   ,(prin1-to-string
+     (encoding->list-of-nums
+      (bit-ior (bit-not (srow-encoding foo 0))
+               (bit-not (scol-encoding foo 0))))))
+  ("what's missing"
+   ,(prin1-to-string
+     (encoding->list-of-nums
+      (bit-and (srow-encoding foo 0)
+               (scol-encoding foo 0))))))
 #+end_src
 
-#+caption: Numbers in 1st row
-#+RESULTS: sudoku-foo--numbers-in-row0
-| (2 3 4 5) |
-
-#+begin_src lisp :results value :exports results
-(in-package :cl-sudoku.test)
-(list
- (prin1-to-string
-  (encoding->list-of-nums (bit-not (scol-encoding foo 0)))))
-#+end_src
-
-#+caption: Numbers in 1st column
-#+RESULTS:
-| (1 2 3 5 9) |
-
-#+begin_src lisp :results value :exports results
-(in-package :cl-sudoku.test)
-(list
- (prin1-to-string
-  (encoding->list-of-nums
-   (bit-ior (bit-not (srow-encoding foo 0))
-            (bit-not (scol-encoding foo 0))))))
-#+end_src
-
-#+caption: Numbers in 1st row and 1st column
-#+RESULTS:
-| (1 2 3 4 5 9) |
-
-#+begin_src lisp :results value :exports results
-(in-package :cl-sudoku.test)
-(list
- (prin1-to-string
-  (encoding->list-of-nums
-   (bit-and (srow-encoding foo 0)
-            (scol-encoding foo 0)))))
-#+end_src
-
-#+caption: Numbers missing with consideration in 1st row and 1st column
-#+RESULTS:
-| (6 7 8) |
+#+caption: Numbers table
+#+RESULTS: sudoku-foo--numbers-table
+|----------------+----------------|
+| PLACE          | SET OF NUMBERS |
+|----------------+----------------|
+| row0           | (2 3 4 5)      |
+| col0           | (1 2 3 5 9)    |
+| row0 + col0    | (1 2 3 4 5 9)  |
+| what's missing | (6 7 8)        |
+|----------------+----------------|
 
 Set is a good tool for holding the data I need. However, I wanted to try something different this time, with compactness in mind. The problem space here is, a way to encode the state of a row, column and region (sub-grid), given that each number from 1 to 9 are either present or missing. After some time I realized bit-mask is the right tool for this, what's better is that, there are boolean operation that helps combining two encodings. I settled with 1 as missing and 0 as present because of overlooked the operation "binary nor" and "binary and" only works with the chosen schema.
 
-So as an example, if there is an encoding of =#*111000000= this means =1,2,3= are missing and the rest are present.
+(
+#+begin_quote
+NOTE: binary mask works different in Common Lisp, they are called bit-vectors, essentially a vector or 1d array that holds only bits (either 1 or 0)
+
+They have a literal syntax of for instance =#*1111=, which you may think of as =0b1111= in equivalence of binary number system, then going forward with the examples to illustrate the different between common-lisp "binary mask" (bit arrays) is that for instance, =#*1100= is the same as =0b0011= not =0b1100= as you might have thought. In other words, the bit array are counting from the left most, or that the left most digit is the least significant bit, as contrary to the binary number system where =0b001= has a 1 in its least significant bit since it counts from the right most.
+
+now with a simple table at [[common-lisp-bit-array-table][common lisp bit array table]] to finish this all off.
+#+end_quote
+)
+
+#+name: common-lisp-bit-array-table
+#+begin_src lisp :results table :exports results :post my/box-the-table
+`(("Bit array" "in Binary" "in Decimal")
+  ,@(loop for i in '(#*1100 #*0011)
+          for num = (reduce (lambda (accumulator bit)
+                                (+ (ash accumulator 1) bit))
+                            i :initial-value 0)
+          collect (list (prin1-to-string i)
+                        (format nil "0b~4,'0b" num)
+                        (prin1-to-string num))))
+#+end_src
+
+#+RESULTS: common-lisp-bit-array-table
+|-----------+-----------+------------|
+| Bit array | in Binary | in Decimal |
+|-----------+-----------+------------|
+| #*1100    | 0b1100    |         12 |
+| #*0011    | 0b0011    |          3 |
+|-----------+-----------+------------|
+
+Coming back to the sudoku at hand, let's say there is an encoding of =#*111000000= this would represent =1,2,3= are missing and the rest are present for any particular region, row, column or all three combined.
 
 ** More on encoding
 
@@ -601,17 +634,45 @@ So as an example, if there is an encoding of =#*111000000= this means =1,2,3= ar
  (sregion-encoding s (s-row-col->region i j)))
 #+end_src
 
-let's say i is 0 and j is 6 and we get the following encoding:
+#+begin_src lisp :results value :exports results :post my/box-the-table
+(in-package :cl-sudoku.test)
+(let ((row0 #*000001001)
+      (col6 #*100011011)
+      (reg1 #*001011001))
+  `(("PLACE" "SET OF NUMBERS" "ENCODING (inverted)")
+    ("row0"
+     ,(prin1-to-string
+       (encoding->list-of-nums (bit-not row0)))
+     ,(prin1-to-string (bit-not row0)))
+    ("col6"
+     ,(prin1-to-string
+       (encoding->list-of-nums (bit-not col6)))
+     ,(prin1-to-string (bit-not col6)))
+    ("first region"
+     ,(prin1-to-string
+       (encoding->list-of-nums (bit-not reg1)))
+     ,(prin1-to-string (bit-not reg1)))
+    ("row0 + col0"
+     ,(prin1-to-string
+       (encoding->list-of-nums
+        (bit-ior (bit-ior (bit-not row0) (bit-not col6))
+                 (bit-not reg1))))
+     ,(prin1-to-string
+       (bit-ior (bit-ior (bit-not row0) (bit-not col6))
+                (bit-not reg1))))))
+#+end_src
 
-|--------+-------------|
-| Name   | encoding    |
-|--------+-------------|
-| row    | #*000001001 |
-| column | #*100011011 |
-| region | #*001011001 |
-|--------+-------------|
-| and*   | #*000001001 |
-|--------+-------------|
+#+RESULTS:
+|--------------+-----------------+---------------------|
+| PLACE        | SET OF NUMBERS  | ENCODING (inverted) |
+|--------------+-----------------+---------------------|
+| row0         | (1 2 3 4 5 7 8) | #*111110110         |
+| col6         | (2 3 4 7)       | #*011100100         |
+| first region | (1 2 4 7 8)     | #*110100110         |
+| row0 + col0  | (1 2 3 4 5 7 8) | #*111110110         |
+|--------------+-----------------+---------------------|
+
+let's say i is 0 and j is 6 and we get the following encoding:
 
 The encoding translate back into the possible candidates for this position which are (counted from the LSB as 1):
 
@@ -653,16 +714,16 @@ Looking at the message it tells me the solver is unable to find a position with 
 
 For instance, the 6 at =(0 . 6)= should have been a 9 instead. But why did the program decide to put that 6 there. Back to the encodings:
 
-|---------+-------------|
-| Name    | encoding    |
-|---------+-------------|
-| row     | #*000001001 |
-| column  | #*100011011 |
-| region  | #*001011001 |
-|---------+-------------|
-| result  | #*000001001 |
-| numbers | 6, 9        |
-|---------+-------------|
+|----------+-------------|
+| Name     | encoding    |
+|----------+-------------|
+| row      | #*000001001 |
+| column   | #*100011011 |
+| region   | #*001011001 |
+|----------+-------------|
+| combined | #*000001001 |
+| numbers  | 6, 9        |
+|----------+-------------|
 
 This tells me the newly added logic that took advantage of the information/numbers from the other lanes has mis-lead the program. Because for =(0 . 6)= and =(0 . 8)= either could have put a 6 or 9 down, but due to design of the searcher that simply goes column first then onto the next row meant that =(0 . 6)= got filled with a =6=.
 
@@ -690,3 +751,46 @@ From here the new algorithm is as follows:
 - Finally, those Z masks are translated back into the integer to fill back into the Sudoku board.
 
 With the algorithm detailed above implemented after stepping through the program a couple times the Sudoku board is finally solved
+
+* Final completed sudoku from the solver
+
+actually solving sudoku isnt' required at the moment
+
+#+begin_src lisp :exports none
+(in-package :cl-sudoku.test)
+(step-sudoku foo)
+#+end_src
+
+#+RESULTS:
+: No progress found for the run, try stepping again
+
+#+begin_src lisp :results output :exports results
+(in-package :cl-sudoku.test)
+(pprint-sudoku foo :enclosed? t)
+#+end_src
+
+#+RESULTS:
+#+begin_example
+―――――――――――――
+│871│345│926│
+│349│726│851│
+│256│891│473│
+―――――――――――――
+│132│479│685│
+│598│162│734│
+│764│538│219│
+―――――――――――――
+│915│687│342│
+│427│913│568│
+│683│254│197│
+―――――――――――――
+#+end_example
+
+#+caption: Testing if the sudoku has been fully solved, which it is
+#+begin_src lisp :exports both
+(in-package :cl-sudoku.test)
+(sudoku-solvedp foo)
+#+end_src
+
+#+RESULTS:
+: T

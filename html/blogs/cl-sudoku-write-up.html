@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-01-11 Sun 02:11 -->
+<!-- 2026-01-18 Sun 17:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Me writing my sudoku solver</title>
@@ -221,6 +221,7 @@
 <li><a href="#org9883dac">5.2. progress</a></li>
 </ul>
 </li>
+<li><a href="#org0251f9a">6. Final completed sudoku from the solver</a></li>
 </ul>
 </div>
 </div>
@@ -269,7 +270,7 @@ The rule and the goal of sudoku is as follows: fill in the 9 by 9 grid with numb
 <li>and 9 sub-grid as seen in the ascii diagram below labelled from A to I</li>
 </ul>
 
-<pre class="example" id="orgf605f6a">
+<pre class="example" id="org70658e4">
    jjj jjj jjj
   ―――――――――――――
 i │...│...│...│
@@ -289,7 +290,7 @@ i │...│...│...│
 <p>
 For example, the following are "illegal":
 </p>
-<pre class="example" id="org3ba86e5">
+<pre class="example" id="orgc9d0d7b">
 ―――――――――――――
 │251│...│..1│
 │349│...│..2│
@@ -317,35 +318,19 @@ Solving Sudoku is a solved and known problem, there are many widely available al
 Now this is a random sudoku I copied from one of the sudoku sites, which I googled for.
 </p>
 
-<pre class="example" id="org3ae44c0">
+<pre class="example" id="org616c963">
 ―――――――――――――
-│...│345│.2.│
-│349│7.6│..1│
-│2.6│..1│47.│
+│871│345│926│
+│349│726│851│
+│256│891│473│
 ―――――――――――――
-│1.2│.79│.85│
-│59.│...│...│
-│.6.│...│219│
+│132│479│685│
+│598│162│734│
+│764│538│219│
 ―――――――――――――
-│91.│..7│.42│
-│.27│913│.6.│
-│...│...│...│
-―――――――――――――
-</pre>
-
-<pre class="example" id="org3b2142c">
-―――――――――――――
-│...│345│.2.│
-│349│7.6│..1│
-│2.6│..1│47.│
-―――――――――――――
-│1.2│.79│.85│
-│59.│...│...│
-│.6.│...│219│
-―――――――――――――
-│91.│..7│.42│
-│.27│913│.6.│
-│...│...│...│
+│915│687│342│
+│427│913│568│
+│683│254│197│
 ―――――――――――――
 </pre>
 
@@ -381,57 +366,42 @@ Moving onto the algorithm side, the program will start looking at one position a
 </p>
 
 <p>
-Normally, I would use a set to represent the combination of unique numbers from the row and column, for instance, in <a href="#org5a78f53">numbers in 1st row</a> we have the numbers from 1st row, and &lt;&gt; is the 1st column. The combined set is as shown in &lt;&gt;, with &lt;&gt; showing the missing numbers for that position.
+Normally, I would use a set to represent the combination of unique numbers from the row and column, for instance, in <a href="#org0009c50">table of numbers</a> we see what the set of numbers are existing in row0 then in col0 (column 0), in the third table row it shows what's the combined set of row 0 and column 0. The last table row showing the missing numbers from the combined set.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 1:</span> Numbers in 1st row</caption>
+<caption class="t-above"><span class="table-number">Table 1:</span> Numbers table</caption>
 
 <colgroup>
 <col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
-<tbody>
+<thead>
 <tr>
-<td class="org-left">(2 3 4 5)</td>
+<th scope="col" class="org-left">PLACE</th>
+<th scope="col" class="org-left">SET OF NUMBERS</th>
 </tr>
-</tbody>
-</table>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 2:</span> Numbers in 1st column</caption>
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
+</thead>
 <tbody>
 <tr>
-<td class="org-left">(1 2 3 5 9)</td>
+<td class="org-left">row0</td>
+<td class="org-left">(1 2 3 4 5 6 7 8 9)</td>
 </tr>
-</tbody>
-</table>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 3:</span> Numbers in 1st row and 1st column</caption>
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
 <tr>
-<td class="org-left">(1 2 3 4 5 9)</td>
+<td class="org-left">col0</td>
+<td class="org-left">(1 2 3 4 5 6 7 8 9)</td>
 </tr>
-</tbody>
-</table>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption class="t-above"><span class="table-number">Table 4:</span> Numbers missing with consideration in 1st row and 1st column</caption>
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
 <tr>
-<td class="org-left">(6 7 8)</td>
+<td class="org-left">row0 + col0</td>
+<td class="org-left">(1 2 3 4 5 6 7 8 9)</td>
+</tr>
+
+<tr>
+<td class="org-left">what's missing</td>
+<td class="org-left">NIL</td>
 </tr>
 </tbody>
 </table>
@@ -441,15 +411,23 @@ Set is a good tool for holding the data I need. However, I wanted to try somethi
 </p>
 
 <p>
-So as an example, if there is an encoding of <code>#*111000000</code> this means <code>1,2,3</code> are missing and the rest are present.
+(
 </p>
-</div>
-</div>
-<div id="outline-container-org6ae3f81" class="outline-3">
-<h3 id="org6ae3f81"><span class="section-number-3">3.2.</span> More on encoding</h3>
-<div class="outline-text-3" id="text-3-2">
+<blockquote>
 <p>
-let's say i is 0 and j is 6 and we get the following encoding:
+NOTE: binary mask works different in Common Lisp, they are called bit-vectors, essentially a vector or 1d array that holds only bits (either 1 or 0)
+</p>
+
+<p>
+They have a literal syntax of for instance <code>#*1111</code>, which you may think of as <code>0b1111</code> in equivalence of binary number system, then going forward with the examples to illustrate the different between common-lisp "binary mask" (bit arrays) is that for instance, <code>#*1100</code> is the same as <code>0b0011</code> not <code>0b1100</code> as you might have thought. In other words, the bit array are counting from the left most, or that the left most digit is the least significant bit, as contrary to the binary number system where <code>0b001</code> has a 1 in its least significant bit since it counts from the right most.
+</p>
+
+<p>
+now with a simple table at <a href="#orgcd4d576">common lisp bit array table</a> to finish this all off.
+</p>
+</blockquote>
+<p>
+)
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -459,36 +437,86 @@ let's say i is 0 and j is 6 and we get the following encoding:
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-right" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Name</th>
-<th scope="col" class="org-left">encoding</th>
+<th scope="col" class="org-left">Bit array</th>
+<th scope="col" class="org-left">in Binary</th>
+<th scope="col" class="org-right">in Decimal</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">row</td>
-<td class="org-left">#*000001001</td>
+<td class="org-left">#*1100</td>
+<td class="org-left">0b1100</td>
+<td class="org-right">12</td>
 </tr>
 
 <tr>
-<td class="org-left">column</td>
-<td class="org-left">#*100011011</td>
-</tr>
-
-<tr>
-<td class="org-left">region</td>
-<td class="org-left">#*001011001</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">and*</td>
-<td class="org-left">#*000001001</td>
+<td class="org-left">#*0011</td>
+<td class="org-left">0b0011</td>
+<td class="org-right">3</td>
 </tr>
 </tbody>
 </table>
+
+<p>
+Coming back to the sudoku at hand, let's say there is an encoding of <code>#*111000000</code> this would represent <code>1,2,3</code> are missing and the rest are present for any particular region, row, column or all three combined.
+</p>
+</div>
+</div>
+<div id="outline-container-org6ae3f81" class="outline-3">
+<h3 id="org6ae3f81"><span class="section-number-3">3.2.</span> More on encoding</h3>
+<div class="outline-text-3" id="text-3-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">PLACE</th>
+<th scope="col" class="org-left">SET OF NUMBERS</th>
+<th scope="col" class="org-left">ENCODING (inverted)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">row0</td>
+<td class="org-left">(1 2 3 4 5 7 8)</td>
+<td class="org-left">#*111110110</td>
+</tr>
+
+<tr>
+<td class="org-left">col6</td>
+<td class="org-left">(2 3 4 7)</td>
+<td class="org-left">#*011100100</td>
+</tr>
+
+<tr>
+<td class="org-left">first region</td>
+<td class="org-left">(1 2 4 7 8)</td>
+<td class="org-left">#*110100110</td>
+</tr>
+
+<tr>
+<td class="org-left">row0 + col0</td>
+<td class="org-left">(1 2 3 4 5 7 8)</td>
+<td class="org-left">#*111110110</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+let's say i is 0 and j is 6 and we get the following encoding:
+</p>
 
 <p>
 The encoding translate back into the possible candidates for this position which are (counted from the LSB as 1):
@@ -600,7 +628,7 @@ For instance, the 6 at <code>(0 . 6)</code> should have been a 9 instead. But wh
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">result</td>
+<td class="org-left">combined</td>
 <td class="org-left">#*000001001</td>
 </tr>
 
@@ -644,10 +672,44 @@ With the algorithm detailed above implemented after stepping through the program
 </div>
 </div>
 </div>
+<div id="outline-container-org0251f9a" class="outline-2">
+<h2 id="org0251f9a"><span class="section-number-2">6.</span> Final completed sudoku from the solver</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+actually solving sudoku isnt' required at the moment
+</p>
+
+<pre class="example" id="org37bb8aa">
+―――――――――――――
+│871│345│926│
+│349│726│851│
+│256│891│473│
+―――――――――――――
+│132│479│685│
+│598│162│734│
+│764│538│219│
+―――――――――――――
+│915│687│342│
+│427│913│568│
+│683│254│197│
+―――――――――――――
+</pre>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Testing if the sudoku has been fully solved, which it is</label><pre class="src src-lisp">(<span style="color: #8f2f30; font-weight: bold;">in-package</span> <span style="color: #00704f; font-weight: bold;">:cl-sudoku.test</span>)
+(sudoku-solvedp foo<span style="color: #000000; background-color: #d0d040;">)</span>
+</pre>
+</div>
+
+<pre class="example">
+T
+</pre>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Danny</p>
-<p class="date">Created: 2026-01-11 Sun 02:11</p>
+<p class="date">Created: 2026-01-18 Sun 17:28</p>
 </div>
 </body>
 </html>
